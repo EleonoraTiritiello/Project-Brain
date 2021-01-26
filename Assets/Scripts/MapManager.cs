@@ -131,7 +131,7 @@ public class MapManager : MonoBehaviour
                     //try attach to door
                     if (newRoom.SetPosition(lastRoom.GetRandomDoor(), lastRoom) && newRoom.CheckCanPlace(rooms))
                     {
-                        Debug.Log("<color=lime>positioned room</color>");
+                        Debug.Log("<color=lime>positioned room " + roomID + "</color>");
                         succeded = true;
                         yield break;
                     }
