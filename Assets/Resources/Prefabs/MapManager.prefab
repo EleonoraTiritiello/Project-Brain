@@ -52,3 +52,16 @@ MonoBehaviour:
   - {fileID: 6326169059434669291, guid: bbbb835cce2941445b992d140a23de72, type: 3}
   - {fileID: 4459312985214605393, guid: 1c4e9c0013c275d469a8617f23b3808d, type: 3}
   - {fileID: 2127859616289112253, guid: 8ffe6d9d5a6b76040829042fb274f0b6, type: 3}
+  fixedRooms:
+  - minID: 0
+    maxID: 0
+    roomPrefab: {fileID: 6326169059434669291, guid: b43b8f72718511d40ad8fee86f5a4596,
+      type: 3}
+  - minID: 1
+    maxID: 1
+    roomPrefab: {fileID: 4459312985214605393, guid: ea68ded4d7946864888bb3fcbff798f3,
+      type: 3}
+  - minID: 5
+    maxID: 7
+    roomPrefab: {fileID: 6326169059434669291, guid: f4093ad480ef2864ba1410dc9a3dade2,
+      type: 3}

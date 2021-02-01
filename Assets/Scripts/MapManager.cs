@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class StructFixedRooms
+{
+    [Min(0)] public int minID;
+    [Min(0)] public int maxID;
+    public Room roomPrefab;
+}
+
 [AddComponentMenu("Project Brain/Managers/Map Manager")]
 public class MapManager : MonoBehaviour
 {
@@ -17,12 +25,20 @@ public class MapManager : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] Room[] roomPrefabs = default;
 
+    [Header("Fixed Rooms")]
+    [SerializeField] StructFixedRooms[] fixedRooms = default;
+
     //rooms
     List<Room> rooms = new List<Room>();
     private int roomID;
     private Room lastRoom;
     private bool succeded;
     private bool teleported;
+
+    //for fixed rooms
+    List<StructFixedRooms> fixedRoomsAlreadyChecked = new List<StructFixedRooms>();
+    StructFixedRooms roomTryingToPut;
+    List<StructFixedRooms> fixedRoomsAlreadyPut = new List<StructFixedRooms>();
 
     void Start()
     {
@@ -53,6 +69,11 @@ public class MapManager : MonoBehaviour
 
         //clear dictionary
         rooms.Clear();
+
+        //clear vars
+        fixedRoomsAlreadyChecked.Clear();
+        roomTryingToPut = null;
+        fixedRoomsAlreadyPut.Clear();
     }
 
     public void CreateNewMap()
@@ -70,8 +91,13 @@ public class MapManager : MonoBehaviour
 
         while (rooms.Count < numberRooms && attempts < maxAttempts)
         {
+            //get room prefab, if can't destroy dungeon and recreate (failed to put some room)
+            Room newRoomPrefab = GetRoomPrefab();
+            if (newRoomPrefab == null)
+                break;
+
             //generate room
-            Room newRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], transform);
+            Room newRoom = Instantiate(newRoomPrefab, transform);
 
             //try to positionate
             yield return PositionRoom(newRoom);
@@ -148,92 +174,80 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    Room GetRoomPrefab()
+    {
+        //quando istanzi, controlla se ci sono stanze fisse
+        //se non si attacca, vedere se ce ne sono altre
+        //se una stanza non viene creata nel suo range, distruggere e ricreare il dungeon
+
+        //quando istanzi, controlla se ci sono stanze fisse
+        //aggiungere alla lista delle già checkate, così se non si attacca ne viene provata un'altra
+        //se viene posizionata pulisci le già checkate per riprovarle tutte, ma aggiungi quella creata ad un'altra lista per non riprovarla
+        //se non viene posizionata ma ha il range più alto, si può riprovare al posizionamento successivo, ma assicurarsi di resettare la variabile se si posiziona una stanza non fissa
+        //se una stanza non viene creata nel suo range, distruggere e ricreare il dungeon
+
+        //if a room failed at its maxID, recreate dungeon
+        if (roomTryingToPut != null)
+        {
+            if (roomID >= roomTryingToPut.maxID)
+            {
+                return null;
+            }
+        }
+
+        //check fixed rooms
+        foreach (StructFixedRooms checkRoom in fixedRooms)
+        {
+            //be sure is not already checked
+            if (fixedRoomsAlreadyChecked.Contains(checkRoom) || fixedRoomsAlreadyPut.Contains(checkRoom))
+            {
+                continue;
+            }
+
+            //if there is one who need this ID
+            if(roomID >= checkRoom.minID && roomID <= checkRoom.maxID)
+            {
+                //add to list already check
+                fixedRoomsAlreadyChecked.Add(checkRoom);
+
+                //return it
+                roomTryingToPut = checkRoom;
+                return checkRoom.roomPrefab;
+            }
+        }
+
+        //else return random room
+        roomTryingToPut = null;
+        return roomPrefabs[Random.Range(0, roomPrefabs.Length)];
+    }
+
     private void RegisterRoom(Room newRoom)
     {
         //add to list and update ID
         rooms.Add(newRoom);
         newRoom.Init(roomID, teleported);
         roomID++;
+
+        //update fixed rooms
+        UpdateFixedRooms();
+    }
+
+    void UpdateFixedRooms()
+    {       
+        //clear rooms already checked 
+        fixedRoomsAlreadyChecked.Clear();
+
+        //and add to list already put
+        if (roomTryingToPut != null)
+        {
+            fixedRoomsAlreadyPut.Add(roomTryingToPut);
+            roomTryingToPut = null;
+        }
     }
 
     #endregion
 
-    #region editor and old
-
-    IEnumerator CreateMap_Old()
-    {
-        int roomID = 0;
-        Room currentRoom = null;
-        Room lastRoom = null;
-
-        int loopCount = 0;
-
-        while (rooms.Count < numberRooms)
-        {
-            //generate first room
-            if (rooms.Count <= 0)
-            {
-                GenerateFirstRoom(ref currentRoom, ref roomID, ref lastRoom);
-                currentRoom = null;
-            }
-            //generate other rooms
-            else
-            {
-                //if generate room, be sure to have loop count at 0
-                if (GenerateOtherRooms(ref currentRoom, ref roomID, ref lastRoom, loopCount > 20))
-                {
-                    currentRoom = null;
-                    loopCount = 0;
-                }
-                //if no generate, increase loopCount
-                else
-                {
-                    loopCount++;
-                }
-            }
-
-            //if we are in endless loop (no space for a room)
-            if (loopCount > 20)
-            {
-                //try to put room adjacent to another room in the list (instead of last one created)
-                lastRoom = rooms[Random.Range(0, rooms.Count)];
-            }
-
-            //if continue loop, maybe this room can't attach to others, destroy and try new one
-            if (loopCount > 50)
-            {
-#if UNITY_EDITOR
-                if (UnityEditor.EditorApplication.isPlaying)
-                    Destroy(currentRoom.gameObject);
-                else
-                    UnityEditor.EditorApplication.delayCall += () => DestroyImmediate(currentRoom.gameObject);
-#else
-                Destroy(currentRoom.gameObject);
-#endif
-            }
-
-            //if loop count is too big, break while
-            if (loopCount > 100)
-            {
-                Debug.Log("<color=yellow>Stopped an endless loop</color>");
-                break;
-            }
-
-            yield return null;
-        }
-
-        //if not reach number rooms, regen
-        if (rooms.Count < numberRooms)
-        {
-            //destroy old and create new one
-            DestroyMap();
-            StartCoroutine(CreateMap_Old());
-        }
-        else
-        {
-            Debug.Log("<color=cyan>Mission complete!</color>");
-        }
-    }
+    #region editor 
 
     void OnValidateCreateMap()
     {
@@ -248,14 +262,8 @@ public class MapManager : MonoBehaviour
             //generate first room
             if (rooms.Count <= 0)
             {
-                GenerateFirstRoom(ref currentRoom, ref roomID, ref lastRoom);
-                currentRoom = null;
-            }
-            //generate other rooms
-            else
-            {
                 //if generate room, be sure to have loop count at 0
-                if (GenerateOtherRooms(ref currentRoom, ref roomID, ref lastRoom, loopCount > 20))
+                if (GenerateFirstRoom(ref currentRoom, ref roomID, ref lastRoom))
                 {
                     currentRoom = null;
                     loopCount = 0;
@@ -265,6 +273,27 @@ public class MapManager : MonoBehaviour
                 {
                     loopCount++;
                 }
+            }
+            //generate other rooms
+            else
+            {
+                bool failedToCreateDungeon;
+
+                //if generate room, be sure to have loop count at 0
+                if (GenerateOtherRooms(ref currentRoom, ref roomID, ref lastRoom, loopCount > 20, out failedToCreateDungeon))
+                {
+                    currentRoom = null;
+                    loopCount = 0;
+                }
+                //if no generate, increase loopCount
+                else
+                {
+                    loopCount++;
+                }
+
+                //if failed to create dungeon, increase loop count to end dungeon generation
+                if (failedToCreateDungeon)
+                    loopCount = 1000;
             }
 
             //if we are in endless loop (no space for a room)
@@ -301,10 +330,17 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void GenerateFirstRoom(ref Room currentRoom, ref int roomID, ref Room lastRoom)
+    bool GenerateFirstRoom(ref Room currentRoom, ref int roomID, ref Room lastRoom)
     {
+        //get prefab, if failed, return false to increase loopCount
+        Room prefabToCreate = GetRoomPrefab();
+        if (prefabToCreate == null)
+        {
+            return false;
+        }
+
         //instantiate room (child of this transform) and initialize
-        currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], transform);
+        currentRoom = Instantiate(prefabToCreate, transform);
         currentRoom.Init(roomID, false);
         currentRoom.SetPosition(Vector3.zero);
 
@@ -312,17 +348,30 @@ public class MapManager : MonoBehaviour
         rooms.Add(currentRoom);
         lastRoom = currentRoom;
         roomID++;
+
+        UpdateFixedRooms();
+        return true;
     }
 
-    bool GenerateOtherRooms(ref Room currentRoom, ref int roomID, ref Room lastRoom, bool teleported)
+    bool GenerateOtherRooms(ref Room currentRoom, ref int roomID, ref Room lastRoom, bool teleported, out bool failedToCreateDungeon)
     {
+        failedToCreateDungeon = false;
+
         //get random direction by last room
         DoorStruct door = lastRoom.GetRandomDoor();
 
         //instantiate room (only if != null, cause can be just a teleport of current room)
         if (currentRoom == null)
         {
-            currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], transform);
+            //get prefab, if failed, return false to increase loopCount
+            Room prefabToCreate = GetRoomPrefab();
+            if(prefabToCreate == null)
+            {
+                failedToCreateDungeon = true;
+                return false;
+            }
+
+            currentRoom = Instantiate(prefabToCreate, transform);
         }
 
         //initialize and set position
@@ -336,6 +385,8 @@ public class MapManager : MonoBehaviour
                 rooms.Add(currentRoom);
                 lastRoom = currentRoom;
                 roomID++;
+
+                UpdateFixedRooms();
                 return true;
             }
         }

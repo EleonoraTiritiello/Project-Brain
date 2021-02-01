@@ -17,9 +17,8 @@ public class MapManagerEditor : Editor
 
         GUILayout.Space(10);
 
-        if (GUILayout.Button("Regen Map"))
+        if (GUILayout.Button("Regen Map - DOESN'T WORK WITH FIXED ROOMS"))
         {
-
             mapManager.DestroyMap();
             mapManager.CreateNewMap();
 
