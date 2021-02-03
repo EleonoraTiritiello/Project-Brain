@@ -9,25 +9,23 @@ public class Player : MonoBehaviour
     [SerializeField] float rotationSpeed = 5;
 
     [Header("Rope")]
+    [SerializeField] LineRenderer linePrefab = default;
     [SerializeField] float radiusPick = 3;
     [SerializeField] KeyCode pickRopeInput = KeyCode.E;
-    [SerializeField] Vector3 anchorPoint = Vector3.zero;
+    [SerializeField] KeyCode changeHand = KeyCode.Space;
+    [SerializeField] Transform rightHand = default;
+    [SerializeField] Transform leftHand = default;
 
-    [Header("Line Renderer")]
-    [SerializeField] LineRenderer linePrefab = default;
-    Transform connectedPoint;
+    Generator connectedPoint;
     LineRenderer line;
+    bool usingRightHand = true;
 
     Rigidbody rb;
-    ConfigurableJoint joint;
     Transform cam;
-
-    Rope currentRope;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        joint = GetComponent<ConfigurableJoint>();
         cam = Camera.main.transform;
 
         //lock rigidbody rotation
@@ -39,10 +37,6 @@ public class Player : MonoBehaviour
         //draw radius pick
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radiusPick);
-
-        //draw anchor point
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position + anchorPoint, 0.1f);
     }
 
     void Update()
@@ -50,20 +44,18 @@ public class Player : MonoBehaviour
         Movement();
         Rotate();
         FindRope();
+        UpdateLine();
 
-        //line renderer
-        if(connectedPoint != null && linePrefab != null)
+        //change hand
+        if(Input.GetKeyDown(changeHand))
         {
-            //instantiate line if null
-            if (line == null)
-            {
-                line = Instantiate(linePrefab);
-                line.positionCount = 2;
-            }
+            usingRightHand = !usingRightHand;
+        }
 
-            //update line position
-            line.SetPosition(0, connectedPoint.position);
-            line.SetPosition(1, transform.position);
+        if (connectedPoint)
+        {
+            Vector3 handPosition = usingRightHand ? rightHand.position : leftHand.position;
+            Debug.Log(Vector3.Distance(connectedPoint.transform.position, handPosition));
         }
     }
 
@@ -76,8 +68,23 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-        //direction to local, then move player
+        //direction to local
         direction = transform.TransformDirection(direction);
+
+        //check if no reach rope limit
+        if(connectedPoint != null)
+        {
+            Vector3 handPosition = usingRightHand ? rightHand.position : leftHand.position;
+            Vector3 nextPosition = handPosition + direction * speed * Time.deltaTime;
+            if(Vector3.Distance(nextPosition, connectedPoint.transform.position) > connectedPoint.ropeLength)
+            {
+                //if reach limit, stop movement
+                rb.velocity = Vector3.zero;
+                return;
+            }
+        }
+
+        //move player
         rb.velocity = direction * speed;
     }
 
@@ -94,49 +101,40 @@ public class Player : MonoBehaviour
     void FindRope()
     {
         //when press input and there is no rope in hand
-        if(Input.GetKeyDown(pickRopeInput) && currentRope == null)
+        if(Input.GetKeyDown(pickRopeInput) && connectedPoint == null)
         {
             //check every collider in area
             Collider[] colliders = Physics.OverlapSphere(transform.position, radiusPick);
             foreach(Collider col in colliders)
             {
-                //if found rope, pick it
-                if(col.GetComponent<Rope>())
+                //if found generator, pick it
+                Generator generator = col.GetComponentInParent<Generator>();
+                if(generator)
                 {
-                    PickRope(col.GetComponent<Rope>());
+                    connectedPoint = generator;
                 }
             }
         }
     }
 
-    void PickRope(Rope rope)
+    void UpdateLine()
     {
-        //set rope in hand
-        currentRope = rope;
-        rope.Pick(this);
-
-        //add joint and set it
-        joint = gameObject.AddComponent<ConfigurableJoint>();
-        joint.anchor = anchorPoint;
-        joint.xMotion = ConfigurableJointMotion.Limited;
-        joint.yMotion = ConfigurableJointMotion.Limited;
-        joint.zMotion = ConfigurableJointMotion.Limited;
-        joint.projectionMode = JointProjectionMode.PositionAndRotation;
-
-        //add rope to joint
-        joint.connectedBody = rope.GetComponent<Rigidbody>();
-        joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = Vector3.up;
-
         //line renderer
-        connectedPoint = rope.GetComponent<Joint>().connectedBody.transform;
+        if (connectedPoint != null && linePrefab != null)
+        {
+            //instantiate line if null
+            if (line == null)
+            {
+                line = Instantiate(linePrefab);
+                line.positionCount = 2;
+            }
+
+            //update line position
+            Vector3 handPosition = usingRightHand ? rightHand.position : leftHand.position;
+            line.SetPosition(0, connectedPoint.transform.position);
+            line.SetPosition(1, handPosition);
+        }
     }
 
     #endregion
-
-    public void UpdateAnchorPoint()
-    {
-        Vector3 worldAnchorPosition = transform.TransformPoint(anchorPoint);
-        joint.connectedAnchor = joint.connectedBody.transform.InverseTransformPoint(worldAnchorPosition);
-    }
 }
