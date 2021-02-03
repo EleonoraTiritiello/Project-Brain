@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode pickRopeInput = KeyCode.E;
     [SerializeField] Vector3 anchorPoint = Vector3.zero;
 
+    [Header("Line Renderer")]
+    [SerializeField] LineRenderer linePrefab = default;
+    Transform connectedPoint;
+    LineRenderer line;
+
     Rigidbody rb;
     ConfigurableJoint joint;
     Transform cam;
@@ -45,6 +50,21 @@ public class Player : MonoBehaviour
         Movement();
         Rotate();
         FindRope();
+
+        //line renderer
+        if(connectedPoint != null && linePrefab != null)
+        {
+            //instantiate line if null
+            if (line == null)
+            {
+                line = Instantiate(linePrefab);
+                line.positionCount = 2;
+            }
+
+            //update line position
+            line.SetPosition(0, connectedPoint.position);
+            line.SetPosition(1, transform.position);
+        }
     }
 
     #region private API
@@ -107,6 +127,9 @@ public class Player : MonoBehaviour
         joint.connectedBody = rope.GetComponent<Rigidbody>();
         joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = Vector3.up;
+
+        //line renderer
+        connectedPoint = rope.GetComponent<Joint>().connectedBody.transform;
     }
 
     #endregion

@@ -134,6 +134,8 @@ MonoBehaviour:
   radiusPick: 1
   pickRopeInput: 101
   anchorPoint: {x: 0, y: 0, z: -0.6}
+  linePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
+    type: 3}
 --- !u!54 &8295705607832129752
 Rigidbody:
   m_ObjectHideFlags: 0
