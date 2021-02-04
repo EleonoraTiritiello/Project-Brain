@@ -19,6 +19,9 @@ public class Room : MonoBehaviour
 {
     #region variables
 
+    [Header("2D or 3D")]
+    [SerializeField] bool is3D = true;
+
     [Header("Important")]
     [SerializeField] float tileSize = 1f;   //size of every tile which compose this room
     [SerializeField] int width = 1;         //int because the size will be exspressed in tiles
@@ -27,8 +30,8 @@ public class Room : MonoBehaviour
 
     float HalfWidth => width * tileSize * 0.5f;
     float HalfHeight => height * tileSize * 0.5f;
-    Vector3 UpRight => new Vector3(transform.position.x + HalfWidth, transform.position.y + HalfHeight, 0);
-    Vector3 DownLeft => new Vector3(transform.position.x - HalfWidth, transform.position.y - HalfHeight, 0);
+    Vector2 UpRight => is3D ? new Vector3(transform.position.x + HalfWidth, transform.position.z + HalfHeight) : new Vector3(transform.position.x + HalfWidth, transform.position.y + HalfHeight);
+    Vector2 DownLeft => is3D ? new Vector3(transform.position.x - HalfWidth, transform.position.z - HalfHeight) : new Vector3(transform.position.x - HalfWidth, transform.position.y - HalfHeight);
 
     [Header("DEBUG")]
     [SerializeField] TextMesh textID = default;
@@ -162,9 +165,9 @@ public class Room : MonoBehaviour
             for (int y = 0; y <= roomToCheck.height; y++)
             {
                 //direction right up, if reached limit go backward
-                Vector3 directionGap = new Vector3(x >= roomToCheck.width ? -1 : 1, y >= roomToCheck.height ? -1 : 1, 0);
+                Vector2 directionGap = new Vector2(x >= roomToCheck.width ? -1 : 1, y >= roomToCheck.height ? -1 : 1);
 
-                Vector3 point = roomToCheck.DownLeft + (Vector3.right * x * roomToCheck.tileSize) + (Vector3.up * y * roomToCheck.tileSize)     //down left of every tile
+                Vector2 point = roomToCheck.DownLeft + (Vector2.right * x * roomToCheck.tileSize) + (Vector2.up * y * roomToCheck.tileSize)     //down left of every tile
                     + (directionGap * roomToCheck.tileSize * 0.1f);                                                                             //little gap to no have half room inside another
 
                 //check is inside this room
@@ -179,7 +182,7 @@ public class Room : MonoBehaviour
         }
 
         //check also center if inside this room
-        Vector3 center = roomToCheck.transform.position;
+        Vector2 center = is3D ? new Vector2(roomToCheck.transform.position.x, roomToCheck.transform.position.y) : new Vector2(roomToCheck.transform.position.x, roomToCheck.transform.position.z);
         if (center.x > DownLeft.x && center.x < UpRight.x)
         {
             if (center.y > DownLeft.y && center.y < UpRight.y)
