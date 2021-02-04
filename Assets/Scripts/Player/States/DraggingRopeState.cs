@@ -82,8 +82,10 @@ public class DraggingRopeState : NormalState
         }
     }
 
-    protected override void Interact(Interactable interactable)
+    protected override void Interact()
     {
+        Interactable interactable = FindInteractable();
+
         //if attach rope
         Player player = stateMachine as Player;
         if (interactable && player.connectedPoint.AttachRope(interactable))
@@ -97,7 +99,12 @@ public class DraggingRopeState : NormalState
         }
     }
 
-    protected override void DetachRope(Interactable interactable)
+    protected override void RewindRope()
+    {
+        //do nothing
+    }
+
+    protected override void DetachRope()
     {
         //do nothing
     }

@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour
     /// <summary>
     /// Create rope from line prefab
     /// </summary>
-    public virtual bool CreateRope()
+    public bool CreateRope()
     {
         //check if can create
         if (CanCreateRope())
@@ -78,6 +78,43 @@ public class Interactable : MonoBehaviour
             alreadyAttached.isActive = false;
             alreadyAttached = null;
 
+            //hide rope by default (will be updated by player)
+            UpdateRope(rope.GetPosition(0));
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Rewind rope from every interactable to this one
+    /// </summary>
+    public bool RewindRope()
+    {
+        //check if can rewind
+        if(CanRewindRope())
+        {
+            List<Interactable> everyAttachedThings = new List<Interactable>();
+            Interactable lastAttached = this;
+
+            //while there is a thing attached
+            while(lastAttached.alreadyAttached != null)
+            {
+                //add this interactable to the list, and go to next thing attached
+                everyAttachedThings.Add(lastAttached);
+                lastAttached = lastAttached.alreadyAttached;
+            }
+
+            //reverse detach from last one to this interactable
+            for(int i = everyAttachedThings.Count -1; i >= 0; i--)
+            {
+                if(everyAttachedThings[i].DetachRope() == false)
+                {
+                    Debug.LogWarning("impossible to detach " + everyAttachedThings[i].name);
+                }
+            }
+
             return true;
         }
 
@@ -97,22 +134,37 @@ public class Interactable : MonoBehaviour
 
     bool CanAttach(Interactable interactable)
     {
-        bool isNotItSelf = interactable != this;            //check if attach to another interactable and not itself
-        bool IsNotActive = interactable.isActive == false;  //check if interactable is not already active
+        bool isNotItSelf = interactable != this;                            //check if attach to another interactable and not itself
+        bool IsNotAlreadyAttached = interactable.alreadyAttached == null;   //check if interactable is not already attached to something
+        bool isNotGenerator = interactable is Generator == false;           //check if interactable is not a generator
 
         //return if can attach
-        return isNotItSelf && IsNotActive;
+        return isNotItSelf && IsNotAlreadyAttached && isNotGenerator;
     }
 
     bool CanDetachRope()
     {
-        bool isAttachedToSomething = alreadyAttached != null;       //be sure is already attached to something
+        bool isAttachedToSomething = alreadyAttached != null;                   //be sure is already attached to something
         if(isAttachedToSomething)
         {
-            bool isNotAttachedAgain = alreadyAttached.alreadyAttached == null;  //be sure our attached interactable is not attached to another thing
+            bool isNotAttachedAgain = alreadyAttached.alreadyAttached == null;  //be sure our attached interactable is NOT attached to another thing
 
             //return if can detach
             return isNotAttachedAgain;
+        }
+
+        return false;
+    }
+
+    bool CanRewindRope()
+    {
+        bool isAttachedToSomething = alreadyAttached != null;                   //be sure is already attached to something
+        if (isAttachedToSomething)
+        {
+            bool isAttachedAgain = alreadyAttached.alreadyAttached != null;     //be sure our attached interactable is attached to another thing
+
+            //return if can detach
+            return isAttachedAgain;
         }
 
         return false;

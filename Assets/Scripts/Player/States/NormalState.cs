@@ -13,9 +13,12 @@ public class NormalState : State
     public float radiusInteract = 1.5f;
     [SerializeField] KeyCode interactInput = KeyCode.E;
     [SerializeField] KeyCode detachRopeInput = KeyCode.Q;
+    [SerializeField] float timeToKeepPressedToRewind = 0.5f;
 
     Rigidbody rb;
     Transform cam;
+
+    float timerRewind;
 
     public override void Enter()
     {
@@ -35,17 +38,30 @@ public class NormalState : State
         Movement();
         Rotate();
 
+        //if timer is finished, rewind and don't check other inputs
+        if (timerRewind > 0 && Time.time > timerRewind)
+        {
+            timerRewind = 0;
+            RewindRope();
+            return;
+        }
+
         //interact
         if (Input.GetKeyDown(interactInput))
         {
-            Interactable interactable = FindInteractable();
-            Interact(interactable);
+            Interact();
         }
-        //detach rope
+        //when press detach input
         else if(Input.GetKeyDown(detachRopeInput))
         {
-            Interactable interactable = FindInteractable();
-            DetachRope(interactable);
+            //set timer
+            timerRewind = Time.time + timeToKeepPressedToRewind;
+        }
+        //when release detach input
+        else if(Input.GetKeyUp(detachRopeInput))
+        {
+            timerRewind = 0;
+            DetachRope();
         }
     }
 
@@ -75,7 +91,7 @@ public class NormalState : State
         cam.RotateAround(stateMachine.transform.position, stateMachine.transform.right, vertical * rotationSpeed * Time.deltaTime);
     }
 
-    Interactable FindInteractable()
+    protected Interactable FindInteractable()
     {
         List<Interactable> listInteractables = new List<Interactable>();
 
@@ -125,32 +141,47 @@ public class NormalState : State
         return nearest;
     }
 
-    protected virtual void Interact(Interactable interactable)
+    protected virtual void Interact()
     {
+        Interactable interactable = FindInteractable();
+
         //if create rope
         if (interactable && interactable.CreateRope())
         {
-            //connect to interactable
-            Player player = stateMachine as Player;
-            player.connectedPoint = interactable;
-
-            //change state to dragging rope
-            player.SetState(player.draggingRopeState);
+            ConnectToInteractable(interactable);
         }
     }
 
-    protected virtual void DetachRope(Interactable interactable)
+    protected virtual void RewindRope()
     {
-        //if detach rope
-        if(interactable && interactable.DetachRope())
-        {
-            //connect to interactable
-            Player player = stateMachine as Player;
-            player.connectedPoint = interactable;
+        Interactable interactable = FindInteractable();
 
-            //change state to dragging rope
-            player.SetState(player.draggingRopeState);
+        //if rewind rope
+        if (interactable && interactable.RewindRope())
+        {
+            ConnectToInteractable(interactable);
         }
+    }
+
+    protected virtual void DetachRope()
+    {
+        Interactable interactable = FindInteractable();
+
+        //if detach rope
+        if (interactable && interactable.DetachRope())
+        {
+            ConnectToInteractable(interactable);
+        }
+    }
+
+    void ConnectToInteractable(Interactable interactable)
+    {
+        //connect to interactable
+        Player player = stateMachine as Player;
+        player.connectedPoint = interactable;
+
+        //change state to dragging rope
+        player.SetState(player.draggingRopeState);
     }
 
     #endregion
