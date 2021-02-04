@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Generator : MonoBehaviour
+public class Neuron : Interactable
 {
-    public float ropeLength = 10;
 }

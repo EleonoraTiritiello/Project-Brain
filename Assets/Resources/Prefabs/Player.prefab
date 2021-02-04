@@ -131,15 +131,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc33e4b21b11e434bbcb1522a7cc5e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 300
-  linePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  radiusPick: 1
-  pickRopeInput: 101
-  changeHand: 32
-  rightHand: {fileID: 7356048464615327791}
-  leftHand: {fileID: 8216472718348016952}
+  normalState:
+    speed: 5
+    rotationSpeed: 300
+    radiusPick: 1.5
+    pickRopeInput: 101
+  draggingRopeState:
+    speed: 5
+    rotationSpeed: 300
+    spring: 200
+    damper: 200
+    massScale: 100
+    linePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
+      type: 3}
+    changeHand: 32
+    rightHand: {fileID: 7356048464615327791}
+    leftHand: {fileID: 8216472718348016952}
+    radiusAttach: 1.5
+    attachRopeInput: 101
+  connectedPoint: {fileID: 0}
 --- !u!54 &8295705607832129752
 Rigidbody:
   m_ObjectHideFlags: 0
