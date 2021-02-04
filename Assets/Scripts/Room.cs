@@ -165,7 +165,7 @@ public class Room : MonoBehaviour
             for (int y = 0; y <= roomToCheck.height; y++)
             {
                 //direction right up, if reached limit go backward
-                Vector2 directionGap = new Vector3(x >= roomToCheck.width ? -1 : 1, y >= roomToCheck.height ? -1 : 1);
+                Vector2 directionGap = new Vector2(x >= roomToCheck.width ? -1 : 1, y >= roomToCheck.height ? -1 : 1);
 
                 Vector2 point = roomToCheck.DownLeft + (Vector2.right * x * roomToCheck.tileSize) + (Vector2.up * y * roomToCheck.tileSize)     //down left of every tile
                     + (directionGap * roomToCheck.tileSize * 0.1f);                                                                             //little gap to no have half room inside another
