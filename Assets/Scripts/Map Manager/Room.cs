@@ -182,7 +182,7 @@ public class Room : MonoBehaviour
         }
 
         //check also center if inside this room
-        Vector2 center = is3D ? new Vector2(roomToCheck.transform.position.x, roomToCheck.transform.position.y) : new Vector2(roomToCheck.transform.position.x, roomToCheck.transform.position.z);
+        Vector2 center = is3D ? new Vector2(roomToCheck.transform.position.x, roomToCheck.transform.position.z) : new Vector2(roomToCheck.transform.position.x, roomToCheck.transform.position.y);
         if (center.x > DownLeft.x && center.x < UpRight.x)
         {
             if (center.y > DownLeft.y && center.y < UpRight.y)
