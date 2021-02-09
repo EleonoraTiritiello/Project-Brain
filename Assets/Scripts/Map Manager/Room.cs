@@ -135,7 +135,7 @@ public class Room : MonoBehaviour
 
         List<DoorStruct> possibleDoors = new List<DoorStruct>();
 
-        //add every possible door (on left or right side)
+        //add every possible door (using direction setted before)
         foreach (DoorStruct possibleDoor in doors)
         {
             if (possibleDoor.direction == door.direction

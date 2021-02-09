@@ -637,6 +637,16 @@ PrefabInstance:
       propertyPath: doors.Array.data[3].direction
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1977278817681623629, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[1].isOnlyExit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977278817681623629, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[2].isOnlyExit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1977278817681623630, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_RootOrder
