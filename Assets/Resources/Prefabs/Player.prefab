@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 9130453570722670355}
   - component: {fileID: 2191401332918638931}
   - component: {fileID: 8295705607832129752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,22 +133,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalState:
     speed: 5
-    rotationSpeed: 300
-    radiusPick: 1.5
-    pickRopeInput: 101
+    rotationSpeed: 800
+    radiusInteract: 1.5
+    interactInput: 101
+    detachRopeInput: 113
+    timeToKeepPressedToRewind: 0.5
   draggingRopeState:
     speed: 5
     rotationSpeed: 300
+    radiusInteract: 1.5
+    interactInput: 101
+    detachRopeInput: 113
+    timeToKeepPressedToRewind: 0.5
     spring: 200
     damper: 200
     massScale: 100
-    linePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-      type: 3}
     changeHand: 32
     rightHand: {fileID: 7356048464615327791}
     leftHand: {fileID: 8216472718348016952}
-    radiusAttach: 1.5
-    attachRopeInput: 101
+    ropePositions: []
+    ropeLengths: []
   connectedPoint: {fileID: 0}
 --- !u!54 &8295705607832129752
 Rigidbody:
@@ -175,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7356048464615327791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8216472718348016952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +242,7 @@ GameObject:
   - component: {fileID: 2334728130956529161}
   - component: {fileID: 8301113961526351354}
   - component: {fileID: 2329669202457837838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7085448774028564216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,16 +14,17 @@ public class DraggingRopeState : NormalState
     [SerializeField] KeyCode changeHand = KeyCode.Space;
     [SerializeField] Transform rightHand = default;
     [SerializeField] Transform leftHand = default;
+    [SerializeField] float distanceBetweenPoints = 0.5f;
 
     SpringJoint joint;
     bool usingRightHand = true;
 
+    int anglePositive;
     [SerializeField] List<Vector3> ropePositions = new List<Vector3>();
     [SerializeField] List<float> ropeLengths = new List<float>();
-    bool anglePositive;
-    Vector3 ultimaRope => ropePositions[ropePositions.Count - 1];
+    Vector3 lastRope => ropePositions[ropePositions.Count - 1];
     Vector3 penultimaRope => ropePositions[ropePositions.Count - 2];
-    float ultimaLength => ropeLengths[ropeLengths.Count - 1];
+    float lastLength => ropeLengths[ropeLengths.Count - 1];
 
     public override void Enter()
     {
@@ -56,26 +57,25 @@ public class DraggingRopeState : NormalState
     {
         base.Exit();
 
+        //clear vars
         ropePositions.Clear();
+        ropeLengths.Clear();
+        anglePositive = -1;
     }
 
     #region private API
 
     void CreateSpringJoint()
     {
-        //just for debug
-        GameObject go = new GameObject(ultimaRope.ToString());
-        go.transform.position = ultimaRope;
-
         //add joint
         joint = stateMachine.gameObject.AddComponent<SpringJoint>();
 
         //set joint connected anchor
         joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = ultimaRope;
+        joint.connectedAnchor = lastRope;
 
         //set joint distances
-        joint.maxDistance = ropeLengths[ropeLengths.Count -1];
+        joint.maxDistance = lastLength;
         joint.minDistance = 0;
 
         //set joint spring
@@ -97,61 +97,74 @@ public class DraggingRopeState : NormalState
             //remove previous hand position
             if (ropePositions.Count > 1)
             {
-                ropePositions.Remove(ultimaRope);
-                ropeLengths.Remove(ultimaLength);
+                ropePositions.Remove(lastRope);
+                ropeLengths.Remove(lastLength);
             }
 
             //if hit something, add point
             RaycastHit hit;
-            Vector3 direction = (ultimaRope - handPosition).normalized;//+ direction to be sure to hit something
-            if (Physics.Linecast(handPosition, ultimaRope + direction * 0.2f, out hit, redd096.CreateLayer.LayerAllExcept("Player")) && Vector3.Distance(ultimaRope, hit.point) > 1)
+            Vector3 direction = (lastRope - handPosition).normalized;//+ direction to be sure to hit something
+            if (Physics.Linecast(handPosition, lastRope + direction * 0.2f, out hit, redd096.CreateLayer.LayerAllExcept("Player")) 
+                && Vector3.Distance(hit.point, handPosition) < Vector3.Distance(lastRope, handPosition)     //check is near then last point
+                && Vector3.Distance(hit.point, lastRope) > distanceBetweenPoints)                           //check distance to not hit always same point
             {
+                //add point, calculate new length, and recreate joint
                 ropePositions.Add(hit.point);
-                ropeLengths.Add(ultimaLength - Vector3.Distance(penultimaRope, hit.point));
+                ropeLengths.Add(lastLength - Vector3.Distance(penultimaRope, hit.point));
                 Object.Destroy(joint);
                 CreateSpringJoint();
 
-                //set how to check angle
-                Vector3 directionFromHand = ultimaRope - handPosition;
-                Vector3 directionNext = ultimaRope - penultimaRope;
-                anglePositive = Vector3.SignedAngle(directionFromHand, directionNext, Vector3.up) > 0;
+                //reset angle
+                anglePositive = -1;
             }
             //else, if no hit neither previous positition, remove point until come back to connected point
             else 
             {
-                hit.point = handPosition;   //for add last length just for debug
+                hit.point = handPosition;   //for add handPosition as last length just for debug
 
                 if (ropePositions.Count > 1)
                 {
-                    RaycastHit newHit;
-                    if (!Physics.Linecast(handPosition, penultimaRope, out newHit, redd096.CreateLayer.LayerAllExcept("Player")) || Vector3.Distance(penultimaRope, newHit.point) < 1)
+                    //if angle is not set, calculate if is positive or negative
+                    if(anglePositive < 0)
                     {
-                        //calculate angle instead of line to penultima - if greater than 180 remove last point
-                        Vector3 directionFromHand = ultimaRope - handPosition;
-                        Vector3 directionNext = ultimaRope - penultimaRope;
+                        Vector3 directionFromHand = lastRope - handPosition;
+                        Vector3 directionNext = lastRope - penultimaRope;
+                        int angle = Mathf.RoundToInt( Vector3.SignedAngle(directionFromHand, directionNext, Vector3.up) );
+
+                        if (angle > 0 && angle < 180)
+                            anglePositive = 1;
+                        else if (angle < 0 && angle > -180)
+                            anglePositive = 0;
+                    }
+
+                    RaycastHit newHit;
+                    if (Physics.Linecast(handPosition, penultimaRope, out newHit, redd096.CreateLayer.LayerAllExcept("Player")) == false 
+                        || Vector3.Distance(newHit.point, penultimaRope) < distanceBetweenPoints)   //check if hit near to point, in this case calculate as same point
+                    {
+                        //calculate angle - if greater than 180 remove last point
+                        Vector3 directionFromHand = lastRope - handPosition;
+                        Vector3 directionNext = lastRope - penultimaRope;
                         float angle = Vector3.SignedAngle(directionFromHand, directionNext, Vector3.up);
-                        if (angle > 0 && anglePositive == false || angle < 0 && anglePositive)
+
+                        //greater than 180 if now is positive and before was negative or viceversa
+                        if (angle > 0 && anglePositive == 0 || angle < 0 && anglePositive == 1)
                         {
-                            ropePositions.Remove(ultimaRope);
-                            ropeLengths.Remove(ultimaLength);
+                            //remove last point, remove last length, and recreate joint
+                            ropePositions.Remove(lastRope);
+                            ropeLengths.Remove(lastLength);
                             Object.Destroy(joint);
                             CreateSpringJoint();
+
+                            //reset angle
+                            anglePositive = -1;
                         }
                     }
-                    //RaycastHit newHit;
-                    //if (!Physics.Linecast(handPosition, penultimaRope, out newHit, redd096.CreateLayer.LayerAllExcept("Player")) || Vector3.Distance(penultimaRope, newHit.point) < 1)
-                    //{
-                    //    ropePositions.Remove(ultimaRope);
-                    //    ropeLengths.Remove(ultimaLength);
-                    //    Object.Destroy(joint);
-                    //    CreateSpringJoint();
-                    //}
                 }
             }
 
-            //add hand position
+            //add hand position for lineRenderer
             ropePositions.Add(handPosition);
-            ropeLengths.Add(ultimaLength - Vector3.Distance(penultimaRope, hit.point));
+            ropeLengths.Add(lastLength - Vector3.Distance(penultimaRope, hit.point));
 
             //update rope position
             player.connectedPoint.UpdateRope(ropePositions);
@@ -182,7 +195,17 @@ public class DraggingRopeState : NormalState
 
     protected override void DetachRope()
     {
-        //do nothing
+        Player player = stateMachine as Player;
+
+        //hide rope
+        player.connectedPoint.UpdateRope(new List<Vector3>());
+
+        //remove player connected point and joint
+        player.connectedPoint = null;
+        Object.Destroy(joint);
+
+        //back to normal state
+        player.SetState(player.normalState);
     }
 
     #endregion
