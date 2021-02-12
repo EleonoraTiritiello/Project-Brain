@@ -35,13 +35,13 @@ public class Room : MonoBehaviour
     Vector2 DownLeft => is3D ? new Vector3(transform.position.x - HalfWidth, transform.position.z - HalfHeight) : new Vector3(transform.position.x - HalfWidth, transform.position.y - HalfHeight);
 
     [Header("DEBUG")]
-    [SerializeField] TextMesh textID = default;
-    [SerializeField] int id = 0;
+    public bool showDebug = false;
+    [CanShow("showDebug")] [SerializeField] TextMesh textID = default;
+    [CanShow("showDebug")] [SerializeField] int id = 0;
 
-    [Header("DEBUG adjancent room (necessary not public)")]
-    [SerializeField] DoorStruct adjacentDoor = default;
-    [SerializeField] Room adjacentRoom = default;
-    [SerializeField] DoorStruct door = default;
+    [CanShow("showDebug")] [SerializeField] DoorStruct adjacentDoor = default;
+    [CanShow("showDebug")] [SerializeField] Room adjacentRoom = default;
+    [CanShow("showDebug")] [SerializeField] DoorStruct door = default;
 
     #endregion
 

@@ -592,6 +592,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: width
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[0].door
+      value: 
+      objectReference: {fileID: 3527027057737934271}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[1].door
+      value: 
+      objectReference: {fileID: 1497257371548273348}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[2].door
+      value: 
+      objectReference: {fileID: 6795581021773442430}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[3].door
+      value: 
+      objectReference: {fileID: 3168112634722060025}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[1].direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[2].direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[3].direction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[1].isOnlyExit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: doors.Array.data[2].isOnlyExit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1977278817681623628, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_Name

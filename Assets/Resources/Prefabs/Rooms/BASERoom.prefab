@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1977278817681623630}
-  - component: {fileID: 1977278817681623629}
+  - component: {fileID: -3376699768233590191}
   m_Layer: 0
   m_Name: BASERoom
   m_TagString: Untagged
@@ -157,7 +157,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1977278817681623629
+--- !u!114 &-3376699768233590191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977278817681623628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 072c635bcf0866c47816a60b0ad7392b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3703b384f9cbbfa4285004d5208f6952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is3D: 1
@@ -174,15 +174,19 @@ MonoBehaviour:
   width: 1
   height: 1
   doors: []
-  textID: {fileID: 6452223850291484139}
+  showDebug: 0
+  textID: {fileID: 0}
   id: 0
   adjacentDoor:
     door: {fileID: 0}
     direction: 0
+    isOnlyExit: 0
   adjacentRoom: {fileID: 0}
   door:
     door: {fileID: 0}
     direction: 0
+    isOnlyExit: 0
+  cameraPosition: {fileID: 0}
 --- !u!1 &1977278818405583244
 GameObject:
   m_ObjectHideFlags: 0
