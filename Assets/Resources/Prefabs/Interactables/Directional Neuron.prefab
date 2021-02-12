@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2575723496577677447}
-  - component: {fileID: 2575723496577677446}
+  - component: {fileID: 6388811074183657108}
+  - component: {fileID: 5888976070270802485}
   m_Layer: 9
-  m_Name: Neuron
+  m_Name: Directional Neuron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2575723496577677446
+--- !u!114 &6388811074183657108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +42,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2575723496577677449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b4fa53df1c4f474f938457be91cf275, type: 3}
+  m_Script: {fileID: 11500000, guid: 029ce37f63597254eac81f02db5e2873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 30
+  pointDirection: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 55
+--- !u!114 &5888976070270802485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575723496577677449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c964a65f74b044bbd026ac01805c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
@@ -137,7 +159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 90b86ddae4d3f8d4bb3ec00ede5f1cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

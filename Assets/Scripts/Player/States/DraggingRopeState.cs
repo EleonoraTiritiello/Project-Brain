@@ -179,8 +179,7 @@ public class DraggingRopeState : NormalState
     {
         //if hit something
         RaycastHit hit;
-        Vector3 direction = (lastRope - handPosition).normalized;//+ direction to be sure to hit something
-        if (Physics.Linecast(handPosition, lastRope + direction * 0.2f, out hit, redd096.CreateLayer.LayerAllExcept("Player"))
+        if (Physics.Linecast(handPosition, lastRope, out hit, redd096.CreateLayer.LayerAllExcept("Player"))
             //&& Vector3.Distance(hit.point, handPosition) < Vector3.Distance(lastRope, handPosition)     //check is near then last point
             && Vector3.Distance(hit.point, lastRope) > distanceBetweenPoints)                           //check distance to not hit always same point
         {
@@ -206,9 +205,8 @@ public class DraggingRopeState : NormalState
             //greater than 180 if now is positive and before was negative or viceversa
             if (IsAngleChanged())
             {
-                //remove last point, remove last length, and recreate joint
+                //remove last point and recreate joint
                 ropePositions.Remove(lastRope);
-                Object.Destroy(joint);
                 RecreateSpringJoint();
 
                 //reset angle

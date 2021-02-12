@@ -7,7 +7,6 @@ public class NormalState : State
 {
     [Header("Movement")]
     [SerializeField] float speed = 5;
-    [SerializeField] float rotationSpeed = 300;
 
     [Header("Interact")]
     public float radiusInteract = 1.5f;
@@ -36,7 +35,6 @@ public class NormalState : State
         base.Update();
 
         Movement();
-        Rotate();
 
         //if timer is finished, rewind and don't check other inputs
         if (timerRewind > 0 && Time.time > timerRewind)
@@ -72,23 +70,15 @@ public class NormalState : State
         //get direction by input
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
 
-        //direction to local
-        direction = stateMachine.transform.TransformDirection(direction);
+        //direction based on camera - ignore y and normalize
+        direction = cam.TransformDirection(direction);
+        direction.y = 0;
+        direction = direction.normalized;
 
         //move player
         rb.velocity = direction * speed;
-    }
-
-    void Rotate()
-    {
-        float horizontal = Input.GetAxis("Mouse X");
-        float vertical = -Input.GetAxis("Mouse Y");
-
-        //rotate player on Y axis and camera on X axis
-        stateMachine.transform.rotation = Quaternion.AngleAxis(horizontal * rotationSpeed * Time.deltaTime, Vector3.up) * stateMachine.transform.rotation;
-        cam.RotateAround(stateMachine.transform.position, stateMachine.transform.right, vertical * rotationSpeed * Time.deltaTime);
     }
 
     protected Interactable FindInteractable()

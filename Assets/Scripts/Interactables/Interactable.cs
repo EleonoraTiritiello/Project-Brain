@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     [Header("Rope")]
     [SerializeField] LineRenderer ropePrefab = default;
@@ -12,6 +12,17 @@ public class Interactable : MonoBehaviour
     protected Interactable alreadyAttached;
 
     LineRenderer rope;
+
+    #region public API
+
+    /// <summary>
+    /// Active or Deactive interactable
+    /// </summary>
+    /// <param name="active">try activate object when true, or deactivate when false</param>
+    public virtual void ActiveInteractable(bool active)
+    {
+        isActive = active;
+    }
 
     /// <summary>
     /// Create rope from line prefab
@@ -24,13 +35,11 @@ public class Interactable : MonoBehaviour
             //if there isn't a rope (and there is a prefab)
             if (rope == null && ropePrefab != null)
             {
-                //instantiate rope and set positions number
+                //instantiate rope
                 rope = Instantiate(ropePrefab, transform);
-                //rope.positionCount = 2;
-
-                //set first position
-                //rope.SetPosition(0, transform.position);
             }
+            else if (ropePrefab == null)
+                Debug.LogWarning("Non è stato inserito il prefab della corda");
 
             return true;
         }
@@ -56,11 +65,12 @@ public class Interactable : MonoBehaviour
         if (CanAttach(interactable))
         {
             //active new interactable, and set this already attached
-            interactable.isActive = true;
+            interactable.ActiveInteractable(true);
             alreadyAttached = interactable;
 
-            //set rope position
+            //set last rope position
             rope.SetPosition(rope.positionCount -1, interactable.transform.position);
+
             return true;
         }
 
@@ -76,7 +86,7 @@ public class Interactable : MonoBehaviour
         if(CanDetachRope())
         {
             //our attached interactable is no more active, and this is not attached to nothing
-            alreadyAttached.isActive = false;
+            alreadyAttached.ActiveInteractable(false);
             alreadyAttached = null;
 
             //hide rope by default (will be updated by player)
@@ -122,6 +132,8 @@ public class Interactable : MonoBehaviour
         return false;
     }
 
+    #endregion
+
     #region private API
 
     bool CanCreateRope()
@@ -133,7 +145,7 @@ public class Interactable : MonoBehaviour
         return thisIsActive && thisIsNotAlreadyAttached;
     }
 
-    bool CanAttach(Interactable interactable)
+    protected virtual bool CanAttach(Interactable interactable)
     {
         bool isNotItSelf = interactable != this;                            //check if attach to another interactable and not itself
         bool IsNotAlreadyAttached = interactable.alreadyAttached == null;   //check if interactable is not already attached to something
