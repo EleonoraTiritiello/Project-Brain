@@ -26,10 +26,10 @@ public class Interactable : MonoBehaviour
             {
                 //instantiate rope and set positions number
                 rope = Instantiate(ropePrefab, transform);
-                rope.positionCount = 2;
+                //rope.positionCount = 2;
 
                 //set first position
-                rope.SetPosition(0, transform.position);
+                //rope.SetPosition(0, transform.position);
             }
 
             return true;
@@ -41,9 +41,10 @@ public class Interactable : MonoBehaviour
     /// <summary>
     /// Set new position for the rope
     /// </summary>
-    public void UpdateRope(Vector3 position)
+    public void UpdateRope(List<Vector3> positions)
     {
-        rope.SetPosition(1, position);
+        rope.positionCount = positions.Count;
+        rope.SetPositions(positions.ToArray());
     }
 
     /// <summary>
@@ -59,7 +60,7 @@ public class Interactable : MonoBehaviour
             alreadyAttached = interactable;
 
             //set rope position
-            rope.SetPosition(1, interactable.transform.position);
+            rope.SetPosition(rope.positionCount -1, interactable.transform.position);
             return true;
         }
 
@@ -79,7 +80,7 @@ public class Interactable : MonoBehaviour
             alreadyAttached = null;
 
             //hide rope by default (will be updated by player)
-            UpdateRope(rope.GetPosition(0));
+            rope.positionCount = 0;
 
             return true;
         }

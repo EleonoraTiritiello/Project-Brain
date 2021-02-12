@@ -595,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 1977278817681623628, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_Name
-      value: Stanza FIssa 2x2
+      value: FixedRoom2x2
       objectReference: {fileID: 0}
     - target: {fileID: 1977278817681623629, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
@@ -670,12 +670,12 @@ PrefabInstance:
     - target: {fileID: 1977278817681623630, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1977278817681623630, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1977278817681623630, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
@@ -690,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 1977278817681623630, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1977278817681623630, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}

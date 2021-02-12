@@ -11,6 +11,7 @@ public struct DoorStruct
 {
     public Transform door;
     public CardinalDirection direction;
+    public bool isOnlyExit;
 }
 
 [AddComponentMenu("Project Brain/Room")]
@@ -23,9 +24,9 @@ public class Room : MonoBehaviour
     [SerializeField] bool is3D = true;
 
     [Header("Important")]
-    [SerializeField] float tileSize = 1f;   //size of every tile which compose this room
-    [SerializeField] int width = 1;         //int because the size will be exspressed in tiles
-    [SerializeField] int height = 1;        //int because the size will be exspressed in tiles
+    [Tooltip("Size of every tile which compose this room")] [SerializeField] float tileSize = 1f;
+    [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int width = 1;
+    [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int height = 1;
     [SerializeField] List<DoorStruct> doors = new List<DoorStruct>();
 
     float HalfWidth => width * tileSize * 0.5f;
@@ -134,12 +135,13 @@ public class Room : MonoBehaviour
 
         List<DoorStruct> possibleDoors = new List<DoorStruct>();
 
-        //add every possible door (on left or right side)
-        foreach (DoorStruct d in doors)
+        //add every possible door (using direction setted before)
+        foreach (DoorStruct possibleDoor in doors)
         {
-            if (d.direction == door.direction)
+            if (possibleDoor.direction == door.direction
+                && possibleDoor.isOnlyExit == false)                //be sure is not OnlyExit, because this one will be an entrance to this room
             {
-                possibleDoors.Add(d);
+                possibleDoors.Add(possibleDoor);
             }
         }
 
@@ -148,7 +150,7 @@ public class Room : MonoBehaviour
             return false;
 
         //else get a random door between possibles
-        door.door = possibleDoors[Random.Range(0, possibleDoors.Count)].door;
+        door = possibleDoors[Random.Range(0, possibleDoors.Count)];
 
         //calculate distance and move
         Vector3 fromDoorToAdjacentDoor = adjacentDoor.door.position - door.door.position;
