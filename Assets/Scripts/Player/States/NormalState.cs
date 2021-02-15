@@ -158,7 +158,7 @@ public class NormalState : State
         Interactable interactable = FindInteractable();
 
         //if detach rope
-        if (interactable && interactable.DetachRope())
+        if (interactable && interactable.DetachRope(out interactable))
         {
             ConnectToInteractable(interactable);
         }

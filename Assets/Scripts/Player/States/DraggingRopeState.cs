@@ -126,6 +126,8 @@ public class DraggingRopeState : NormalState
         //if attach rope
         if (interactable && player.connectedPoint.AttachRope(interactable))
         {
+            player.connectedPoint.CreateCollider(penultimaRope, interactable.transform.position);
+
             //remove player connected point and joint
             player.connectedPoint = null;
             Object.Destroy(joint);
@@ -144,6 +146,7 @@ public class DraggingRopeState : NormalState
     {
         //hide rope
         player.connectedPoint.UpdateRope(new List<Vector3>());
+        player.connectedPoint.DestroyAllColliders();
 
         //remove player connected point and joint
         player.connectedPoint = null;
@@ -151,6 +154,8 @@ public class DraggingRopeState : NormalState
 
         //back to normal state
         player.SetState(player.normalState);
+
+        
     }
 
     void ChangeHand()
@@ -175,6 +180,8 @@ public class DraggingRopeState : NormalState
         }
     }
 
+
+
     void DetectRopeCollisionEnter()
     {
         //if hit something
@@ -186,6 +193,7 @@ public class DraggingRopeState : NormalState
             //add point and recreate joint
             ropePositions.Add(hit.point);
             RecreateSpringJoint();
+            player.connectedPoint.CreateCollider(lastRope, penultimaRope);
 
             //reset angle
             anglePositive = -1;
@@ -208,6 +216,7 @@ public class DraggingRopeState : NormalState
                 //remove last point and recreate joint
                 ropePositions.Remove(lastRope);
                 RecreateSpringJoint();
+                player.connectedPoint.DestroyCollider();
 
                 //reset angle
                 anglePositive = -1;

@@ -6,7 +6,7 @@ public class RoomGame : Room
 {
     [Header("Camera Position")]
     public Transform cameraPosition = default;
-    [SerializeField] float timeToMoveCamera = 1;
+    public float timeToMoveCamera = 1;
 
     Transform cam;
 

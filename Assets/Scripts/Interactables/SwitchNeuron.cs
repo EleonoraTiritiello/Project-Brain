@@ -10,9 +10,9 @@ public class SwitchNeuron : Neuron
     //to determine if active or deactive objects in the list
     bool toggle = true;
 
-    public override void ActiveInteractable(bool active)
+    public override void ActiveInteractable(bool active, Interactable interactable)
     {
-        base.ActiveInteractable(active);
+        base.ActiveInteractable(active, interactable);
 
         //do things only when active
         if (active)
