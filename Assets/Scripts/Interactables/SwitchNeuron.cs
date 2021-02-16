@@ -10,6 +10,15 @@ public class SwitchNeuron : Neuron
     //to determine if active or deactive objects in the list
     bool toggle = true;
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        //draw a line to every object to activate
+        foreach (Activable activable in objectsToActivate)
+            Gizmos.DrawLine(activable.ObjectToControl.transform.position, ObjectToControl.transform.position);
+    }
+
     public override void ActiveInteractable(bool active, Interactable interactable)
     {
         base.ActiveInteractable(active, interactable);

@@ -7,12 +7,12 @@ public class Door : Activable
     protected override void Active()
     {
         //open door
-        gameObject.SetActive(false);
+        objectToControl.SetActive(false);
     }
 
     protected override void Deactive()
     {
         //close door
-        gameObject.SetActive(true);
+        objectToControl.SetActive(true);
     }
 }

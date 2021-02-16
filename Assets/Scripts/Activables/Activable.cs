@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Activable : MonoBehaviour
 {
+    [Header("Important")]
+    [Tooltip("The object to activate or deactivate")] [SerializeField] protected GameObject objectToControl = default;
+    public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
+
     [Header("Activable")]
     [Tooltip("Need every object in the list to activate, or only one?")] [SerializeField] bool needEveryObjectInTheList = true;
     [Tooltip("List of objects necessary to activate this activable")] [SerializeField] List<Interactable> objectsForActivate = new List<Interactable>();
@@ -39,6 +43,15 @@ public abstract class Activable : MonoBehaviour
     protected abstract void Active();
 
     protected abstract void Deactive();
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+
+        //draw a line to every object necessary to activate this
+        foreach (Interactable interactable in objectsForActivate)
+            Gizmos.DrawLine(interactable.ObjectToControl.transform.position + Vector3.right * 0.1f, objectToControl.transform.position);   //a bit moved, to not override Interactable gizmos
+    }
 
     #region private API
 

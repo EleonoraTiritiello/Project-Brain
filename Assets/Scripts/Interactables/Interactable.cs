@@ -4,17 +4,20 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
+    [Header("Important")]
+    [Tooltip("The object to interact with")] [SerializeField] GameObject objectToControl = default;
+    public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
+
     [Header("Rope")]
     [SerializeField] LineRenderer ropePrefab = default;
-    public float ropeLength = 10;
+    public float RopeLength = 10;
 
     protected bool isActive;
     protected Interactable attachedTo;
     protected Interactable attachedFrom;
 
-    List<BoxCollider> colliders = new List<BoxCollider>();
-
     LineRenderer rope;
+    List<BoxCollider> colliders = new List<BoxCollider>();
 
     #region public API
 
@@ -57,8 +60,16 @@ public abstract class Interactable : MonoBehaviour
     /// </summary>
     public void UpdateRope(List<Vector3> positions)
     {
+        //update rope positions
         rope.positionCount = positions.Count;
         rope.SetPositions(positions.ToArray());
+
+        //if greater than colliders count, add collider (not to last one, cause that is hand position)
+        if (positions.Count -1 > colliders.Count)
+            CreateCollider(positions[positions.Count - 2], positions[positions.Count - 3]);
+        //if lower than colliders count, remove last collider
+        else if (positions.Count -1 < colliders.Count)
+            DestroyLastCollider();
     }
 
     /// <summary>
@@ -73,8 +84,9 @@ public abstract class Interactable : MonoBehaviour
             interactable.ActiveInteractable(true, this);
             attachedTo = interactable;
 
-            //set last rope position
-            rope.SetPosition(rope.positionCount -1, interactable.transform.position);
+            //set last rope position (and collider)
+            rope.SetPosition(rope.positionCount -1, interactable.ObjectToControl.transform.position);
+            CreateCollider(rope.GetPosition(rope.positionCount - 2), rope.GetPosition(rope.positionCount - 1));
 
             return true;
         }
@@ -86,18 +98,20 @@ public abstract class Interactable : MonoBehaviour
     /// Detach rope, return rope's owner
     /// </summary>
     /// <param name="interactable">object this interactable was attached from, the rope's owner</param>
+    /// <param name="ropePositions">positions already in this rope</param>
     /// <returns></returns>
     public bool DetachRope(out Interactable interactable, out List<Vector3> ropePositions)
     {
         if (CanDetachRope())
         {
-            //return rope's owner
+            //return rope's owner and set is not attached to this one anymore
             interactable = attachedFrom;
+            attachedFrom.attachedTo = null;
 
-            //add every rope position to the list
+            //add every rope position to the list (not last one because was the attach to this object)
             ropePositions = new List<Vector3>();
-            //for (int i = 0; i < attachedFrom.rope.positionCount; i++)
-            //    ropePositions.Add(attachedFrom.rope.GetPosition(i));
+            for (int i = 0; i < attachedFrom.rope.positionCount - 1; i++)
+                ropePositions.Add(attachedFrom.rope.GetPosition(i));
 
             //remove last collider and deactive this object
             attachedFrom.DestroyLastCollider();
@@ -175,7 +189,7 @@ public abstract class Interactable : MonoBehaviour
     public void CreateCollider(Vector3 startPoint, Vector3 endPoint)
     {
         //create collider and add to the list
-        GameObject colliderGo = new GameObject();
+        GameObject colliderGo = new GameObject("Collider Rope");
         colliders.Add(colliderGo.AddComponent<BoxCollider>());
 
         //set position
@@ -196,6 +210,10 @@ public abstract class Interactable : MonoBehaviour
     /// </summary>
     public void DestroyLastCollider()
     {
+        //do only if there are colliders
+        if (colliders.Count <= 0)
+            return;
+
         //get last collider
         BoxCollider boxcollider = colliders[colliders.Count - 1];
 

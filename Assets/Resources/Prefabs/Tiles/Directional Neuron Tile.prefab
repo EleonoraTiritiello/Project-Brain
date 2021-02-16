@@ -1,5 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2599571951700356491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625446099454528804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029ce37f63597254eac81f02db5e2873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 30
+  pointDirection: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &69460752492407969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625446099454528804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c964a65f74b044bbd026ac01805c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToControl: {fileID: 3816192322763106691}
+  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
+    type: 3}
+  ropeLength: 10
 --- !u!1001 &1678462143730389258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,8 +104,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Directional Neuron
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5888976070270802485, guid: af06c26f1cdd11b4c8e9d277be1f8bba, type: 3}
+    - {fileID: 6388811074183657108, guid: af06c26f1cdd11b4c8e9d277be1f8bba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af06c26f1cdd11b4c8e9d277be1f8bba, type: 3}
+--- !u!1 &3816192322763106691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575723496577677449, guid: af06c26f1cdd11b4c8e9d277be1f8bba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1678462143730389258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5410846134319926588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,6 +198,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f01bdc524f143747842a5d7a0673564, type: 3}
+--- !u!1 &6625446099454528804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217519994549780504, guid: 9f01bdc524f143747842a5d7a0673564,
+    type: 3}
+  m_PrefabInstance: {fileID: 5410846134319926588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2087832759964224603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6336097595642347879, guid: 9f01bdc524f143747842a5d7a0673564,

@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1552485372755780832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912759792556804131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToControl: {fileID: 5976011422332417035}
+  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
+    type: 3}
+  ropeLength: 10
+  objectsToActivate: []
 --- !u!1001 &4821992148945389627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,6 +96,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f01bdc524f143747842a5d7a0673564, type: 3}
+--- !u!1 &5912759792556804131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217519994549780504, guid: 9f01bdc524f143747842a5d7a0673564,
+    type: 3}
+  m_PrefabInstance: {fileID: 4821992148945389627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1514757032209860956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6336097595642347879, guid: 9f01bdc524f143747842a5d7a0673564,
@@ -157,5 +180,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 55f136e1f58240940a2d9fd52cd2b2b9, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5314652730014045723, guid: 81f4edac99b3b7d4caca23798bd50835, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 81f4edac99b3b7d4caca23798bd50835, type: 3}
+--- !u!1 &5976011422332417035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575723496577677449, guid: 81f4edac99b3b7d4caca23798bd50835,
+    type: 3}
+  m_PrefabInstance: {fileID: 8165519145412021378}
+  m_PrefabAsset: {fileID: 0}

@@ -34,7 +34,7 @@ public class DraggingRopeState : NormalState
 
         //start with position at connected point
         if(ropePositions.Count <= 0)
-            ropePositions.Add(player.connectedPoint.transform.position);
+            ropePositions.Add(player.connectedPoint.ObjectToControl.transform.position);
 
         //create spring joint from connected point        
         RecreateSpringJoint();
@@ -79,7 +79,7 @@ public class DraggingRopeState : NormalState
         joint.connectedAnchor = lastRope;
 
         //calculate length
-        float length = player.connectedPoint.ropeLength;
+        float length = player.connectedPoint.RopeLength;
         for(int i = 0; i < ropePositions.Count -1; i++)
         {
             length -= Vector3.Distance(ropePositions[i], ropePositions[i + 1]);
@@ -128,8 +128,6 @@ public class DraggingRopeState : NormalState
         //if attach rope
         if (interactable && player.connectedPoint.AttachRope(interactable))
         {
-            player.connectedPoint.CreateCollider(penultimaRope, interactable.transform.position);
-
             //remove player connected point and joint
             player.connectedPoint = null;
             Object.Destroy(joint);
@@ -155,9 +153,7 @@ public class DraggingRopeState : NormalState
         Object.Destroy(joint);
 
         //back to normal state
-        player.SetState(player.normalState);
-
-        
+        player.SetState(player.normalState);        
     }
 
     void ChangeHand()
@@ -195,7 +191,6 @@ public class DraggingRopeState : NormalState
             //add point and recreate joint, and add collider
             ropePositions.Add(hit.point);
             RecreateSpringJoint();
-            player.connectedPoint.CreateCollider(lastRope, penultimaRope);
 
             //reset angle
             anglePositive = -1;
@@ -218,7 +213,6 @@ public class DraggingRopeState : NormalState
                 //remove last point and recreate joint, and remove collider
                 ropePositions.Remove(lastRope);
                 RecreateSpringJoint();
-                player.connectedPoint.DestroyLastCollider();
 
                 //reset angle
                 anglePositive = -1;

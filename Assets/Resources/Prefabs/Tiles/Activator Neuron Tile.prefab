@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1844832797993793794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227342905176732791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToControl: {fileID: 8068447861176094954}
+  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
+    type: 3}
+  ropeLength: 10
+  objectsToActivate: []
 --- !u!1001 &5496129097413879907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,8 +84,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Activator Neuron
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5314652730014045723, guid: 81f4edac99b3b7d4caca23798bd50835, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 81f4edac99b3b7d4caca23798bd50835, type: 3}
+--- !u!1 &8068447861176094954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575723496577677449, guid: 81f4edac99b3b7d4caca23798bd50835,
+    type: 3}
+  m_PrefabInstance: {fileID: 5496129097413879907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7117969120446968943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,6 +177,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f01bdc524f143747842a5d7a0673564, type: 3}
+--- !u!1 &8227342905176732791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217519994549780504, guid: 9f01bdc524f143747842a5d7a0673564,
+    type: 3}
+  m_PrefabInstance: {fileID: 7117969120446968943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3829832107283772680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6336097595642347879, guid: 9f01bdc524f143747842a5d7a0673564,
