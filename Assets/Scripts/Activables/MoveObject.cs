@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : Activable
+public class MoveObject : Activable
 {
     protected override void Active()
     {

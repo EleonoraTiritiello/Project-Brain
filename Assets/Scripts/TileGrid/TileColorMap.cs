@@ -6,6 +6,6 @@
     public class TileColorMap : TileBase
     {
         [Header("Color Map")]
-        public Color tileColor;
+        public Color tileColor = Color.white;
     }
 }
