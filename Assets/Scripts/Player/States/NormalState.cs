@@ -14,6 +14,7 @@ public class NormalState : State
     [SerializeField] KeyCode detachRopeInput = KeyCode.Q;
     [SerializeField] float timeToKeepPressedToRewind = 0.5f;
 
+    Player player;
     Rigidbody rb;
     Transform cam;
 
@@ -22,6 +23,8 @@ public class NormalState : State
     public override void Enter()
     {
         base.Enter();
+
+        player = stateMachine as Player;
 
         rb = stateMachine.GetComponent<Rigidbody>();
         cam = Camera.main.transform;
@@ -158,7 +161,7 @@ public class NormalState : State
         Interactable interactable = FindInteractable();
 
         //if detach rope
-        if (interactable && interactable.DetachRope(out interactable))
+        if (interactable && interactable.DetachRope(out interactable, out player.draggingRopeState.ropePositions))
         {
             ConnectToInteractable(interactable);
         }
@@ -167,7 +170,6 @@ public class NormalState : State
     void ConnectToInteractable(Interactable interactable)
     {
         //connect to interactable
-        Player player = stateMachine as Player;
         player.connectedPoint = interactable;
 
         //change state to dragging rope
