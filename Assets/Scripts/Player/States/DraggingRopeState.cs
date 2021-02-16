@@ -22,7 +22,7 @@ public class DraggingRopeState : NormalState
     Vector3 handPosition;
 
     int anglePositive;
-    [HideInInspector] public List<Vector3> ropePositions = new List<Vector3>();
+    public List<Vector3> ropePositions = new List<Vector3>();
     Vector3 lastRope => ropePositions[ropePositions.Count - 1];
     Vector3 penultimaRope => ropePositions[ropePositions.Count - 2];
 
