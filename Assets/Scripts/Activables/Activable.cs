@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Activable : MonoBehaviour
 {
     [Header("Important")]
-    [Tooltip("The object to activate or deactivate")] [SerializeField] protected GameObject objectToControl = default;
+    [Tooltip("The object to activate or deactivate")] [SerializeField] GameObject objectToControl = default;
     public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
 
     [Header("Activable")]

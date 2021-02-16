@@ -6360,7 +6360,7 @@ MonoBehaviour:
   objectsForActivate:
   - {fileID: 1541360}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &201053098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16228,7 +16228,7 @@ MonoBehaviour:
   - {fileID: 1472403182}
   - {fileID: 1450920516}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &501525782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26451,7 +26451,7 @@ MonoBehaviour:
   - {fileID: 1472403182}
   - {fileID: 1450920516}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &779281234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27091,7 +27091,7 @@ MonoBehaviour:
   - {fileID: 1472403182}
   - {fileID: 1450920516}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &790067758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51300,7 +51300,7 @@ MonoBehaviour:
   - {fileID: 1472403182}
   - {fileID: 1450920516}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &1532496361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51937,7 +51937,7 @@ MonoBehaviour:
   objectsForActivate:
   - {fileID: 1541360}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &1550169056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55314,7 +55314,7 @@ MonoBehaviour:
   objectsForActivate:
   - {fileID: 1541360}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &1649395268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57784,7 +57784,7 @@ MonoBehaviour:
   - {fileID: 1472403182}
   - {fileID: 1450920516}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &1725663124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64846,7 +64846,7 @@ MonoBehaviour:
   objectsForActivate:
   - {fileID: 1541360}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &1877908310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66438,7 +66438,7 @@ MonoBehaviour:
   objectsForActivate:
   - {fileID: 1541360}
   speedMovement: 1
-  positionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.25, z: 0}
 --- !u!114 &1926077613
 MonoBehaviour:
   m_ObjectHideFlags: 0

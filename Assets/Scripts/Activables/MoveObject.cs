@@ -6,15 +6,15 @@ public class MoveObject : Activable
 {
     [Header("Movement")]
     [SerializeField] float speedMovement = 1;
-    [SerializeField] Vector3 positionOnActive = Vector3.down * 0.25f;
+    [SerializeField] Vector3 localPositionOnActive = Vector3.down * 0.25f;
 
-    Vector3 positionOnDeactive;
+    Vector3 localPositionOnDeactive;
     Coroutine movementCoroutine;
 
     void Start()
     {
-        //save position when deactivate
-        positionOnDeactive = objectToControl.transform.position;
+        //save positions when active or deactive
+        localPositionOnDeactive = ObjectToControl.transform.localPosition;
     }
 
     protected override void Active()
@@ -40,19 +40,19 @@ public class MoveObject : Activable
     IEnumerator MovementCoroutine(bool active)
     {
         //set vars
-        Vector3 endPosition = active ? positionOnActive : positionOnDeactive;
+        Vector3 endPosition = active ? localPositionOnActive : localPositionOnDeactive;
 
         while(true)
         {
-            float distance = Vector3.Distance(objectToControl.transform.position, endPosition);
+            float distance = Vector3.Distance(ObjectToControl.transform.localPosition, endPosition);
 
             //move
-            objectToControl.transform.position = Vector3.MoveTowards(objectToControl.transform.position, endPosition, speedMovement * Time.deltaTime);
+            ObjectToControl.transform.localPosition = Vector3.MoveTowards(ObjectToControl.transform.localPosition, endPosition, speedMovement * Time.deltaTime);
 
             //if passed end position, stop movement
-            if(Vector3.Distance(objectToControl.transform.position, endPosition) > distance)
+            if(Vector3.Distance(ObjectToControl.transform.localPosition, endPosition) > distance)
             {
-                objectToControl.transform.position = endPosition;
+                ObjectToControl.transform.localPosition = endPosition;
                 break;
             }
 
