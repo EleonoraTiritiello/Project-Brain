@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 5976011422332417035}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  ropeLength: 10
+  ropePrefab: {fileID: 0}
+  RopeLength: 10
   objectsToActivate: []
 --- !u!1001 &4821992148945389627
 PrefabInstance:

@@ -13,6 +13,7 @@ public class NormalState : State
     [SerializeField] KeyCode interactInput = KeyCode.E;
     [SerializeField] KeyCode detachRopeInput = KeyCode.Q;
     [SerializeField] float timeToKeepPressedToRewind = 0.5f;
+    [SerializeField] bool takeRopeWhenRewind = false;
 
     protected Player player;
     Rigidbody rb;
@@ -58,8 +59,8 @@ public class NormalState : State
             //set timer
             timerRewind = Time.time + timeToKeepPressedToRewind;
         }
-        //when release detach input
-        else if(Input.GetKeyUp(detachRopeInput))
+        //when release detach input (only if timer is running)
+        else if(timerRewind > 0 && Input.GetKeyUp(detachRopeInput))
         {
             timerRewind = 0;
             DetachRope();
@@ -152,7 +153,11 @@ public class NormalState : State
         //if rewind rope
         if (interactable && interactable.RewindRope())
         {
-            ConnectToInteractable(interactable);
+            //if bool is true, take rope (else rewindRope already rewinded rope to this interactable)
+            if (takeRopeWhenRewind)
+            {
+                ConnectToInteractable(interactable);
+            }
         }
     }
 

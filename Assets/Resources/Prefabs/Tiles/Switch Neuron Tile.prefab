@@ -15,7 +15,9 @@ MonoBehaviour:
   objectToControl: {fileID: 5950126778038011443}
   ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
     type: 3}
-  ropeLength: 10
+  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
+    type: 3}
+  RopeLength: 10
   objectsToActivate: []
 --- !u!1001 &7561902243374603520
 PrefabInstance:

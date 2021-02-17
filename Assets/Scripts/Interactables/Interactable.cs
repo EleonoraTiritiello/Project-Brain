@@ -10,6 +10,7 @@ public abstract class Interactable : MonoBehaviour
 
     [Header("Rope")]
     [SerializeField] LineRenderer ropePrefab = default;
+    [SerializeField] RopeColliderInteraction colliderPrefab = default;
     public float RopeLength = 10;
 
     protected bool isActive;
@@ -17,7 +18,8 @@ public abstract class Interactable : MonoBehaviour
     protected Interactable attachedFrom;
 
     LineRenderer rope;
-    List<BoxCollider> colliders = new List<BoxCollider>();
+    Pooling<RopeColliderInteraction> colliders = new Pooling<RopeColliderInteraction>();
+    List<RopeColliderInteraction> collidersInOrder = new List<RopeColliderInteraction>();
 
     #region public API
 
@@ -46,8 +48,9 @@ public abstract class Interactable : MonoBehaviour
                 //instantiate rope
                 rope = Instantiate(ropePrefab, transform);
             }
+            //there is not prefab, so can't create rope
             else if (ropePrefab == null)
-                Debug.LogWarning("Non è stato inserito il prefab della corda");
+                return false;
 
             return true;
         }
@@ -65,10 +68,10 @@ public abstract class Interactable : MonoBehaviour
         rope.SetPositions(positions.ToArray());
 
         //if greater than colliders count, add collider (not to last one, cause that is hand position)
-        if (positions.Count -1 > colliders.Count)
+        if (positions.Count -1 > colliders.PooledObjects.Count && positions.Count > 2)
             CreateCollider(positions[positions.Count - 2], positions[positions.Count - 3]);
         //if lower than colliders count, remove last collider
-        else if (positions.Count -1 < colliders.Count)
+        else if (positions.Count -1 < colliders.PooledObjects.Count)
             DestroyLastCollider();
     }
 
@@ -188,21 +191,24 @@ public abstract class Interactable : MonoBehaviour
     /// <param name="endPoint"></param>
     public void CreateCollider(Vector3 startPoint, Vector3 endPoint)
     {
-        //create collider and add to the list
-        GameObject colliderGo = new GameObject("Collider Rope");
-        colliders.Add(colliderGo.AddComponent<BoxCollider>());
+        //create collider
+        RopeColliderInteraction collider = colliders.Instantiate(colliderPrefab);
+        collidersInOrder.Add(collider);
+
+        //set rope vars
+        collider.Init(this);
 
         //set position
         Vector3 center = Vector3.Lerp(startPoint, endPoint, 0.5f);
-        colliderGo.transform.position = center;
+        collider.transform.position = center;
 
         //set rotation
         Vector3 direction = startPoint - endPoint;
-        colliderGo.transform.rotation = Quaternion.LookRotation(direction);
+        collider.transform.rotation = Quaternion.LookRotation(direction);
 
         //set scale
         float widthRope = rope.startWidth;
-        colliderGo.transform.localScale = new Vector3(widthRope, widthRope, direction.magnitude);
+        collider.transform.localScale = new Vector3(widthRope, widthRope, direction.magnitude);
     }
 
     /// <summary>
@@ -211,16 +217,15 @@ public abstract class Interactable : MonoBehaviour
     public void DestroyLastCollider()
     {
         //do only if there are colliders
-        if (colliders.Count <= 0)
+        if (collidersInOrder.Count <= 0)
             return;
 
         //get last collider
-        BoxCollider boxcollider = colliders[colliders.Count - 1];
+        RopeColliderInteraction collider = collidersInOrder[collidersInOrder.Count - 1];
 
         //remove from the list and destroy
-        colliders.Remove(boxcollider);
-        Destroy(boxcollider.gameObject);
-
+        collidersInOrder.Remove(collider);
+        Pooling<Collider>.Destroy(collider.gameObject);
     }
 
     /// <summary>
@@ -229,13 +234,11 @@ public abstract class Interactable : MonoBehaviour
     public void DestroyAllColliders()
     {
         //destroy every collider in the list
-        foreach(BoxCollider box in colliders)
-        {
-            Destroy(box.gameObject);
-        }
+        colliders.DestroyAll();
 
         //and clear list
         colliders.Clear();
+        collidersInOrder.Clear();
     }
 
     #endregion
@@ -292,15 +295,8 @@ public abstract class Interactable : MonoBehaviour
     bool CanRewindRope()
     {
         bool isAttachedToSomething = attachedTo != null;                //be sure is already attached to something
-        if (isAttachedToSomething)
-        {
-            bool isAttachedAgain = attachedTo.attachedTo != null;       //be sure our attached interactable is attached to another thing
 
-            //return if can detach
-            return isAttachedAgain;
-        }
-
-        return false;
+        return isAttachedToSomething;
     }
 
     #endregion

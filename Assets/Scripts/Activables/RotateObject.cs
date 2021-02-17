@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObject : Activable
+public class RotateObject : Activable
 {
-    [Header("Movement")]
-    [SerializeField] float speedMovement = 1;
-    [SerializeField] Vector3 localPositionOnActive = Vector3.down * 0.25f;
+    [Header("Rotation")]
+    [SerializeField] float speedRotation = 1;
+    [SerializeField] Vector3 localRotationOnActive = Vector3.zero;
 
-    Vector3 localPositionOnDeactive;
+    Quaternion localRotationOnDeactive;
     Coroutine movementCoroutine;
 
     void Start()
     {
-        //save positions when active or deactive
-        localPositionOnDeactive = ObjectToControl.transform.localPosition;
+        //save rotations when active or deactive
+        localRotationOnDeactive = ObjectToControl.transform.localRotation;
     }
 
     protected override void Active()
@@ -40,19 +40,19 @@ public class MoveObject : Activable
     IEnumerator MovementCoroutine(bool active)
     {
         //set vars
-        Vector3 endPosition = active ? localPositionOnActive : localPositionOnDeactive;
+        Quaternion endRotation = active ? Quaternion.Euler(localRotationOnActive) : localRotationOnDeactive;
 
-        while(true)
+        while (true)
         {
-            float distance = Vector3.Distance(ObjectToControl.transform.localPosition, endPosition);
+            float angle = Quaternion.Angle(ObjectToControl.transform.localRotation, endRotation);
 
-            //move
-            ObjectToControl.transform.localPosition = Vector3.MoveTowards(ObjectToControl.transform.localPosition, endPosition, speedMovement * Time.deltaTime);
+            //rotate
+            ObjectToControl.transform.localRotation = Quaternion.RotateTowards(ObjectToControl.transform.localRotation, endRotation, speedRotation * Time.deltaTime);
 
-            //if passed end position, stop movement
-            if(Vector3.Distance(ObjectToControl.transform.localPosition, endPosition) > distance)
+            //if passed end rotation, stop rotation
+            if (Quaternion.Angle(ObjectToControl.transform.localRotation, endRotation) > angle)
             {
-                ObjectToControl.transform.localPosition = endPosition;
+                ObjectToControl.transform.localRotation = endRotation;
                 break;
             }
 
@@ -64,7 +64,7 @@ public class MoveObject : Activable
     {
         //if hit rope collider
         RopeColliderInteraction ropeColliderInteraction = collision.gameObject.GetComponentInParent<RopeColliderInteraction>();
-        if(ropeColliderInteraction)
+        if (ropeColliderInteraction)
         {
             //destroy rope
             ropeColliderInteraction.DestroyRope();

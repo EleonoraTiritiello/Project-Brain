@@ -110,6 +110,10 @@ public class DraggingRopeState : NormalState
             //detect rope collision exit
             if (ropePositions.Count > 1)
             {
+                //if no angle, check if angle is positive or negative
+                if (anglePositive < 0)
+                    UpdateAngle();
+
                 DetectRopeCollisionExit();
             }
 
@@ -186,6 +190,11 @@ public class DraggingRopeState : NormalState
             //&& Vector3.Distance(hit.point, handPosition) < Vector3.Distance(lastRope, handPosition)     //check is near then last point
             && Vector3.Distance(hit.point, lastRope) > distanceBetweenPoints)                           //check distance to not hit always same point
         {
+            //be sure didn't hit connected point
+            Interactable interactable = hit.transform.GetComponentInParent<Interactable>();
+            if (interactable && interactable == player.connectedPoint)
+                return;
+
             //add point and recreate joint, and add collider
             ropePositions.Add(hit.point);
             RecreateSpringJoint();
@@ -197,10 +206,6 @@ public class DraggingRopeState : NormalState
 
     void DetectRopeCollisionExit()
     {
-        //if no angle, check if angle is positive or negative
-        if (anglePositive < 0)
-            UpdateAngle();
-
         RaycastHit newHit;
         if (Physics.Linecast(handPosition, penultimaRope, out newHit, ropeLayer) == false
             || Vector3.Distance(newHit.point, penultimaRope) < distanceBetweenPoints)   //check if hit near to point, in this case calculate as same point
