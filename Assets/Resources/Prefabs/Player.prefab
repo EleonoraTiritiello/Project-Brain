@@ -62,10 +62,13 @@ MonoBehaviour:
     spring: 200
     damper: 200
     massScale: 100
+    ropeLayer:
+      serializedVersion: 2
+      m_Bits: 567
+    distanceBetweenPoints: 0.5
     changeHand: 32
     rightHand: {fileID: 7356048464615327791}
     leftHand: {fileID: 8216472718348016952}
-    distanceBetweenPoints: 0.5
     ropePositions: []
   connectedPoint: {fileID: 0}
 --- !u!54 &8295705607832129752

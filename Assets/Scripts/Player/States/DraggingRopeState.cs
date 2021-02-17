@@ -11,12 +11,14 @@ public class DraggingRopeState : NormalState
     [SerializeField] float massScale = 100;
 
     [Header("Rope")]
+    [SerializeField] LayerMask ropeLayer = default;
+    [SerializeField] float distanceBetweenPoints = 0.5f;
+
+    [Header("Change Hand")]
     [SerializeField] KeyCode changeHand = KeyCode.Space;
     [SerializeField] Transform rightHand = default;
     [SerializeField] Transform leftHand = default;
-    [SerializeField] float distanceBetweenPoints = 0.5f;
 
-    Player player;
     SpringJoint joint;
     bool usingRightHand = true;
     Vector3 handPosition;
@@ -30,10 +32,8 @@ public class DraggingRopeState : NormalState
     {
         base.Enter();
 
-        player = stateMachine as Player;
-
         //start with position at connected point
-        if(ropePositions.Count <= 0)
+        if (ropePositions.Count <= 0)
             ropePositions.Add(player.connectedPoint.ObjectToControl.transform.position);
 
         //create spring joint from connected point        
@@ -178,13 +178,11 @@ public class DraggingRopeState : NormalState
         }
     }
 
-
-
     void DetectRopeCollisionEnter()
     {
         //if hit something
         RaycastHit hit;
-        if (Physics.Linecast(handPosition, lastRope, out hit, redd096.CreateLayer.LayerAllExcept("Player"))
+        if (Physics.Linecast(handPosition, lastRope, out hit, ropeLayer)
             //&& Vector3.Distance(hit.point, handPosition) < Vector3.Distance(lastRope, handPosition)     //check is near then last point
             && Vector3.Distance(hit.point, lastRope) > distanceBetweenPoints)                           //check distance to not hit always same point
         {
@@ -204,7 +202,7 @@ public class DraggingRopeState : NormalState
             UpdateAngle();
 
         RaycastHit newHit;
-        if (Physics.Linecast(handPosition, penultimaRope, out newHit, redd096.CreateLayer.LayerAllExcept("Player")) == false
+        if (Physics.Linecast(handPosition, penultimaRope, out newHit, ropeLayer) == false
             || Vector3.Distance(newHit.point, penultimaRope) < distanceBetweenPoints)   //check if hit near to point, in this case calculate as same point
         {
             //greater than 180 if now is positive and before was negative or viceversa

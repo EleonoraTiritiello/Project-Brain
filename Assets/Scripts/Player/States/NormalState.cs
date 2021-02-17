@@ -14,7 +14,7 @@ public class NormalState : State
     [SerializeField] KeyCode detachRopeInput = KeyCode.Q;
     [SerializeField] float timeToKeepPressedToRewind = 0.5f;
 
-    Player player;
+    protected Player player;
     Rigidbody rb;
     Transform cam;
 
