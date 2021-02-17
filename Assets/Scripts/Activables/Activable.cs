@@ -50,7 +50,7 @@ public abstract class Activable : MonoBehaviour
 
         //draw a line to every object necessary to activate this
         foreach (Interactable interactable in objectsForActivate)
-            Gizmos.DrawLine(interactable.ObjectToControl.transform.position + Vector3.right * 0.1f, objectToControl.transform.position);   //a bit moved, to not override Interactable gizmos
+            Gizmos.DrawLine(interactable.ObjectToControl.transform.position + Vector3.right * 0.05f, ObjectToControl.transform.position + Vector3.right * 0.05f);   //a bit moved, to not override Interactable gizmos
     }
 
     #region private API
