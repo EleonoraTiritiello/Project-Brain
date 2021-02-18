@@ -175,18 +175,21 @@ MonoBehaviour:
   height: 1
   doors: []
   showDebug: 0
-  textID: {fileID: 0}
+  textID: {fileID: 6452223850291484139}
   id: 0
   adjacentDoor:
     door: {fileID: 0}
     direction: 0
     isOnlyExit: 0
   adjacentRoom: {fileID: 0}
-  door:
+  entranceDoor:
     door: {fileID: 0}
     direction: 0
     isOnlyExit: 0
+  exitDoors: []
   cameraPosition: {fileID: 0}
+  timeToMoveCamera: 1
+  roomAlternatives: []
 --- !u!1 &1977278818405583244
 GameObject:
   m_ObjectHideFlags: 0
