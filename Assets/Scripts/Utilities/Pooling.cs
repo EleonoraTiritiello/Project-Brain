@@ -213,7 +213,10 @@ public class Pooling<T> where T : Object
     {
         PooledObjects.Clear();
     }
+}
 
+public static class Pooling
+{
     /// <summary>
     /// Simple deactive function
     /// </summary>

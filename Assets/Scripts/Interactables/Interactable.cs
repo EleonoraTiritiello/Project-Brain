@@ -225,7 +225,7 @@ public abstract class Interactable : MonoBehaviour
 
         //remove from the list and destroy
         collidersInOrder.Remove(collider);
-        Pooling<Collider>.Destroy(collider.gameObject);
+        Pooling.Destroy(collider.gameObject);
     }
 
     /// <summary>
