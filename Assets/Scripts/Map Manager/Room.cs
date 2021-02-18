@@ -16,7 +16,7 @@ public struct DoorStruct
 
 [AddComponentMenu("Project Brain/Room")]
 [SelectionBase]
-public class Room : MonoBehaviour
+public abstract class Room : MonoBehaviour
 {
     #region variables
 
@@ -41,35 +41,14 @@ public class Room : MonoBehaviour
 
     [CanShow("showDebug")] [SerializeField] DoorStruct adjacentDoor = default;
     [CanShow("showDebug")] [SerializeField] Room adjacentRoom = default;
-    [CanShow("showDebug")] [SerializeField] DoorStruct door = default;
+    [CanShow("showDebug")] [SerializeField] DoorStruct entranceDoor = default;
+    [CanShow("showDebug")] [SerializeField] protected List<DoorStruct> usedDoors = new List<DoorStruct>();
 
     #endregion
 
+    public abstract void CompleteRoom();
+
     #region public API
-
-    public void Init(int id, bool teleported)
-    {
-        this.id = id;
-
-        //debug
-        if (textID)
-        {
-            textID.text = teleported ? "tp: " + id.ToString() : id.ToString();
-        }
-        else
-        {
-            Debug.Log("La room " + name + " non ha un Text per mostrare il suo ID in scena");
-        }
-
-        //random color
-        float h = Random.value;
-        Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
-        {
-            r.material.color = color;
-            color = Color.HSVToRGB(h, 1f, 1f);
-        }
-    }
 
     public void SetPosition(Vector3 position)
     {
@@ -116,6 +95,37 @@ public class Room : MonoBehaviour
         return true;
     }
 
+    public void Register(int id, bool teleported)
+    {
+        this.id = id;
+
+        //debug
+        if (textID)
+        {
+            textID.text = teleported ? "tp: " + id.ToString() : id.ToString();
+        }
+        else
+        {
+            Debug.Log("La room " + name + " non ha un Text per mostrare il suo ID in scena");
+        }
+
+        //set entrance and exit doors used
+        if (adjacentRoom)
+        {
+            usedDoors.Add(entranceDoor);
+            adjacentRoom.usedDoors.Add(adjacentDoor);
+        }
+
+        //random color
+        float h = Random.value;
+        Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            r.material.color = color;
+            color = Color.HSVToRGB(h, 1f, 1f);
+        }
+    }
+
     #endregion
 
     #region private API
@@ -125,12 +135,12 @@ public class Room : MonoBehaviour
         //if moving left, check doors on right, else check doors on left
         if (adjacentDoor.direction == CardinalDirection.left || adjacentDoor.direction == CardinalDirection.right)
         {
-            door.direction = adjacentDoor.direction == CardinalDirection.left ? CardinalDirection.right : CardinalDirection.left;
+            entranceDoor.direction = adjacentDoor.direction == CardinalDirection.left ? CardinalDirection.right : CardinalDirection.left;
         }
         //if moving up, check doors on bottom, else check doors on top
         else
         {
-            door.direction = adjacentDoor.direction == CardinalDirection.up ? CardinalDirection.down : CardinalDirection.up;
+            entranceDoor.direction = adjacentDoor.direction == CardinalDirection.up ? CardinalDirection.down : CardinalDirection.up;
         }
 
         List<DoorStruct> possibleDoors = new List<DoorStruct>();
@@ -138,7 +148,7 @@ public class Room : MonoBehaviour
         //add every possible door (using direction setted before)
         foreach (DoorStruct possibleDoor in doors)
         {
-            if (possibleDoor.direction == door.direction
+            if (possibleDoor.direction == entranceDoor.direction
                 && possibleDoor.isOnlyExit == false)                //be sure is not OnlyExit, because this one will be an entrance to this room
             {
                 possibleDoors.Add(possibleDoor);
@@ -150,10 +160,10 @@ public class Room : MonoBehaviour
             return false;
 
         //else get a random door between possibles
-        door = possibleDoors[Random.Range(0, possibleDoors.Count)];
+        entranceDoor = possibleDoors[Random.Range(0, possibleDoors.Count)];
 
         //calculate distance and move
-        Vector3 fromDoorToAdjacentDoor = adjacentDoor.door.position - door.door.position;
+        Vector3 fromDoorToAdjacentDoor = adjacentDoor.door.position - entranceDoor.door.position;
         transform.position += fromDoorToAdjacentDoor;
 
         return true;

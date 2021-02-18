@@ -128,6 +128,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
+            EndMapGeneration();
             Debug.Log("<color=cyan>Mission complete!</color>");
         }
     }
@@ -225,7 +226,7 @@ public class MapManager : MonoBehaviour
     {
         //add to list and update ID
         rooms.Add(newRoom);
-        newRoom.Init(roomID, teleported);
+        newRoom.Register(roomID, teleported);
         roomID++;
 
         //update fixed rooms
@@ -242,6 +243,15 @@ public class MapManager : MonoBehaviour
         {
             fixedRoomsAlreadyPut.Add(roomTryingToPut);
             roomTryingToPut = null;
+        }
+    }
+
+    void EndMapGeneration()
+    {
+        //foreach room create, call function
+        foreach(Room room in rooms)
+        {
+            room.CompleteRoom();
         }
     }
 
@@ -394,7 +404,7 @@ public class MapManager : MonoBehaviour
     {
         //instantiate room (child of this transform) and initialize
         currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], transform);
-        currentRoom.Init(roomID, false);
+        currentRoom.Register(roomID, false);
         currentRoom.SetPosition(Vector3.zero);
 
         //add to list and update ID and last room
@@ -415,7 +425,7 @@ public class MapManager : MonoBehaviour
         }
 
         //initialize and set position
-        currentRoom.Init(roomID, teleported);
+        currentRoom.Register(roomID, teleported);
         if (currentRoom.SetPosition(door, lastRoom))    //if can't set position is because there are not doors which attach
         {
             //check if there is space for this room

@@ -2,11 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct RoomAlternativesStruct
+{
+    public RoomGame room;
+    public int numberDoors;
+}
+
 public class RoomGame : Room
 {
     [Header("Camera Position")]
     public Transform cameraPosition = default;
     public float timeToMoveCamera = 1;
+
+    [Header("This room alternatives")]
+    [SerializeField] List<RoomAlternativesStruct> roomAlternatives = new List<RoomAlternativesStruct>();
 
     Transform cam;
 
@@ -25,5 +35,30 @@ public class RoomGame : Room
         //set cam position and rotation
         cam.position = cameraPosition.position;
         cam.rotation = cameraPosition.rotation;
+    }
+
+    public override void CompleteRoom()
+    {
+        //foreach alternative
+        foreach(RoomAlternativesStruct alternative in roomAlternatives)
+        {
+            //find one with same number of doors
+            if(alternative.numberDoors == usedDoors.Count)
+            {
+                RegenRoom(alternative.room);
+                break;
+            }
+        }
+    }
+
+    void RegenRoom(RoomGame newRoom)
+    {
+        //instantiate new room
+        RoomGame room = Instantiate(newRoom, transform.parent);
+        room.transform.position = transform.position;
+        room.transform.rotation = transform.rotation;
+
+        //and destroy this one
+        Destroy(gameObject);
     }
 }
