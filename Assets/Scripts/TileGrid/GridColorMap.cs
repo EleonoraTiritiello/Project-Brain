@@ -20,7 +20,15 @@
                 ((GridColorMap)target).RegenGrid();
 
                 //set undo
-                Undo.RegisterFullObjectHierarchyUndo(target, "Regen World");
+                Undo.RegisterFullObjectHierarchyUndo(target, "Regen Grid");
+            }
+
+            if (GUILayout.Button("Destroy Grid"))
+            {
+                ((GridColorMap)target).DestroyGrid();
+
+                //set undo
+                Undo.RegisterFullObjectHierarchyUndo(target, "Destroy Grid");
             }
         }
     }
@@ -40,7 +48,7 @@
             Color color = gridImage.GetPixel(x, y);
 
             //foreach tile in list, find tile with this color
-            foreach(TileColorMap tile in tiles)
+            foreach (TileColorMap tile in tiles)
             {
                 if (tile.tileColor == color)
                     return tile;
@@ -54,6 +62,12 @@
             //remove old grid and generate new one
             RemoveOldGrid();
             GenerateGrid(gridImage.width, gridImage.height);
+        }
+
+        public void DestroyGrid()
+        {
+            //remove old grid
+            RemoveOldGrid();
         }
     }
 }
