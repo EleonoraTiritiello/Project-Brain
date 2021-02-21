@@ -6,14 +6,17 @@ public abstract class Activable : MonoBehaviour
 {
     [Header("Important")]
     [Tooltip("The object to activate or deactivate")] [SerializeField] GameObject objectToControl = default;
-    public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
 
     [Header("Activable")]
-    [Tooltip("Need every object in the list to activate, or only one?")] [SerializeField] bool needEveryObjectInTheList = true;
-    [Tooltip("List of objects necessary to activate this activable")] [SerializeField] List<Interactable> objectsForActivate = new List<Interactable>();
+    [Tooltip("How many objects of the list to activate? (-1 means all the list)")] [SerializeField] int howManyObjectsToActivate = -1;
+    [Tooltip("List of objects necessary to activate this activable")] public List<Interactable> ObjectsForActivate = new List<Interactable>();
+
+    public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
+
 
     bool isActive;
     List<Interactable> alreadyActiveObjects = new List<Interactable>();
+    int necessaryToActivate => howManyObjectsToActivate < 0 ? ObjectsForActivate.Count : howManyObjectsToActivate;  //necessary number or all the list
 
     /// <summary>
     /// Function to activate or deactivate object
@@ -23,17 +26,17 @@ public abstract class Activable : MonoBehaviour
     public virtual void ToggleObject(Interactable interactable, bool active)
     {
         //if interactable is inside the list
-        if(objectsForActivate.Contains(interactable))
+        if(ObjectsForActivate.Contains(interactable))
         {
             if (active)
             {
-                //add to the list and try activate
+                //add to the list of already active and try activate
                 AddElementInTheList(interactable);
                 TryActivate();
             }
             else
             {
-                //remove from the list and try deactivate
+                //remove from the list of already active and try deactivate
                 RemoveElementFromTheList(interactable);
                 TryDeactivate();
             }
@@ -49,7 +52,7 @@ public abstract class Activable : MonoBehaviour
         Gizmos.color = Color.cyan;
 
         //draw a line to every object necessary to activate this
-        foreach (Interactable interactable in objectsForActivate)
+        foreach (Interactable interactable in ObjectsForActivate)
             Gizmos.DrawLine(interactable.ObjectToControl.transform.position + Vector3.right * 0.05f, ObjectToControl.transform.position + Vector3.right * 0.05f);   //a bit moved, to not override Interactable gizmos
     }
 
@@ -79,8 +82,8 @@ public abstract class Activable : MonoBehaviour
         if (isActive)
             return;
 
-        if( (needEveryObjectInTheList == false && alreadyActiveObjects.Count > 0)   //if doesn't need every element and there is at least one
-            || alreadyActiveObjects.Count >= objectsForActivate.Count)               //or if there are all the elements in the list
+        //if reach necessary
+        if(alreadyActiveObjects.Count >= necessaryToActivate)
         {
             isActive = true;
             Active();
@@ -93,8 +96,8 @@ public abstract class Activable : MonoBehaviour
         if (isActive == false)
             return;
 
-        if((needEveryObjectInTheList && alreadyActiveObjects.Count < objectsForActivate.Count)   //if need every element in the list but there aren't all
-            || alreadyActiveObjects.Count <= 0)                                                 //or if there isn't neither one
+        //if not reach necessary
+        if(alreadyActiveObjects.Count < necessaryToActivate)
         {
             isActive = false;
             Deactive();
