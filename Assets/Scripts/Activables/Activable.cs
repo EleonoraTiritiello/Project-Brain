@@ -2,6 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
+using UnityEditor;
+
+[CustomEditor(typeof(Activable), true)]
+[CanEditMultipleObjects]
+public class ActivableEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        GUILayout.Space(10);
+
+        if (GUILayout.Button("Fill Objects for Activate"))
+        {
+            //get every interactable
+            Interactable[] interactables = FindObjectsOfType<Interactable>();
+
+            foreach (Object o in targets)
+            {
+                //only if cast on activable
+                Activable activable = o as Activable;
+                if (activable == null)
+                    continue;
+
+                foreach (Interactable interactable in interactables)
+                {
+                    //if contains this activable
+                    if (ContainsActivable(interactable, activable))
+                    {
+                        //add this interactable to this activable
+                        if (activable.ObjectsForActivate.Contains(interactable) == false)
+                            activable.ObjectsForActivate.Add(interactable);
+                    }
+                }
+            }
+
+            //repaint scene
+            SceneView.RepaintAll();
+        }
+    }
+
+    bool ContainsActivable(Interactable interactable, Activable activable)
+    {
+        //cast interactable to activator neuron or similar, and check if activable is inside its list
+        if(interactable is ActivatorNeuron)
+        {
+            return ((ActivatorNeuron)interactable).ObjectsToActivate.Contains(activable);
+        }
+        else if (interactable is SwitchNeuron)
+        {
+            return ((SwitchNeuron)interactable).ObjectsToActivate.Contains(activable);
+        }
+
+        return false;
+    }
+}
+
+#endif
+
 public abstract class Activable : MonoBehaviour
 {
     [Header("Important")]
