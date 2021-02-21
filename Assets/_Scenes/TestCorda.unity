@@ -585,8 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 806162275}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 207514952}
   - {fileID: 859869004}
   speedMovement: 1
@@ -1394,7 +1394,7 @@ Transform:
   m_Children:
   - {fileID: 1517251401}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 384
+  m_RootOrder: 385
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &34121914
 MonoBehaviour:
@@ -1457,8 +1457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1591885978}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 712928699}
 --- !u!114 &34654552
 MonoBehaviour:
@@ -1880,7 +1880,7 @@ Transform:
   m_Children:
   - {fileID: 1868336734}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 375
+  m_RootOrder: 376
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &47189323
 MonoBehaviour:
@@ -4435,7 +4435,7 @@ Transform:
   m_Children:
   - {fileID: 1779290153}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 350
+  m_RootOrder: 351
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &140683780
 MonoBehaviour:
@@ -4512,7 +4512,7 @@ Transform:
   m_Children:
   - {fileID: 2077609071}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 361
+  m_RootOrder: 362
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &142330993
 MonoBehaviour:
@@ -5227,7 +5227,7 @@ Transform:
   m_Children:
   - {fileID: 307897156}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 385
+  m_RootOrder: 386
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158763822
 MonoBehaviour:
@@ -7179,13 +7179,13 @@ MonoBehaviour:
   colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
     type: 3}
   RopeLength: 10
-  objectsToActivate:
-  - {fileID: 426869948}
+  ObjectsToActivate:
   - {fileID: 11909596}
-  - {fileID: 1877517747}
-  - {fileID: 916045892}
   - {fileID: 254339594}
+  - {fileID: 426869948}
   - {fileID: 582270485}
+  - {fileID: 916045892}
+  - {fileID: 1877517747}
 --- !u!114 &207514953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7787,7 +7787,7 @@ Transform:
   m_Children:
   - {fileID: 666682702}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 380
+  m_RootOrder: 381
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &222612349
 MonoBehaviour:
@@ -8902,8 +8902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1426068399}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 207514952}
   - {fileID: 859869004}
   speedMovement: 1
@@ -9267,7 +9267,7 @@ Transform:
   m_Children:
   - {fileID: 92215616}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 378
+  m_RootOrder: 379
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260068233
 MonoBehaviour:
@@ -9545,7 +9545,7 @@ Transform:
   m_Children:
   - {fileID: 522933000}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 362
+  m_RootOrder: 363
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &266651217
 MonoBehaviour:
@@ -10339,13 +10339,12 @@ MonoBehaviour:
   colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
     type: 3}
   RopeLength: 10
-  objectsToActivate:
+  ObjectsToActivate:
+  - {fileID: 523805885}
+  - {fileID: 650183552}
   - {fileID: 857278169}
   - {fileID: 1206021810}
   - {fileID: 1756288747}
-  - {fileID: 523805885}
-  - {fileID: 650183552}
-  - {fileID: 1220679284}
 --- !u!114 &288814573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12154,7 +12153,7 @@ Transform:
   m_Children:
   - {fileID: 869645650}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 377
+  m_RootOrder: 378
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &338795250
 MonoBehaviour:
@@ -12431,7 +12430,7 @@ Transform:
   m_Children:
   - {fileID: 1378209852}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 364
+  m_RootOrder: 365
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348214504
 MonoBehaviour:
@@ -12925,7 +12924,7 @@ Transform:
   m_Children:
   - {fileID: 60827114}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 376
+  m_RootOrder: 377
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &365459317
 MonoBehaviour:
@@ -14411,8 +14410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 733393298}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 207514952}
   - {fileID: 859869004}
   speedMovement: 1
@@ -14524,8 +14523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1173445882}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 1973637001}
 --- !u!114 &427411477
 MonoBehaviour:
@@ -15490,7 +15489,7 @@ Transform:
   m_Children:
   - {fileID: 1906057879}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 399
+  m_RootOrder: 400
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &456770614
 MonoBehaviour:
@@ -15753,7 +15752,7 @@ Transform:
   m_Children:
   - {fileID: 1267994036}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 398
+  m_RootOrder: 399
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &461114246
 MonoBehaviour:
@@ -15799,7 +15798,7 @@ Transform:
   m_Children:
   - {fileID: 992229660}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 381
+  m_RootOrder: 382
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &470349699
 MonoBehaviour:
@@ -16621,7 +16620,7 @@ Transform:
   m_Children:
   - {fileID: 95623362}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 388
+  m_RootOrder: 389
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &505001874
 MonoBehaviour:
@@ -17191,8 +17190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 602481959}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 288814572}
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.25, z: 0}
@@ -19395,8 +19394,8 @@ Transform:
   m_Children:
   - {fileID: 1361662065}
   - {fileID: 1057870648}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1079299850}
+  m_RootOrder: 350
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &582270485
 MonoBehaviour:
@@ -19411,8 +19410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1057870647}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 207514952}
   - {fileID: 859869004}
   speedMovement: 1
@@ -20248,7 +20247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600351548
 GameObject:
@@ -21988,8 +21987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1036290515}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 288814572}
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.25, z: 0}
@@ -22148,7 +22147,7 @@ Transform:
   - {fileID: 872433249}
   - {fileID: 2066491803}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &661393893
 GameObject:
@@ -23527,7 +23526,7 @@ MonoBehaviour:
   ropePrefab: {fileID: 0}
   colliderPrefab: {fileID: 0}
   RopeLength: 10
-  objectsToActivate:
+  ObjectsToActivate:
   - {fileID: 34654551}
 --- !u!114 &712928700
 MonoBehaviour:
@@ -26685,7 +26684,7 @@ Transform:
   m_Children:
   - {fileID: 2100486492}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 356
+  m_RootOrder: 357
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &797349552
 MonoBehaviour:
@@ -28845,7 +28844,7 @@ Transform:
   m_Children:
   - {fileID: 198116369}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 363
+  m_RootOrder: 364
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &849519287
 MonoBehaviour:
@@ -29092,8 +29091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1090753326}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 288814572}
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.25, z: 0}
@@ -29210,13 +29209,13 @@ MonoBehaviour:
   colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
     type: 3}
   RopeLength: 10
-  objectsToActivate:
-  - {fileID: 426869948}
+  ObjectsToActivate:
   - {fileID: 11909596}
-  - {fileID: 1877517747}
-  - {fileID: 916045892}
   - {fileID: 254339594}
+  - {fileID: 426869948}
   - {fileID: 582270485}
+  - {fileID: 916045892}
+  - {fileID: 1877517747}
 --- !u!114 &859869005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30134,7 +30133,7 @@ Transform:
   m_Children:
   - {fileID: 1896879035}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 366
+  m_RootOrder: 367
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &894530078
 MonoBehaviour:
@@ -30737,8 +30736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 235272918}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 207514952}
   - {fileID: 859869004}
   speedMovement: 1
@@ -32097,7 +32096,7 @@ Transform:
   m_Children:
   - {fileID: 1740593372}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 387
+  m_RootOrder: 388
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &969314620
 MonoBehaviour:
@@ -32953,7 +32952,7 @@ Transform:
   m_Children:
   - {fileID: 1320679827}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 368
+  m_RootOrder: 369
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &989948616
 MonoBehaviour:
@@ -33184,7 +33183,7 @@ Transform:
   m_Children:
   - {fileID: 2129101085}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 391
+  m_RootOrder: 392
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &993306109
 MonoBehaviour:
@@ -35986,6 +35985,7 @@ Transform:
   - {fileID: 2028468834}
   - {fileID: 1788912692}
   - {fileID: 1871394661}
+  - {fileID: 582270484}
   - {fileID: 140683779}
   - {fileID: 1081121248}
   - {fileID: 1609546441}
@@ -36208,7 +36208,7 @@ Transform:
   m_Children:
   - {fileID: 547492622}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 351
+  m_RootOrder: 352
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081121249
 MonoBehaviour:
@@ -37149,7 +37149,7 @@ Transform:
   m_Children:
   - {fileID: 956595672}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 389
+  m_RootOrder: 390
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1121262018
 MonoBehaviour:
@@ -37458,7 +37458,7 @@ Transform:
   m_Children:
   - {fileID: 1460514571}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 365
+  m_RootOrder: 366
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1141725407
 MonoBehaviour:
@@ -38033,7 +38033,7 @@ Transform:
   m_Children:
   - {fileID: 1047441608}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 395
+  m_RootOrder: 396
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1155321378
 MonoBehaviour:
@@ -38929,7 +38929,7 @@ Transform:
   m_Children:
   - {fileID: 1041793427}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 379
+  m_RootOrder: 380
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1174748664
 MonoBehaviour:
@@ -39625,7 +39625,7 @@ Transform:
   m_Children:
   - {fileID: 2104994720}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 386
+  m_RootOrder: 387
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1193338285
 MonoBehaviour:
@@ -39857,7 +39857,7 @@ Transform:
   m_Children:
   - {fileID: 1177574920}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 383
+  m_RootOrder: 384
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1197364221
 MonoBehaviour:
@@ -40198,8 +40198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1714016405}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 288814572}
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.25, z: 0}
@@ -40892,9 +40892,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 0}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
-  - {fileID: 288814572}
+  howManyObjectsToActivate: -1
+  ObjectsForActivate: []
   speedRotation: 90
   localRotationOnActive: {x: 0, y: 90, z: 0}
 --- !u!1 &1223637000
@@ -43278,8 +43277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1640213690}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 1889135288}
 --- !u!114 &1297547781
 MonoBehaviour:
@@ -43710,7 +43709,7 @@ Transform:
   m_Children:
   - {fileID: 1967145309}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 354
+  m_RootOrder: 355
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1318041306
 MonoBehaviour:
@@ -46861,7 +46860,7 @@ Transform:
   m_Children:
   - {fileID: 2042688357}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 357
+  m_RootOrder: 358
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1400288822
 MonoBehaviour:
@@ -46907,7 +46906,7 @@ Transform:
   m_Children:
   - {fileID: 1924297472}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 367
+  m_RootOrder: 368
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1400307390
 MonoBehaviour:
@@ -47547,7 +47546,7 @@ Transform:
   m_Children:
   - {fileID: 420457391}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 360
+  m_RootOrder: 361
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1417161531
 MonoBehaviour:
@@ -48274,7 +48273,7 @@ Transform:
   m_Children:
   - {fileID: 764546847}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 397
+  m_RootOrder: 398
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1440157545
 MonoBehaviour:
@@ -48923,7 +48922,7 @@ Transform:
   m_Children:
   - {fileID: 1308799658}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 353
+  m_RootOrder: 354
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1458160533
 MonoBehaviour:
@@ -50215,7 +50214,7 @@ Transform:
   m_Children:
   - {fileID: 1817217629}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 370
+  m_RootOrder: 371
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1500342648
 MonoBehaviour:
@@ -50761,7 +50760,7 @@ Transform:
   m_Children:
   - {fileID: 1533686782}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 393
+  m_RootOrder: 394
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1523159779
 MonoBehaviour:
@@ -53252,7 +53251,7 @@ MonoBehaviour:
   ropePrefab: {fileID: 0}
   colliderPrefab: {fileID: 0}
   RopeLength: 10
-  objectsToActivate:
+  ObjectsToActivate:
   - {fileID: 1818892821}
 --- !u!114 &1578930101
 MonoBehaviour:
@@ -53282,7 +53281,7 @@ Transform:
   - {fileID: 1610840114}
   - {fileID: 332673003}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 369
+  m_RootOrder: 370
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580609630
 GameObject:
@@ -53529,7 +53528,7 @@ Transform:
   m_Children:
   - {fileID: 248968467}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 394
+  m_RootOrder: 395
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1586633251
 MonoBehaviour:
@@ -53714,7 +53713,7 @@ Transform:
   m_Children:
   - {fileID: 1046987369}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 382
+  m_RootOrder: 383
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1596239621
 MonoBehaviour:
@@ -53883,7 +53882,7 @@ Transform:
   m_Children:
   - {fileID: 2119520391}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 374
+  m_RootOrder: 375
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1608724726
 MonoBehaviour:
@@ -53929,7 +53928,7 @@ Transform:
   m_Children:
   - {fileID: 1729971135}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 352
+  m_RootOrder: 353
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1609546442
 MonoBehaviour:
@@ -57336,7 +57335,7 @@ Transform:
   m_Children:
   - {fileID: 2058093075}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 372
+  m_RootOrder: 373
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1710853874
 MonoBehaviour:
@@ -59519,8 +59518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 591237442}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 288814572}
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.25, z: 0}
@@ -60635,7 +60634,7 @@ Transform:
   m_Children:
   - {fileID: 979732504}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 359
+  m_RootOrder: 360
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1792755125
 MonoBehaviour:
@@ -61216,7 +61215,7 @@ Transform:
   - {fileID: 544131638}
   - {fileID: 885069473}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 390
+  m_RootOrder: 391
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1818892821
 MonoBehaviour:
@@ -61231,8 +61230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 885069472}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 1578930100}
 --- !u!114 &1818892822
 MonoBehaviour:
@@ -63374,7 +63373,7 @@ Transform:
   m_Children:
   - {fileID: 479173995}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 392
+  m_RootOrder: 393
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1862695630
 MonoBehaviour:
@@ -64108,8 +64107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 55286400}
-  needEveryObjectInTheList: 1
-  objectsForActivate:
+  howManyObjectsToActivate: -1
+  ObjectsForActivate:
   - {fileID: 207514952}
   - {fileID: 859869004}
   speedMovement: 1
@@ -64588,7 +64587,7 @@ MonoBehaviour:
   ropePrefab: {fileID: 0}
   colliderPrefab: {fileID: 0}
   RopeLength: 10
-  objectsToActivate:
+  ObjectsToActivate:
   - {fileID: 1297547780}
 --- !u!114 &1889135289
 MonoBehaviour:
@@ -64888,7 +64887,7 @@ Transform:
   m_Children:
   - {fileID: 2137037347}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 358
+  m_RootOrder: 359
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1899701355
 MonoBehaviour:
@@ -66557,7 +66556,7 @@ Transform:
   m_Children:
   - {fileID: 230705078}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 373
+  m_RootOrder: 374
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1954350349
 MonoBehaviour:
@@ -67240,7 +67239,7 @@ MonoBehaviour:
   ropePrefab: {fileID: 0}
   colliderPrefab: {fileID: 0}
   RopeLength: 10
-  objectsToActivate:
+  ObjectsToActivate:
   - {fileID: 427411476}
 --- !u!114 &1973637002
 MonoBehaviour:
@@ -67595,7 +67594,7 @@ Transform:
   m_Children:
   - {fileID: 1562389546}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 371
+  m_RootOrder: 372
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1987190246
 MonoBehaviour:
@@ -68383,7 +68382,7 @@ Transform:
   m_Children:
   - {fileID: 228771243}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 355
+  m_RootOrder: 356
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2007771055
 MonoBehaviour:
@@ -72843,7 +72842,7 @@ Transform:
   m_Children:
   - {fileID: 2073412788}
   m_Father: {fileID: 1079299850}
-  m_RootOrder: 396
+  m_RootOrder: 397
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2124614095
 MonoBehaviour:
