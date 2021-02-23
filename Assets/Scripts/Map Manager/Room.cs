@@ -35,15 +35,14 @@ public abstract class Room : MonoBehaviour
     Vector2 DownLeft => is3D ? new Vector3(transform.position.x - HalfWidth, transform.position.z - HalfHeight) : new Vector3(transform.position.x - HalfWidth, transform.position.y - HalfHeight);
 
     [Header("DEBUG")]
-    public bool showDebug = false;
-    [CanShow("showDebug")] [SerializeField] TextMesh textID = default;
-    [CanShow("showDebug")] [SerializeField] protected int id = 0;
-    [CanShow("showDebug")] [SerializeField] protected bool teleported = false;
+    [SerializeField] TextMesh textID = default;
+    protected int id = 0;
+    protected bool teleported = false;
 
-    [CanShow("showDebug")] [SerializeField] DoorStruct adjacentDoor = default;
-    [CanShow("showDebug")] [SerializeField] Room adjacentRoom = default;
-    [CanShow("showDebug")] [SerializeField] DoorStruct entranceDoor = default;
-    [CanShow("showDebug")] [SerializeField] protected List<DoorStruct> usedDoors = new List<DoorStruct>();
+    DoorStruct adjacentDoor = default;
+    Room adjacentRoom = default;
+    DoorStruct entranceDoor = default;
+    protected List<DoorStruct> usedDoors = new List<DoorStruct>();
 
     #endregion
 
@@ -101,16 +100,6 @@ public abstract class Room : MonoBehaviour
         this.id = id;
         this.teleported = teleported;
 
-        //debug
-        if (textID)
-        {
-            textID.text = teleported ? "tp: " + id.ToString() : id.ToString();
-        }
-        else
-        {
-            Debug.Log("La room " + name + " non ha un Text per mostrare il suo ID in scena");
-        }
-
         //set entrance and exit doors used
         if (adjacentRoom)
         {
@@ -118,13 +107,22 @@ public abstract class Room : MonoBehaviour
             adjacentRoom.usedDoors.Add(adjacentDoor);
         }
 
-        //random color
-        float h = Random.value;
-        Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        //debug
+        if (textID)
         {
-            r.material.color = color;
-            color = Color.HSVToRGB(h, 1f, 1f);
+            textID.text = teleported ? "tp: " + id.ToString() : id.ToString();
+        }
+
+        //debug random color
+        if (textID)
+        {
+            float h = Random.value;
+            Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
+            foreach (Renderer r in GetComponentsInChildren<Renderer>())
+            {
+                r.material.color = color;
+                color = Color.HSVToRGB(h, 1f, 1f);
+            }
         }
     }
 
