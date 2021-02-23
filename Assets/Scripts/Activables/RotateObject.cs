@@ -17,6 +17,16 @@ public class RotateObject : Activable
         localRotationOnDeactive = ObjectToControl.transform.localRotation;
     }
 
+    void OnDisable()
+    {
+        //if deactivate while coroutine is running, set last rotation
+        if (movementCoroutine != null)
+        {
+            Quaternion endRotation = isActive ? Quaternion.Euler(localRotationOnActive) : localRotationOnDeactive;
+            ObjectToControl.transform.localRotation = endRotation;
+        }
+    }
+
     protected override void Active()
     {
         //be sure there is no a coroutine running
@@ -24,7 +34,8 @@ public class RotateObject : Activable
             StopCoroutine(movementCoroutine);
 
         //start coroutine with active true
-        movementCoroutine = StartCoroutine(MovementCoroutine(true));
+        if(gameObject.activeInHierarchy)
+            movementCoroutine = StartCoroutine(MovementCoroutine());
     }
 
     protected override void Deactive()
@@ -34,13 +45,14 @@ public class RotateObject : Activable
             StopCoroutine(movementCoroutine);
 
         //start coroutine with active false
-        movementCoroutine = StartCoroutine(MovementCoroutine(false));
+        if (gameObject.activeInHierarchy)
+            movementCoroutine = StartCoroutine(MovementCoroutine());
     }
 
-    IEnumerator MovementCoroutine(bool active)
+    IEnumerator MovementCoroutine()
     {
         //set vars
-        Quaternion endRotation = active ? Quaternion.Euler(localRotationOnActive) : localRotationOnDeactive;
+        Quaternion endRotation = isActive ? Quaternion.Euler(localRotationOnActive) : localRotationOnDeactive;
 
         while (true)
         {
@@ -58,6 +70,8 @@ public class RotateObject : Activable
 
             yield return null;
         }
+
+        movementCoroutine = null;
     }
 
     void OnCollisionEnter(Collision collision)

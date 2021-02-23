@@ -17,6 +17,16 @@ public class MoveObject : Activable
         localPositionOnDeactive = ObjectToControl.transform.localPosition;
     }
 
+    void OnDisable()
+    {
+        //if deactivate while coroutine is running, set last position
+        if(movementCoroutine != null)
+        {
+            Vector3 endPosition = isActive ? localPositionOnActive : localPositionOnDeactive;
+            ObjectToControl.transform.localPosition = endPosition;
+        }
+    }
+
     protected override void Active()
     {
         //be sure there is no a coroutine running
@@ -24,7 +34,8 @@ public class MoveObject : Activable
             StopCoroutine(movementCoroutine);
 
         //start coroutine with active true
-        movementCoroutine = StartCoroutine(MovementCoroutine(true));
+        if(gameObject.activeInHierarchy)
+            movementCoroutine = StartCoroutine(MovementCoroutine());
     }
 
     protected override void Deactive()
@@ -34,13 +45,14 @@ public class MoveObject : Activable
             StopCoroutine(movementCoroutine);
 
         //start coroutine with active false
-        movementCoroutine = StartCoroutine(MovementCoroutine(false));
+        if (gameObject.activeInHierarchy)
+            movementCoroutine = StartCoroutine(MovementCoroutine());
     }
 
-    IEnumerator MovementCoroutine(bool active)
+    IEnumerator MovementCoroutine()
     {
         //set vars
-        Vector3 endPosition = active ? localPositionOnActive : localPositionOnDeactive;
+        Vector3 endPosition = isActive ? localPositionOnActive : localPositionOnDeactive;
 
         while(true)
         {
@@ -58,6 +70,8 @@ public class MoveObject : Activable
 
             yield return null;
         }
+
+        movementCoroutine = null;
     }
 
     void OnCollisionEnter(Collision collision)

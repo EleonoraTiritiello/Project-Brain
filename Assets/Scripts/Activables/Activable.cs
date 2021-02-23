@@ -75,7 +75,7 @@ public abstract class Activable : MonoBehaviour
     public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
 
 
-    bool isActive;
+    protected bool isActive;
     List<Interactable> alreadyActiveObjects = new List<Interactable>();
     int necessaryToActivate => howManyObjectsToActivate < 0 ? ObjectsForActivate.Count : howManyObjectsToActivate;  //necessary number or all the list
 

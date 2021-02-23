@@ -48,6 +48,5 @@ public class ChangeRoom : MonoBehaviour
 
         //deactive old room
         roomToDeactivate.gameObject.SetActive(false);
-
     }   
 }
