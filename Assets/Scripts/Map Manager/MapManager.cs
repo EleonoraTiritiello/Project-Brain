@@ -128,7 +128,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            EndMapGeneration();
+            yield return EndMapGeneration();
             Debug.Log("<color=cyan>Mission complete!</color>");
         }
     }
@@ -246,12 +246,14 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void EndMapGeneration()
+    IEnumerator EndMapGeneration()
     {
-        //foreach room create, call function
+        //foreach room created, call function
         foreach(Room room in rooms)
         {
             room.CompleteRoom();
+
+            yield return null;
         }
     }
 

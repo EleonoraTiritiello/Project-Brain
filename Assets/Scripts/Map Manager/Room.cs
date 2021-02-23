@@ -27,7 +27,7 @@ public abstract class Room : MonoBehaviour
     [Tooltip("Size of every tile which compose this room")] [SerializeField] float tileSize = 1f;
     [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int width = 1;
     [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int height = 1;
-    [SerializeField] List<DoorStruct> doors = new List<DoorStruct>();
+    [SerializeField] protected List<DoorStruct> doors = new List<DoorStruct>();
 
     float HalfWidth => width * tileSize * 0.5f;
     float HalfHeight => height * tileSize * 0.5f;
@@ -37,7 +37,8 @@ public abstract class Room : MonoBehaviour
     [Header("DEBUG")]
     public bool showDebug = false;
     [CanShow("showDebug")] [SerializeField] TextMesh textID = default;
-    [CanShow("showDebug")] [SerializeField] int id = 0;
+    [CanShow("showDebug")] [SerializeField] protected int id = 0;
+    [CanShow("showDebug")] [SerializeField] protected bool teleported = false;
 
     [CanShow("showDebug")] [SerializeField] DoorStruct adjacentDoor = default;
     [CanShow("showDebug")] [SerializeField] Room adjacentRoom = default;
@@ -98,6 +99,7 @@ public abstract class Room : MonoBehaviour
     public void Register(int id, bool teleported)
     {
         this.id = id;
+        this.teleported = teleported;
 
         //debug
         if (textID)

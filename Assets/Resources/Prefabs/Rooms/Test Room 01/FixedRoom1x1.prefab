@@ -491,9 +491,50 @@ PrefabInstance:
       objectReference: {fileID: 70059066970314284}
     - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
+      propertyPath: roomAlternatives.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
       propertyPath: doors.Array.data[1].direction
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: roomAlternatives.Array.data[0]
+      value: 
+      objectReference: {fileID: 2132499322010463479, guid: 29e7b35d64ef6eb47b2d097515dd668a,
+        type: 3}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: roomAlternatives.Array.data[1]
+      value: 
+      objectReference: {fileID: 2132499322010463479, guid: 42d624f5a9eabf74193b10967da25403,
+        type: 3}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: roomAlternatives.Array.data[2]
+      value: 
+      objectReference: {fileID: 2132499322010463479, guid: 9d1205575f69fc94c81f32b1b3788e68,
+        type: 3}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: roomAlternatives.Array.data[3]
+      value: 
+      objectReference: {fileID: 2132499322010463479, guid: f6c815d18bd8c6f42905f0221a71d35d,
+        type: 3}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: roomAlternatives.Array.data[4]
+      value: 
+      objectReference: {fileID: 2132499322010463479, guid: cdb6001054f698848a5f27225c44a601,
+        type: 3}
+    - target: {fileID: -3376699768233590191, guid: 30708bf968c7ba34181fcfb61e841bfa,
+        type: 3}
+      propertyPath: roomAlternatives.Array.data[5]
+      value: 
+      objectReference: {fileID: 2132499322010463479, guid: ee0ca02317d6b5e4dab8232b4fc438a0,
+        type: 3}
     - target: {fileID: 1977278817681623628, guid: 30708bf968c7ba34181fcfb61e841bfa,
         type: 3}
       propertyPath: m_Name
