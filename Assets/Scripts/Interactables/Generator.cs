@@ -9,4 +9,10 @@ public class Generator : Interactable
         //generator is active by default
         ActiveInteractable(true, null);
     }
+
+    protected override bool CanBeAttach(Interactable interactable)
+    {
+        //can't attach to generator
+        return false;
+    }
 }

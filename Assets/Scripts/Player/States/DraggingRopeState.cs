@@ -20,7 +20,6 @@ public class DraggingRopeState : NormalState
     [SerializeField] Transform leftHand = default;
 
     SpringJoint joint;
-    bool usingRightHand = true;
     Vector3 handPosition;
 
     int anglePositive;
@@ -101,7 +100,7 @@ public class DraggingRopeState : NormalState
         if (player.connectedPoint != null)
         {
             //get hand position and rpevious previous hand position
-            handPosition = usingRightHand ? rightHand.position : leftHand.position;
+            handPosition = player.usingRightHand ? rightHand.position : leftHand.position;
             RemovePreviousHandPosition();
 
             //detect rope collision enter
@@ -162,8 +161,8 @@ public class DraggingRopeState : NormalState
 
     void ChangeHand()
     {
-        //change hand
-        usingRightHand = !usingRightHand;
+        //change player hand
+        player.ChangeHand();
 
         //recreate joint
         RecreateSpringJoint();

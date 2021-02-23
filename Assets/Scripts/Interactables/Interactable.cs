@@ -21,6 +21,15 @@ public abstract class Interactable : MonoBehaviour
     Pooling<RopeColliderInteraction> colliders = new Pooling<RopeColliderInteraction>();
     List<RopeColliderInteraction> collidersInOrder = new List<RopeColliderInteraction>();
 
+    #region events
+
+    public System.Action<Vector3, Quaternion> onPickRope;
+    public System.Action<Vector3, Quaternion> onAttach;
+    public System.Action<Vector3, Quaternion> onDetach;
+    public System.Action<Vector3, Quaternion> onRewind;
+
+    #endregion
+
     #region public API
 
     /// <summary>
@@ -52,6 +61,9 @@ public abstract class Interactable : MonoBehaviour
             else if (ropePrefab == null)
                 return false;
 
+            //call event
+            onPickRope?.Invoke(transform.position, transform.rotation);
+
             return true;
         }
 
@@ -81,7 +93,7 @@ public abstract class Interactable : MonoBehaviour
     public bool AttachRope(Interactable interactable)
     {
         //check if can attach
-        if (CanAttach(interactable))
+        if (CanAttach(interactable) && interactable.CanBeAttach(this))
         {
             //active new interactable, and set this already attached
             interactable.ActiveInteractable(true, this);
@@ -90,6 +102,9 @@ public abstract class Interactable : MonoBehaviour
             //set last rope position (and collider)
             rope.SetPosition(rope.positionCount -1, interactable.ObjectToControl.transform.position);
             CreateCollider(rope.GetPosition(rope.positionCount - 2), rope.GetPosition(rope.positionCount - 1));
+
+            //call event
+            onAttach?.Invoke(interactable.transform.position, interactable.transform.rotation);
 
             return true;
         }
@@ -120,6 +135,9 @@ public abstract class Interactable : MonoBehaviour
             attachedFrom.DestroyLastCollider();
             ActiveInteractable(false, null);
 
+            //call event
+            onDetach?.Invoke(transform.position, transform.rotation);
+
             return true;
         }
 
@@ -143,6 +161,9 @@ public abstract class Interactable : MonoBehaviour
             //hide rope and destroy every collider
             rope.positionCount = 0;
             DestroyAllColliders();
+
+            //call event
+            onDetach?.Invoke(transform.position, transform.rotation);
 
             return true;
         }
@@ -177,6 +198,9 @@ public abstract class Interactable : MonoBehaviour
                     Debug.LogWarning("impossible to detach " + everyAttachedThings[i].name);
                 }
             }
+
+            //call event
+            onRewind?.Invoke(transform.position, transform.rotation);
 
             return true;
         }
@@ -247,8 +271,8 @@ public abstract class Interactable : MonoBehaviour
 
     bool CanCreateRope()
     {
-        bool thisIsActive = isActive;                                   //be sure this interactable is active
-        bool thisIsNotAlreadyAttached = attachedTo == null;             //be sure is not attached to something
+        bool thisIsActive = isActive;                                       //be sure this interactable is active
+        bool thisIsNotAlreadyAttached = attachedTo == null;                 //be sure is not attached to something
 
         //return if can create rope
         return thisIsActive && thisIsNotAlreadyAttached;
@@ -256,34 +280,36 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual bool CanAttach(Interactable interactable)
     {
-        bool isNotItSelf = interactable != this;                        //check if attach to another interactable and not itself
-        bool IsNotAlreadyAttached = interactable.attachedTo == null;    //check if interactable is not already attached to something
-        bool isNotGenerator = interactable is Generator == false;       //check if interactable is not a generator
+        bool isNotItSelf = interactable != this;                            //check if attach to another interactable and not itself
+        bool IsNotAlreadyAttached = attachedTo == null;                     //check if this is not already attached to something
 
         //return if can attach
-        return isNotItSelf && IsNotAlreadyAttached && isNotGenerator;
+        return isNotItSelf && IsNotAlreadyAttached;
+    }
+
+    protected virtual bool CanBeAttach(Interactable interactable)
+    {
+        bool isNotItSelf = interactable != this;                            //check if what want to attach is another interactable and not itself
+        bool IsNotAlreadyAttached = attachedFrom == null;                   //check if this is not already attached from something
+
+        //return if can be attached
+        return isNotItSelf && IsNotAlreadyAttached;
     }
 
     bool CanDetachRope()
     {
-        bool isAttachedToSomething = attachedFrom != null;              //be sure is already attached from something
-        if (isAttachedToSomething)
-        {
-            bool isNotAttachedAgain = attachedTo == null;               //be sure this one is NOT attached to another thing
+        bool isAttachedToSomething = attachedFrom != null;                  //be sure is already attached from something
+        bool isNotAttachedAgain = attachedTo == null;                       //be sure this one is NOT attached to another thing
 
-            //return if can detach
-            return isNotAttachedAgain;
-        }
-
-        return false;
+        return isAttachedToSomething && isNotAttachedAgain;
     }
 
     bool CanDetachRewindRope()
     {
-        bool isAttachedToSomething = attachedTo != null;                //be sure is already attached to something
+        bool isAttachedToSomething = attachedTo != null;                    //be sure is already attached to something
         if(isAttachedToSomething)
         {
-            bool isNotAttachedAgain = attachedTo.attachedTo == null;    //be sure our attached interactable is NOT attached to another thing
+            bool isNotAttachedAgain = attachedTo.attachedTo == null;        //be sure our attached interactable is NOT attached to another thing
 
             //return if can detach
             return isNotAttachedAgain;
@@ -294,7 +320,7 @@ public abstract class Interactable : MonoBehaviour
 
     bool CanRewindRope()
     {
-        bool isAttachedToSomething = attachedTo != null;                //be sure is already attached to something
+        bool isAttachedToSomething = attachedTo != null;                    //be sure is already attached to something
 
         return isAttachedToSomething;
     }

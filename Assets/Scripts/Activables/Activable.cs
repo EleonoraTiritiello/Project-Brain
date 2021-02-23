@@ -79,6 +79,13 @@ public abstract class Activable : MonoBehaviour
     List<Interactable> alreadyActiveObjects = new List<Interactable>();
     int necessaryToActivate => howManyObjectsToActivate < 0 ? ObjectsForActivate.Count : howManyObjectsToActivate;  //necessary number or all the list
 
+    #region events
+
+    public System.Action onActive;
+    public System.Action onDeactive;
+
+    #endregion
+
     /// <summary>
     /// Function to activate or deactivate object
     /// </summary>
@@ -148,6 +155,9 @@ public abstract class Activable : MonoBehaviour
         {
             isActive = true;
             Active();
+
+            //call event
+            onActive?.Invoke();
         }
     }
 
@@ -162,6 +172,9 @@ public abstract class Activable : MonoBehaviour
         {
             isActive = false;
             Deactive();
+
+            //call event
+            onDeactive?.Invoke();
         }
     }
 

@@ -13,10 +13,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 479747602324286908}
-  needEveryObjectInTheList: 1
-  objectsForActivate: []
+  howManyObjectsToActivate: -1
+  ObjectsForActivate: []
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.25, z: 0}
+--- !u!114 &148786152561081113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684567894906713286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6091bf3c896e944b88e4484309ff42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesOnActive: {fileID: 0}
+  soundOnActive:
+    audioClip: {fileID: 0}
+    volume: 0
+  particlesOnDeactive: {fileID: 0}
+  soundOnDeactive:
+    audioClip: {fileID: 0}
+    volume: 0
 --- !u!1001 &5872496678673221891
 PrefabInstance:
   m_ObjectHideFlags: 0

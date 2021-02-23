@@ -74,8 +74,6 @@
                 //if not already inside grid, add it
                 if (grid.ContainsKey(tile.PositionInGrid) == false)
                     grid.Add(tile.PositionInGrid, tile);
-                else
-                    Debug.LogWarning($"{tile.PositionInGrid} is already in the dictionary");
             }
         }
 

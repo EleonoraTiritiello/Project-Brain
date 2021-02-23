@@ -14,8 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 5976011422332417035}
   ropePrefab: {fileID: 0}
+  colliderPrefab: {fileID: 0}
   RopeLength: 10
-  objectsToActivate: []
+  ObjectsToActivate: []
+--- !u!114 &-1823300545458562335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912759792556804131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71331eaf90456b94b8ead85181d33c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesOnPick: {fileID: 0}
+  soundOnPick:
+    audioClip: {fileID: 0}
+    volume: 0
+  particlesOnAttach: {fileID: 0}
+  soundOnAttach:
+    audioClip: {fileID: 0}
+    volume: 0
+  particlesOnDetach: {fileID: 0}
+  soundOnDetach:
+    audioClip: {fileID: 0}
+    volume: 0
+  particlesOnRewind: {fileID: 0}
+  soundOnRewind:
+    audioClip: {fileID: 0}
+    volume: 0
 --- !u!1001 &4821992148945389627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 1217519994549780504, guid: 9f01bdc524f143747842a5d7a0673564,
         type: 3}
       propertyPath: m_Name
-      value: Switch Door Tile
+      value: Activator Door Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6336097595642347879, guid: 9f01bdc524f143747842a5d7a0673564,
         type: 3}

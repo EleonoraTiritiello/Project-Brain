@@ -59,7 +59,7 @@ public class RoomGame : Room
         {
             foreach(DoorStruct door in doorsToCheck)
             {
-                if(Vector3.Distance(alternativeDoor.door.localPosition, door.door.localPosition) < precisionPosition &&       //check door transform has same local position
+                if(Vector3.Distance(alternativeDoor.door.localPosition, door.door.localPosition) < precisionPosition &&         //check door transform has same local position
                     alternativeDoor.direction == door.direction &&                                                              //check same direction
                     alternativeDoor.isOnlyExit == door.isOnlyExit)                                                              //check same bool
                 {
