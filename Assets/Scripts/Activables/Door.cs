@@ -35,13 +35,10 @@ public class Door : Activable
 
     public void AddConnectedDoors(List<Door> doors)
     {
-        //clear list (if this function is called, then a room is destroyed with its doors, so there is a null reference in the list)
-        connectedDoors.Clear();
-
         foreach (Door door in doors)
         {
-            //be sure is not this door
-            if (door != this)
+            //be sure is not this door and is not already in the list
+            if (door != this && connectedDoors.Contains(door) == false)
             {
                 connectedDoors.Add(door);
             }

@@ -14,7 +14,6 @@ public class RoomGame : Room
     [SerializeField] List<RoomGame> roomAlternatives = new List<RoomGame>();
 
     Transform cam;
-    RoomGame instantiatedRoom;
 
     private void OnEnable()
     {
@@ -35,28 +34,19 @@ public class RoomGame : Room
 
     public override IEnumerator EndRoom()
     {
-        //by default instantiated room is this one (can change on RegenRoom)
-        instantiatedRoom = this;
-
         //foreach alternative
         foreach (RoomGame alternative in roomAlternatives)
         {
             //find one with same doors
             if (SameDoors(alternative.doors))
             {
-                instantiatedRoom = RegenRoom(alternative);
+                RegenRoom(alternative);
                 break;
             }
         }
 
         //wait next frame (so room is already instatiated)
         yield return null;
-
-        //connect doors between rooms
-        instantiatedRoom.ConnectDoors();
-
-        //and destroy this room
-        Destroy(gameObject);
     }
 
     #region select alternative
@@ -100,33 +90,11 @@ public class RoomGame : Room
         //register room (no set adjacent room and so on, cause also other rooms will be destroyed)
         room.Register(id, teleported);
 
+        //and destroy this room
+        Destroy(gameObject);
+
         return room;
     }
 
     #endregion
-
-    void ConnectDoors()
-    {
-        //foreach door struct do overlap and get activable doors
-        foreach (DoorStruct door in doors)
-        {
-            Collider[] colliders = Physics.OverlapSphere(door.doorTransform.position, 1.5f);
-            List<Door> activableDoors = new List<Door>();
-
-            foreach (Collider col in colliders)
-            {
-                Door activableDoor = col.GetComponentInParent<Door>();
-                if (activableDoor && activableDoors.Contains(activableDoor) == false)       //be sure is not already in the list
-                {
-                    activableDoors.Add(activableDoor);
-                }
-            }
-
-            //save connections in every activable door
-            foreach (Door activableDoor in activableDoors)
-            {
-                activableDoor.AddConnectedDoors(activableDoors);
-            }
-        }
-    }
 }

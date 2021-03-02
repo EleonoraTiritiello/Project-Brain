@@ -35,7 +35,7 @@
         [Tooltip("Size of every tile which compose this room")] [SerializeField] float tileSize = 1f;
         [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int width = 1;
         [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int height = 1;
-        [SerializeField] protected List<DoorStruct> doors = new List<DoorStruct>();
+        [SerializeField] public List<DoorStruct> doors = new List<DoorStruct>();
 
         float HalfWidth => width * tileSize * 0.5f;
         float HalfHeight => height * tileSize * 0.5f;
