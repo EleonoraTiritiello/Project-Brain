@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using redd096;
 
 public class RoomGame : Room
 {
@@ -31,7 +32,7 @@ public class RoomGame : Room
         cam.rotation = cameraPosition.rotation;
     }
 
-    public override void CompleteRoom()
+    public override void EndRoom()
     {
         //foreach alternative
         foreach(RoomGame alternative in roomAlternatives)
@@ -59,9 +60,9 @@ public class RoomGame : Room
         {
             foreach(DoorStruct door in doorsToCheck)
             {
-                if(Vector3.Distance(alternativeDoor.door.localPosition, door.door.localPosition) < precisionPosition &&         //check door transform has same local position
-                    alternativeDoor.direction == door.direction &&                                                              //check same direction
-                    alternativeDoor.isOnlyExit == door.isOnlyExit)                                                              //check same bool
+                if(Vector3.Distance(alternativeDoor.doorTransform.localPosition, door.doorTransform.localPosition) < precisionPosition &&       //check door transform has same local position
+                    alternativeDoor.direction == door.direction &&                                                                              //check same direction
+                    alternativeDoor.typeOfDoor == door.typeOfDoor)                                                                              //check same type
                 {
                     //remove from doorsToCheck and go to next alternativeDoor
                     doorsToCheck.Remove(door);

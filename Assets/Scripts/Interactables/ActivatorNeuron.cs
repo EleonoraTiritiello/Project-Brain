@@ -13,7 +13,8 @@ public class ActivatorNeuron : Neuron
 
         //draw a line to every object to activate
         foreach (Activable activable in ObjectsToActivate)
-            Gizmos.DrawLine(activable.ObjectToControl.transform.position, ObjectToControl.transform.position);
+            if (activable)
+                Gizmos.DrawLine(activable.ObjectToControl.transform.position, ObjectToControl.transform.position);
     }
 
     public override void ActiveInteractable(bool active, Interactable interactable)
@@ -22,6 +23,7 @@ public class ActivatorNeuron : Neuron
 
         //foreach object in the list, try activate or deactivate
         foreach (Activable activable in ObjectsToActivate)
-            activable.ToggleObject(this, active);
+            if (activable)
+                activable.ToggleObject(this, active);
     }
 }
