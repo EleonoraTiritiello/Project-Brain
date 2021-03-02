@@ -79,7 +79,7 @@ public class Player : StateMachine
     IEnumerator ChangeRoomCoroutine(RoomGame roomToActivate, RoomGame roomToDeactivate)
     {
         //active new room
-        roomToActivate.gameObject.SetActive(true);
+        //roomToActivate.gameObject.SetActive(true);
 
         //if there is no room to deactivate, set final cam position and stop coroutine
         if(roomToDeactivate == null)
@@ -102,7 +102,7 @@ public class Player : StateMachine
         }
 
         //deactive old room
-        roomToDeactivate.gameObject.SetActive(false);
+        //roomToDeactivate.gameObject.SetActive(false);
     }
 
     #endregion
