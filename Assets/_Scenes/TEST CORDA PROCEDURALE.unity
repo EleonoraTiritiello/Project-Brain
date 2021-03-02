@@ -340,16 +340,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
-      propertyPath: numberRooms
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
-        type: 3}
-      propertyPath: fixedRooms.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
-        type: 3}
       propertyPath: roomPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}

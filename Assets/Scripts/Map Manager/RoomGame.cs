@@ -14,6 +14,7 @@ public class RoomGame : Room
     [SerializeField] List<RoomGame> roomAlternatives = new List<RoomGame>();
 
     Transform cam;
+    RoomGame instantiatedRoom;
 
     private void OnEnable()
     {
@@ -32,19 +33,33 @@ public class RoomGame : Room
         cam.rotation = cameraPosition.rotation;
     }
 
-    public override void EndRoom()
+    public override IEnumerator EndRoom()
     {
+        //by default instantiated room is this one (can change on RegenRoom)
+        instantiatedRoom = this;
+
         //foreach alternative
-        foreach(RoomGame alternative in roomAlternatives)
+        foreach (RoomGame alternative in roomAlternatives)
         {
             //find one with same doors
-            if(SameDoors(alternative.doors))
+            if (SameDoors(alternative.doors))
             {
-                RegenRoom(alternative);
+                instantiatedRoom = RegenRoom(alternative);
                 break;
             }
         }
+
+        //wait next frame (so room is already instatiated)
+        yield return null;
+
+        //connect doors between rooms
+        instantiatedRoom.ConnectDoors();
+
+        //and destroy this room
+        Destroy(gameObject);
     }
+
+    #region select alternative
 
     bool SameDoors(List<DoorStruct> alternativeDoors)
     {
@@ -75,17 +90,43 @@ public class RoomGame : Room
         return doorsToCheck.Count <= 0;
     }
 
-    void RegenRoom(RoomGame newRoom)
+    RoomGame RegenRoom(RoomGame roomPrefab)
     {
         //instantiate new room
-        RoomGame room = Instantiate(newRoom, transform.parent);
+        RoomGame room = Instantiate(roomPrefab, transform.parent);
         room.transform.position = transform.position;
         room.transform.rotation = transform.rotation;
 
         //register room (no set adjacent room and so on, cause also other rooms will be destroyed)
         room.Register(id, teleported);
 
-        //and destroy this one
-        Destroy(gameObject);
+        return room;
+    }
+
+    #endregion
+
+    void ConnectDoors()
+    {
+        //foreach door struct do overlap and get activable doors
+        foreach (DoorStruct door in doors)
+        {
+            Collider[] colliders = Physics.OverlapSphere(door.doorTransform.position, 1.5f);
+            List<Door> activableDoors = new List<Door>();
+
+            foreach (Collider col in colliders)
+            {
+                Door activableDoor = col.GetComponentInParent<Door>();
+                if (activableDoor && activableDoors.Contains(activableDoor) == false)       //be sure is not already in the list
+                {
+                    activableDoors.Add(activableDoor);
+                }
+            }
+
+            //save connections in every activable door
+            foreach (Door activableDoor in activableDoors)
+            {
+                activableDoor.AddConnectedDoors(activableDoors);
+            }
+        }
     }
 }

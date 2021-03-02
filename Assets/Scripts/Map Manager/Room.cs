@@ -1,5 +1,6 @@
 ﻿namespace redd096
 {
+    using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -23,7 +24,7 @@
 
     [AddComponentMenu("redd096/Procedural Map/Room")]
     [SelectionBase]
-    public class Room : MonoBehaviour
+    public abstract class Room : MonoBehaviour
     {
         #region variables
 
@@ -43,6 +44,7 @@
 
         [Header("DEBUG")]
         [SerializeField] TextMesh textID = default;
+        [SerializeField] bool changeColor = false;
         protected int id = 0;
         protected bool teleported = false;
 
@@ -117,19 +119,22 @@
                 textID.text = teleported ? "tp: " + id.ToString() : id.ToString();
             }
 
-            //debug random color
-            float h = Random.value;
-            Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
-            foreach (Renderer r in GetComponentsInChildren<Renderer>())
+            if (changeColor)
             {
-                r.material.color = color;
-                color = Color.HSVToRGB(h, 1f, 1f);
+                //debug random color
+                float h = Random.value;
+                Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
+                foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                {
+                    r.material.color = color;
+                    color = Color.HSVToRGB(h, 1f, 1f);
+                }
             }
         }
 
-        public virtual void EndRoom()
+        public virtual IEnumerator EndRoom()
         {
-
+            yield return null;
         }
 
         #endregion

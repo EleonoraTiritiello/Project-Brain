@@ -60,7 +60,7 @@
     }
 
     [AddComponentMenu("redd096/Procedural Map/Procedural Map Manager")]
-    public class ProceduralMapManager : MonoBehaviour
+    public abstract class ProceduralMapManager : MonoBehaviour
     {
         [Header("Setup")]
         [SerializeField] bool regenOnPlay = true;
@@ -186,14 +186,12 @@
             }
         }
 
-        public IEnumerator EndGeneration()
+        public virtual IEnumerator EndGeneration()
         {
             //foreach room created, call function
             foreach (Room room in rooms)
             {
-                room.EndRoom();
-
-                yield return null;
+                yield return room.EndRoom();
             }
         }
 

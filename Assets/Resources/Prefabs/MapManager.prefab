@@ -40,28 +40,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5395595350726697733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 690a45b0743d53f43872e458400a3b37, type: 3}
+  m_Script: {fileID: 11500000, guid: 14069bfefe065c24fa18a0780aa17396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   regenOnPlay: 1
   numberRooms: 12
+  checks: []
   maxAttempts: 5
   roomsPerAttempt: 5
   doorsPerAttempt: 2
-  roomPrefabs:
-  - {fileID: 2132499322010463479, guid: bbbb835cce2941445b992d140a23de72, type: 3}
-  - {fileID: 8624833507117142093, guid: 1c4e9c0013c275d469a8617f23b3808d, type: 3}
-  - {fileID: 6328847084750735521, guid: 8ffe6d9d5a6b76040829042fb274f0b6, type: 3}
-  fixedRooms:
-  - minID: 0
-    maxID: 0
-    roomPrefab: {fileID: 2132499322010463479, guid: b43b8f72718511d40ad8fee86f5a4596,
-      type: 3}
-  - minID: 1
-    maxID: 1
-    roomPrefab: {fileID: 8624833507117142093, guid: ea68ded4d7946864888bb3fcbff798f3,
-      type: 3}
-  - minID: 5
-    maxID: 7
-    roomPrefab: {fileID: 2132499322010463479, guid: f4093ad480ef2864ba1410dc9a3dade2,
-      type: 3}
+  roomPrefabs: []
+  fixedRooms: []
+  playerPrefab: {fileID: 2191401332918638931, guid: 9a86a4c39db540d4ba67d0626f987ce1,
+    type: 3}
