@@ -53,12 +53,14 @@ MonoBehaviour:
     interactInput: 101
     detachRopeInput: 113
     timeToKeepPressedToRewind: 0.5
+    takeRopeWhenRewind: 0
   draggingRopeState:
     speed: 5
     radiusInteract: 1.5
     interactInput: 101
     detachRopeInput: 113
     timeToKeepPressedToRewind: 0.5
+    takeRopeWhenRewind: 0
     spring: 200
     damper: 200
     massScale: 100
@@ -71,6 +73,7 @@ MonoBehaviour:
     leftHand: {fileID: 8216472718348016952}
     ropePositions: []
   connectedPoint: {fileID: 0}
+  usingRightHand: 1
 --- !u!54 &8295705607832129752
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -234,7 +237,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5473033535105099824}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a1a6dfcbed45bfd40b62d0a32b5bc516, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
