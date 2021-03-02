@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : Activable
 {
     bool calledFromConnectedDoor;
-    public List<Door> connectedDoors = new List<Door>();
+    List<Door> connectedDoors = new List<Door>();
 
     protected override void Active()
     {
