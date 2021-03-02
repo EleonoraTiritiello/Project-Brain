@@ -69869,14 +69869,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3703b384f9cbbfa4285004d5208f6952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is3D: 1
+  useZ: 1
   tileSize: 1
   width: 20
   height: 20
   doors:
-  - door: {fileID: 5250436216798368769}
+  - doorTransform: {fileID: 5250436216798368769}
     direction: 2
-    isOnlyExit: 0
+    typeOfDoor: 0
   textID: {fileID: 3652641342616039961}
   cameraPosition: {fileID: 7431470392699100875}
   timeToMoveCamera: 1
