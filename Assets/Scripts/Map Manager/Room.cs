@@ -45,7 +45,7 @@
         [Header("DEBUG")]
         [SerializeField] TextMesh textID = default;
         [SerializeField] bool changeColor = false;
-        protected int id = 0;
+        public int id = 0;
         protected bool teleported = false;
 
         DoorStruct adjacentDoor = default;
@@ -54,6 +54,14 @@
         protected List<DoorStruct> usedDoors = new List<DoorStruct>();
 
         #endregion
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.cyan;
+
+            //draw room size
+            Gizmos.DrawWireCube(transform.position, new Vector3(width * tileSize, useZ ? 0 : height * tileSize, useZ ? height * tileSize : 0));
+        }
 
         #region public API
 

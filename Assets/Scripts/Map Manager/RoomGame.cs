@@ -15,22 +15,8 @@ public class RoomGame : Room
 
     Transform cam;
 
-    private void OnEnable()
-    {
-        if (cameraPosition == null)
-        {
-            Debug.LogWarning($"Manca la camera position nella camera {gameObject.name}");
-            return;
-        }
-
-        //get cam if null
-        if (cam == null)
-            cam = Camera.main.transform;
-
-        //set cam position and rotation
-        cam.position = cameraPosition.position;
-        cam.rotation = cameraPosition.rotation;
-    }
+    public Door enterDoor { get; set; }
+    public List<Door> openedDoors { get; set; } = new List<Door>();
 
     public override IEnumerator EndRoom()
     {
@@ -94,6 +80,54 @@ public class RoomGame : Room
         Destroy(gameObject);
 
         return room;
+    }
+
+    #endregion
+
+    #region public API
+
+    public void EnterRoom()
+    {
+        //start coroutine
+        StartCoroutine(MoveCameraCoroutine());
+    }
+
+    public void ForceOpenCloseEnterDoor(bool open)
+    {
+        if (enterDoor)
+        {
+            //force opening/closing enter door
+            enterDoor.ForceOpenCloseDoor(open);
+        }
+    }
+
+    IEnumerator MoveCameraCoroutine()
+    {
+        //be sure there is cameraPosition
+        if (cameraPosition == null)
+        {
+            Debug.LogWarning($"Manca la camera position nella camera {gameObject.name}");
+            yield break;
+        }
+
+        //get cam if null
+        if (cam == null)
+            cam = Camera.main.transform;
+
+        //set vars
+        Vector3 startPosition = cam.position;
+        Quaternion startRotation = cam.rotation;
+
+        //move cam smooth to position and rotation
+        float delta = 0;
+        while (delta < 1)
+        {
+            delta += Time.deltaTime / timeToMoveCamera;
+            cam.transform.position = Vector3.Lerp(startPosition, cameraPosition.position, delta);
+            cam.transform.rotation = Quaternion.Lerp(startRotation, cameraPosition.rotation, delta);
+
+            yield return null;
+        }
     }
 
     #endregion

@@ -24070,6 +24070,7 @@ GameObject:
   - component: {fileID: 2315174852923386353}
   - component: {fileID: 2315174852923386354}
   - component: {fileID: 2315174852923386355}
+  - component: {fileID: 2821091679106422577}
   m_Layer: 0
   m_Name: Door Tile(Clone)
   m_TagString: Untagged
@@ -24123,6 +24124,22 @@ MonoBehaviour:
   howManyObjectsToActivate: -1
   ObjectsForActivate:
   - {fileID: 2315174853263552110}
+--- !u!54 &2821091679106422577
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852923386356}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2315174852923498884
 GameObject:
   m_ObjectHideFlags: 0
@@ -48226,6 +48243,7 @@ GameObject:
   - component: {fileID: 2315174853645810675}
   - component: {fileID: 2315174853645810673}
   - component: {fileID: 2315174853645810674}
+  - component: {fileID: 772404852349613863}
   m_Layer: 0
   m_Name: Door Tile(Clone)
   m_TagString: Untagged
@@ -48279,6 +48297,22 @@ MonoBehaviour:
   howManyObjectsToActivate: -1
   ObjectsForActivate:
   - {fileID: 2315174853940817491}
+--- !u!54 &772404852349613863
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853645810676}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2315174853646308244
 GameObject:
   m_ObjectHideFlags: 0
@@ -67221,6 +67255,7 @@ GameObject:
   - component: {fileID: 2315174854195979233}
   - component: {fileID: 2315174854195979234}
   - component: {fileID: 2315174854195979235}
+  - component: {fileID: 5678266051456063272}
   m_Layer: 0
   m_Name: Door Tile(Clone)
   m_TagString: Untagged
@@ -67274,6 +67309,22 @@ MonoBehaviour:
   howManyObjectsToActivate: -1
   ObjectsForActivate:
   - {fileID: 2315174853311351647}
+--- !u!54 &5678266051456063272
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174854195979236}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2315174854203466899
 GameObject:
   m_ObjectHideFlags: 0
@@ -71032,7 +71083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useZ: 1
-  tileSize: 1
+  tileSize: 2
   width: 20
   height: 20
   doors:
@@ -71046,6 +71097,8 @@ MonoBehaviour:
     direction: 3
     typeOfDoor: 0
   textID: {fileID: 8093093820378867707}
+  changeColor: 0
+  id: 0
   cameraPosition: {fileID: 7431470392699100875}
   timeToMoveCamera: 1
   precisionPosition: 0.1

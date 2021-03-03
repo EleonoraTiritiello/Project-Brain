@@ -24087,6 +24087,7 @@ GameObject:
   - component: {fileID: 2315174852923386353}
   - component: {fileID: 2315174852923386354}
   - component: {fileID: 2315174852923386355}
+  - component: {fileID: 7630312556915683907}
   m_Layer: 0
   m_Name: Door Tile(Clone)
   m_TagString: Untagged
@@ -24140,6 +24141,22 @@ MonoBehaviour:
   howManyObjectsToActivate: -1
   ObjectsForActivate:
   - {fileID: 2315174853263552110}
+--- !u!54 &7630312556915683907
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852923386356}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2315174852923498884
 GameObject:
   m_ObjectHideFlags: 0
@@ -69870,7 +69887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useZ: 1
-  tileSize: 1
+  tileSize: 2
   width: 20
   height: 20
   doors:
@@ -69878,6 +69895,8 @@ MonoBehaviour:
     direction: 2
     typeOfDoor: 0
   textID: {fileID: 3652641342616039961}
+  changeColor: 0
+  id: 0
   cameraPosition: {fileID: 7431470392699100875}
   timeToMoveCamera: 1
   precisionPosition: 0.1

@@ -46,7 +46,7 @@ public abstract class Interactable : MonoBehaviour
     /// <summary>
     /// Create rope from line prefab
     /// </summary>
-    public bool CreateRope()
+    public virtual bool CreateRope()
     {
         //check if can create
         if (CanCreateRope())

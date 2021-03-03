@@ -18,10 +18,23 @@ public class ProceduralMapManagerGame : ProceduralMapManager
         //wait
         yield return new WaitForFixedUpdate();
 
+        //get rooms in scene (cause we destroy and replace rooms, so rooms in ProceduralMapManager list are null now)
+        RoomGame[] roomsInScene = GetComponentsInChildren<RoomGame>();
+
         //foreach room, connect doors
-        foreach(RoomGame room in GetComponentsInChildren<RoomGame>())
+        foreach (RoomGame room in roomsInScene)
         {
             ConnectDoors(room);
+        }
+
+        //now deactive every room, apart the first
+        foreach(RoomGame room in roomsInScene)
+        {
+            if (room.id != 0)
+                room.gameObject.SetActive(false);
+            //set enter in first room (to move camera) but without enter door
+            else
+                room.EnterRoom();
         }
     }
 
