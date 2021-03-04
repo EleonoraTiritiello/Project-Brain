@@ -14,9 +14,10 @@ public class RoomGame : Room
     [SerializeField] List<RoomGame> roomAlternatives = new List<RoomGame>();
 
     Transform cam;
+    Coroutine moveCameraCoroutine;
 
-    public Door enterDoor { get; set; }
-    public List<Door> openedDoors { get; set; } = new List<Door>();
+    public Door enterDoor { get; set; }                                 //opened from previous room, which give electricity to this room
+    public List<Door> openedDoors { get; set; } = new List<Door>();     //doors in this room connected from player (so enter door is not in this list, apart if player connect that door to come back)
 
     public override IEnumerator EndRoom()
     {
@@ -84,26 +85,7 @@ public class RoomGame : Room
 
     #endregion
 
-    #region public API
-
-    public void EnterRoom()
-    {
-        //start coroutine
-        StartCoroutine(MoveCameraCoroutine());
-    }
-
-    public void ForceOpenCloseEnterDoor(bool open)
-    {
-        if (enterDoor)
-        {
-            //force opening/closing enter door
-            enterDoor.ForceOpenCloseDoor(open);
-
-            //force opening/closing also other opened doors in the room
-            foreach (Door door in openedDoors)
-                door.ForceOpenCloseDoor(open);
-        }
-    }
+    #region private API
 
     IEnumerator MoveCameraCoroutine()
     {
@@ -131,6 +113,159 @@ public class RoomGame : Room
             cam.transform.rotation = Quaternion.Lerp(startRotation, cameraPosition.rotation, delta);
 
             yield return null;
+        }
+    }
+
+    void ActiveDeactiveConnectedRooms(bool active, Door door)
+    {
+        if (door == null)
+            return;
+
+        //foreach connected door, activate/deactive room
+        foreach (Door connectedDoor in door.connectedDoors)
+        {
+            if (connectedDoor != null)
+            {
+                connectedDoor.RoomParent.gameObject.SetActive(active);
+            }
+        }
+    }
+
+    #endregion
+
+    #region public API
+
+    /// <summary>
+    /// When player enter in this room
+    /// </summary>
+    /// <param name="door">entered from this door</param>
+    public void OnEnterRoom(Door door = null)
+    {
+        //start coroutine (move camera)
+        moveCameraCoroutine = StartCoroutine(MoveCameraCoroutine());
+
+        //deactive connected room
+        ActiveDeactiveConnectedRooms(false, door);
+    }
+
+    /// <summary>
+    /// When player exit from this room
+    /// </summary>
+    /// <param name="door">exit from this door</param>
+    public void OnExitRoom(Door door)
+    {
+        //stop coroutine (movement camera)
+        if (moveCameraCoroutine != null)
+            StopCoroutine(moveCameraCoroutine);
+
+        //active connected room
+        ActiveDeactiveConnectedRooms(true, door);
+    }
+
+    /// <summary>
+    /// When player open a door in this room
+    /// </summary>
+    public void OnOpenDoor(Door door)
+    {
+        //active next room
+        ActiveDeactiveConnectedRooms(true, door);
+
+        //active connected door (door in next room)
+        door.CallConnectedDoors(true);
+
+        //when open a door, force open also room's enter door
+        ForceOpenCloseEnterDoor(true);
+
+        //add this door to opened doors of this room (already open, so not necessary to force open)
+        openedDoors.Add(door);
+    }
+
+    /// <summary>
+    /// When player close a door in this room
+    /// </summary>
+    public void OnCloseDoor(Door door)
+    {
+        //deactive other room
+        ActiveDeactiveConnectedRooms(false, door);
+
+        //deactive connected door (door in next room)
+        door.CallConnectedDoors(false);
+
+        //remove this door from opened doors of this room (already closed, so not necessary to force close)
+        openedDoors.Remove(door);
+
+        //force closing enter door of this room (like when pick rope from generator, because player is resolving puzzle again)
+        ForceOpenCloseEnterDoor(false);
+    }
+
+    /// <summary>
+    /// When player open a door in another room, that it's connected to a door in this room
+    /// </summary>
+    /// <param name="door">this room's door</param>
+    public void OnOpenFromConnectedDoor(Door door)
+    {
+        //if no enter door, now this one is the enter door
+        if (enterDoor == null)
+        {
+            enterDoor = door;
+        }
+
+        //if this one is the enter door
+        if (enterDoor == door)
+        {
+            //open every previously opened door in this room (but without activate rooms, add to lists or other, so we can use Force open)
+            //and every opened door will do the same with them connected doors
+            foreach (Door openedDoor in openedDoors)
+            {
+                //be sure to do only if the door is not open (to stop infinite loop)
+                if(openedDoor.isOpen == false)
+                { 
+                    openedDoor.ForceOpenCloseDoor(true);
+                    openedDoor.CallConnectedDoors(true);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// When player close a door in another room, that it's connected to a door in this room
+    /// </summary>
+    /// <param name="open">this room's door</param>
+    public void OnCloseFromConnectedDoor(Door door)
+    {
+        //if is the enter door
+        if (enterDoor == door)
+        {
+            //close every previously opened door in this room (but without deactivate rooms, remove from lists or other, so we can use Force close)
+            //and every opened door, will do the same with them connected doors
+            foreach (Door openedDoor in openedDoors)
+            {
+                //be sure to do only if the door is open (to stop infinite loop)
+                if (openedDoor.isOpen)
+                {
+                    openedDoor.ForceOpenCloseDoor(false);
+                    openedDoor.CallConnectedDoors(false);
+                }
+            }
+
+            //this one is no more the enter door
+            enterDoor = null;
+        }
+    }
+
+    /// <summary>
+    /// Force to open or close a door (so the door will open/close, but not its connected doors, and there are no other checks)
+    /// </summary>
+    public void ForceOpenCloseEnterDoor(bool open)
+    {
+        if (enterDoor)
+        {
+            //force opening/closing enter door
+            enterDoor.ForceOpenCloseDoor(open);
+
+            //force opening/closing also other opened doors in the room
+            foreach (Door door in openedDoors)
+                door.ForceOpenCloseDoor(open);
         }
     }
 

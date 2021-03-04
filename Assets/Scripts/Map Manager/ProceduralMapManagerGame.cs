@@ -32,9 +32,9 @@ public class ProceduralMapManagerGame : ProceduralMapManager
         {
             if (room.id != 0)
                 room.gameObject.SetActive(false);
-            //set enter in first room (to move camera) but without enter door
+            //set enter in first room (to move camera)
             else
-                room.EnterRoom();
+                room.OnEnterRoom();
         }
     }
 

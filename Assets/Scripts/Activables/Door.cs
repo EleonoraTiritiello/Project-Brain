@@ -6,62 +6,25 @@ public class Door : Activable
 {
     bool calledFromConnectedDoor;
     bool forceDoor;
-    List<Door> connectedDoors = new List<Door>();
 
-    RoomGame RoomParent;
-
-    void Awake()
-    {
-        //save room parent
-        RoomParent = GetComponentInParent<RoomGame>();
-    }
+    public bool isOpen { get; private set; } = false;
+    public List<Door> connectedDoors { get; private set; } = new List<Door>();
 
     protected override void Active()
     {
-        //if player opened a door that was already the enter door - call in the room parent to force open enter door, and stop
-        if(calledFromConnectedDoor == false && forceDoor == false && RoomParent.enterDoor == this)
-        {
-            RoomParent.ForceOpenCloseEnterDoor(true);
-            return;
-        }
-
         //open door
         OpenCloseDoor(true);
 
-        //only if not called from connected door and not forced
+        //only if not called from connected door and not forced (the player opened this door)
         if (calledFromConnectedDoor == false && forceDoor == false)
         {
-            //active every connected door
-            CallConnectedDoors(true);
-
-            //activate next room
-            ActiveDeactiveConnectedRooms(true);
-
-            //when open a door, force open also room's enter door
-            RoomParent.ForceOpenCloseEnterDoor(true);
-
-            //add this door to opened doors of this room
-            RoomParent.openedDoors.Add(this);
+            RoomParent.OnOpenDoor(this);
         }
 
         //if called from connected door
         if(calledFromConnectedDoor)
         {
-            //if no enter door, now this one is the enter door
-            if(RoomParent.enterDoor == null)
-            {
-                RoomParent.enterDoor = this;
-            }
-
-            //if this one is the enter door
-            if (RoomParent.enterDoor == this)
-            {
-                //reactive every other opened door in this room
-                foreach (Door openedDoor in RoomParent.openedDoors)
-                {
-                    openedDoor.Active();
-                }
-            }
+            RoomParent.OnOpenFromConnectedDoor(this);
         }
     }
 
@@ -70,37 +33,16 @@ public class Door : Activable
         //close door
         OpenCloseDoor(false);
 
-        //only if not called from connected door and not forced
+        //only if not called from connected door and not forced (the player closed this door)
         if (calledFromConnectedDoor == false && forceDoor == false)
         {
-            //deactive every connected door
-            CallConnectedDoors(false);
-
-            //deactive other rooms
-            ActiveDeactiveConnectedRooms(false);
-
-            //remove this door from opened doors of this room
-            RoomParent.openedDoors.Remove(this);
-
-            //force closing enter door of this room (like when pick rope from generator, because player is resolving puzzle again)
-            RoomParent.ForceOpenCloseEnterDoor(false);
+            RoomParent.OnCloseDoor(this);
         }
 
         //if called from connected door
         if(calledFromConnectedDoor)
         {
-            //if is the enter door of other room
-            if (RoomParent.enterDoor == this)
-            {
-                //close every other opened door in this room
-                foreach(Door openedDoor in RoomParent.openedDoors)
-                {
-                    openedDoor.Deactive();
-                }
-
-                //this one is no more the enter door
-                RoomParent.enterDoor = null;
-            }
+            RoomParent.OnCloseFromConnectedDoor(this);
         }
     }
 
@@ -113,13 +55,12 @@ public class Door : Activable
             //check if enter in room, then call EnterRoom and deactivate previous rooms
             if (CheckTargetIsEnteringRoom(player.transform))
             {
-                RoomParent.EnterRoom();
-                ActiveDeactiveConnectedRooms(false);
+                RoomParent.OnEnterRoom(this);
             }
             //if exit from room, be sure connected rooms are active (if player come back to previous room, without connect door, it must to reactivate)
             else
             {
-                ActiveDeactiveConnectedRooms(true);
+                RoomParent.OnExitRoom(this);
             }
         }
     }
@@ -128,6 +69,9 @@ public class Door : Activable
 
     void OpenCloseDoor(bool open)
     {
+        //set is open or closed
+        isOpen = open;
+
         foreach (Renderer rend in ObjectToControl.GetComponentsInChildren<Renderer>())
         {
             //disable/enable renderer
@@ -137,28 +81,6 @@ public class Door : Activable
         {
             //set collider trigger/NOTTrigger
             col.isTrigger = open;
-        }
-    }
-
-    void CallConnectedDoors(bool active)
-    {
-        //foreach connected door
-        foreach (Door door in connectedDoors)
-        {
-            if (door != null)
-            {
-                //set we are calling it
-                door.calledFromConnectedDoor = true;
-
-                //active or deactive
-                if (active)
-                    door.Active();
-                else
-                    door.Deactive();
-
-                //stop calling
-                door.calledFromConnectedDoor = false;
-            }
         }
     }
 
@@ -172,22 +94,14 @@ public class Door : Activable
         return targetDistanceFromRoom < doorDistanceFromRoom;
     }
 
-    void ActiveDeactiveConnectedRooms(bool active)
-    {
-        //foreach connected door, activate/deactive room
-        foreach (Door door in connectedDoors)
-        {
-            if (door != null)
-            {
-                door.RoomParent.gameObject.SetActive(active);
-            }
-        }
-    }
-
     #endregion
 
     #region public API
 
+    /// <summary>
+    /// Add to list connected doors
+    /// </summary>
+    /// <param name="doors">list connected doors to add</param>
     public void AddConnectedDoors(List<Door> doors)
     {
         foreach (Door door in doors)
@@ -200,6 +114,34 @@ public class Door : Activable
         }
     }
 
+    /// <summary>
+    /// Call connected door (OnOpenFromConnectedDoor or OnCloseFromConnectedDoor)
+    /// </summary>
+    public void CallConnectedDoors(bool open)
+    {
+        //foreach connected door
+        foreach (Door door in connectedDoors)
+        {
+            if (door != null)
+            {
+                //set we are calling it
+                door.calledFromConnectedDoor = true;
+
+                //active or deactive
+                if (open)
+                    door.Active();
+                else
+                    door.Deactive();
+
+                //stop calling
+                door.calledFromConnectedDoor = false;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Force open/close door (so without add to list openedDoor, without add to enter door, without active/deactive rooms)
+    /// </summary>
     public void ForceOpenCloseDoor(bool open)
     {
         forceDoor = true;

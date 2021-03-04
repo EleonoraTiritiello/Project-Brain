@@ -74,6 +74,7 @@ public abstract class Activable : MonoBehaviour
 
     public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
 
+    public RoomGame RoomParent { get; protected set; }
 
     protected bool isActive;
     List<Interactable> alreadyActiveObjects = new List<Interactable>();
@@ -86,29 +87,10 @@ public abstract class Activable : MonoBehaviour
 
     #endregion
 
-    /// <summary>
-    /// Function to activate or deactivate object
-    /// </summary>
-    /// <param name="interactable">interactable used to call this function</param>
-    /// <param name="active">try activate object when true, or deactivate when false</param>
-    public virtual void ToggleObject(Interactable interactable, bool active)
+    protected virtual void Start()
     {
-        //if interactable is inside the list
-        if(ObjectsForActivate.Contains(interactable))
-        {
-            if (active)
-            {
-                //add to the list of already active and try activate
-                AddElementInTheList(interactable);
-                TryActivate();
-            }
-            else
-            {
-                //remove from the list of already active and try deactivate
-                RemoveElementFromTheList(interactable);
-                TryDeactivate();
-            }
-        }
+        //save room parent
+        RoomParent = GetComponentInParent<RoomGame>();
     }
 
     protected abstract void Active();
@@ -176,6 +158,35 @@ public abstract class Activable : MonoBehaviour
 
             //call event
             onDeactive?.Invoke();
+        }
+    }
+
+    #endregion
+
+    #region public API
+
+    /// <summary>
+    /// Function to activate or deactivate object
+    /// </summary>
+    /// <param name="interactable">interactable used to call this function</param>
+    /// <param name="active">try activate object when true, or deactivate when false</param>
+    public virtual void ToggleObject(Interactable interactable, bool active)
+    {
+        //if interactable is inside the list
+        if (ObjectsForActivate.Contains(interactable))
+        {
+            if (active)
+            {
+                //add to the list of already active and try activate
+                AddElementInTheList(interactable);
+                TryActivate();
+            }
+            else
+            {
+                //remove from the list of already active and try deactivate
+                RemoveElementFromTheList(interactable);
+                TryDeactivate();
+            }
         }
     }
 

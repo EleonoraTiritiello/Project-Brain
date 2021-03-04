@@ -13,6 +13,8 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] RopeColliderInteraction colliderPrefab = default;
     public float RopeLength = 10;
 
+    public RoomGame RoomParent { get; protected set; }
+
     protected bool isActive;
     protected Interactable attachedTo;
     protected Interactable attachedFrom;
@@ -29,6 +31,12 @@ public abstract class Interactable : MonoBehaviour
     public System.Action<Vector3, Quaternion> onRewind;
 
     #endregion
+
+    protected virtual void Start()
+    {
+        //save room parent
+        RoomParent = GetComponentInParent<RoomGame>();
+    }
 
     #region public API
 
