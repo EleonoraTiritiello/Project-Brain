@@ -1501,7 +1501,7 @@ MonoBehaviour:
   - {fileID: 2315174853106060463}
   - {fileID: 2315174852284329643}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174852204760937
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,7 +4352,7 @@ MonoBehaviour:
   ObjectsForActivate:
   - {fileID: 2315174852784641035}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174852280977686
 GameObject:
   m_ObjectHideFlags: 0
@@ -10164,7 +10164,7 @@ MonoBehaviour:
   ObjectsForActivate:
   - {fileID: 2315174852784641035}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174852477348334
 GameObject:
   m_ObjectHideFlags: 0
@@ -23324,7 +23324,7 @@ MonoBehaviour:
   ObjectsForActivate:
   - {fileID: 2315174852784641035}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174852886590176
 GameObject:
   m_ObjectHideFlags: 0
@@ -24427,7 +24427,7 @@ MonoBehaviour:
   - {fileID: 2315174853106060463}
   - {fileID: 2315174852284329643}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174852923381955
 GameObject:
   m_ObjectHideFlags: 0
@@ -27864,7 +27864,7 @@ MonoBehaviour:
   - {fileID: 2315174853106060463}
   - {fileID: 2315174852284329643}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174853046209050
 GameObject:
   m_ObjectHideFlags: 0
@@ -31614,7 +31614,7 @@ MonoBehaviour:
   - {fileID: 2315174853106060463}
   - {fileID: 2315174852284329643}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174853155438274
 GameObject:
   m_ObjectHideFlags: 0
@@ -51190,7 +51190,7 @@ MonoBehaviour:
   - {fileID: 2315174853106060463}
   - {fileID: 2315174852284329643}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174853708824639
 GameObject:
   m_ObjectHideFlags: 0
@@ -51798,7 +51798,7 @@ MonoBehaviour:
   ObjectsForActivate:
   - {fileID: 2315174852784641035}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174853718377619
 GameObject:
   m_ObjectHideFlags: 0
@@ -64935,7 +64935,7 @@ MonoBehaviour:
   ObjectsForActivate:
   - {fileID: 2315174852784641035}
   speedMovement: 1
-  localPositionOnActive: {x: 0, y: -1.25, z: 0}
+  localPositionOnActive: {x: 0, y: -1.2, z: 0}
 --- !u!1 &2315174854112086428
 GameObject:
   m_ObjectHideFlags: 0
