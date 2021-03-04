@@ -18,6 +18,13 @@ public class Door : Activable
 
     protected override void Active()
     {
+        //if player opened a door that was already the enter door - call in the room parent to force open enter door, and stop
+        if(calledFromConnectedDoor == false && forceDoor == false && RoomParent.enterDoor == this)
+        {
+            RoomParent.ForceOpenCloseEnterDoor(true);
+            return;
+        }
+
         //open door
         OpenCloseDoor(true);
 
@@ -40,7 +47,13 @@ public class Door : Activable
         //if called from connected door
         if(calledFromConnectedDoor)
         {
-            //if is the enter door of other room
+            //if no enter door, now this one is the enter door
+            if(RoomParent.enterDoor == null)
+            {
+                RoomParent.enterDoor = this;
+            }
+
+            //if this one is the enter door
             if (RoomParent.enterDoor == this)
             {
                 //reactive every other opened door in this room
@@ -48,11 +61,6 @@ public class Door : Activable
                 {
                     openedDoor.Active();
                 }
-            }
-            //else set this one as enter door
-            else
-            {
-                RoomParent.enterDoor = this;
             }
         }
     }
@@ -73,6 +81,9 @@ public class Door : Activable
 
             //remove this door from opened doors of this room
             RoomParent.openedDoors.Remove(this);
+
+            //force closing enter door of this room (like when pick rope from generator, because player is resolving puzzle again)
+            RoomParent.ForceOpenCloseEnterDoor(false);
         }
 
         //if called from connected door
@@ -86,6 +97,9 @@ public class Door : Activable
                 {
                     openedDoor.Deactive();
                 }
+
+                //this one is no more the enter door
+                RoomParent.enterDoor = null;
             }
         }
     }

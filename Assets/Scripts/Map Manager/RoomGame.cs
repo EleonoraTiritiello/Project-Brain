@@ -98,6 +98,10 @@ public class RoomGame : Room
         {
             //force opening/closing enter door
             enterDoor.ForceOpenCloseDoor(open);
+
+            //force opening/closing also other opened doors in the room
+            foreach (Door door in openedDoors)
+                door.ForceOpenCloseDoor(open);
         }
     }
 
