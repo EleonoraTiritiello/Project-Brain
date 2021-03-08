@@ -16,9 +16,6 @@ public class CameraMovement : MonoBehaviour
     Transform cameraTarget;
     Transform pivot;
 
-    float rotationX;
-    float rotationY;
-
     void Start()
     {
         //get camera and create a target to move smooth camera
@@ -35,16 +32,9 @@ public class CameraMovement : MonoBehaviour
         if (pivot == null)
             return;
 
-        //get rotation by input
-        GetInputRotation();
-
-        //be sure can move and is not clamped
-        if (Clamped())
-            return;
-
         //rotate target around pivot
-        RotateTransformAround(cameraTarget, pivot.position, Vector3.up, rotationX);
-        RotateTransformAround(cameraTarget, pivot.position, cameraTarget.right, rotationY);
+        RotateTransformAround(cameraTarget, pivot.position, Vector3.up, -Input.GetAxis("Mouse X") * rotationSpeedX);
+        RotateTransformAround(cameraTarget, pivot.position, cameraTarget.right, Input.GetAxis("Mouse Y") * rotationSpeedY);
 
         //smooth movement camera to target
         LerpCamera();
@@ -52,31 +42,23 @@ public class CameraMovement : MonoBehaviour
 
     #region private API
 
-    void GetInputRotation()
-    {
-        //calculate inputs
-        rotationX = -Input.GetAxis("Mouse X") * rotationSpeedX * Time.deltaTime;
-        rotationY = Input.GetAxis("Mouse Y") * rotationSpeedY * Time.deltaTime;
-    }
-
-    bool Clamped()
-    {
-        //clamp rotation
-        float x = NegativeAngle(cameraTarget.eulerAngles.y) + rotationX;
-        float y = NegativeAngle(cameraTarget.eulerAngles.x) + rotationY;
-
-        return x < -limitX || x > limitX || y < -limitY || y > limitY;
-    }
-
     void RotateTransformAround(Transform transformToRotate, Vector3 pivot, Vector3 axis, float angle)
     {
-        Vector3 direction = transformToRotate.position - pivot;     //get direction and distance from pivot
-        direction = Quaternion.Euler(axis * angle) * direction;     //rotate it by angle
-        Vector3 newPosition = pivot + direction;                    //from pivot, add new direction
-        //rotation = Quaternion.LookRotation(pivot - newPosition);  //look at pivot
+        Quaternion newRotation = Quaternion.Euler(axis * angle) * transformToRotate.rotation;       //add rotation
 
-        transformToRotate.position = newPosition;                                                   //set position
-        transformToRotate.rotation = Quaternion.Euler(axis * angle) * transformToRotate.rotation;   //add rotation
+        //clamp rotation
+        float eulerY = Mathf.Clamp(NegativeAngle(newRotation.eulerAngles.y), -limitX, limitX);
+        float eulerX = Mathf.Clamp(NegativeAngle(newRotation.eulerAngles.x), -limitY, limitY);
+        newRotation = Quaternion.Euler(PositiveAngle(eulerX), PositiveAngle(eulerY), 0);
+
+        Quaternion angleRotation = newRotation * Quaternion.Inverse(transformToRotate.rotation);    //subtract old rotation to obtain angle rotation
+        Vector3 direction = transformToRotate.position - pivot;                                     //get direction and distance from pivot
+        direction = angleRotation * direction;                                                      //rotate it by angle clamped
+        Vector3 newPosition = pivot + direction;                                                    //from pivot add new direction
+
+        //set position and rotation
+        transformToRotate.position = newPosition;
+        transformToRotate.rotation = newRotation;
     }
 
     void LerpCamera()
@@ -91,6 +73,15 @@ public class CameraMovement : MonoBehaviour
         //show positive and negative angle (instead of 270, show -90)
         if (angle > 180)
             return angle - 360;
+
+        return angle;
+    }
+
+    float PositiveAngle(float angle)
+    {
+        //show only positive angle (instead of -90, show 270)
+        if (angle < 0)
+            return angle + 360;
 
         return angle;
     }
