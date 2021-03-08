@@ -7,8 +7,10 @@ public class DirectionalNeuron : Neuron
 {
     FieldOfView3D fieldOfView3D;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         //get reference to field of view
         fieldOfView3D = GetComponent<FieldOfView3D>();
     }

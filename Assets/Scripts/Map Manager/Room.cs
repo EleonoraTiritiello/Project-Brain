@@ -105,6 +105,10 @@
                     possibleDoors.Add(doorStruct);
             }
 
+            //give a door, just to fail at position room
+            if (possibleDoors.Count <= 0)
+                return doors[0];
+
             //return random door
             return possibleDoors[Random.Range(0, possibleDoors.Count)];
         }

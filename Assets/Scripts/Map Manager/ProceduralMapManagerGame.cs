@@ -13,7 +13,7 @@ public class ProceduralMapManagerGame : ProceduralMapManager
         yield return base.EndGeneration();
 
         //instantiate player
-        Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        Instantiate(playerPrefab, Vector3.up, Quaternion.identity);
 
         //wait
         yield return new WaitForFixedUpdate();

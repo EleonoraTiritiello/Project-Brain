@@ -122,7 +122,10 @@
             foreach (Transform child in transform)
             {
 #if UNITY_EDITOR
-                EditorApplication.delayCall += () => DestroyImmediate(child.gameObject);
+                if (Application.isPlaying)
+                    Destroy(child.gameObject);
+                else
+                    EditorApplication.delayCall += () => DestroyImmediate(child.gameObject);
 #else
                 Destroy(child.gameObject);
 #endif
@@ -251,7 +254,7 @@
             succeded = false;
             teleported = false;
 
-            if (rooms.Count == 0)
+            if (rooms.Count <= 0 && RoomsEveryOtherMapManager.Count <= 0)
             {
                 //first room
                 Debug.Log("<color=lime>positioned first room</color>");
@@ -297,7 +300,7 @@
             //foreach check, be sure is valid
             foreach (ProceduralMapManagerCheck check in checks)
             {
-                if (!check.IsValid(roomToPlace, this))
+                if (check && !check.IsValid(roomToPlace, this))
                     return false;
             }
 
