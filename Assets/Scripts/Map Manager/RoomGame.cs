@@ -104,6 +104,9 @@ public class RoomGame : Room
         Vector3 startPosition = cam.position;
         Quaternion startRotation = cam.rotation;
 
+        //remove pivot camera
+        cam.GetComponent<CameraMovement>().RemovePivot();
+
         //move cam smooth to position and rotation
         float delta = 0;
         while (delta < 1)
@@ -114,6 +117,9 @@ public class RoomGame : Room
 
             yield return null;
         }
+
+        //set new pivot
+        cam.GetComponent<CameraMovement>().SetPivot(transform);
     }
 
     void ActiveDeactiveConnectedRooms(bool active, Door door)
