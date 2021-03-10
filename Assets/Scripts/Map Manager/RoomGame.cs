@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using redd096;
 
+[AddComponentMenu("Project Brain/Procedural Map/Room")]
 public class RoomGame : Room
 {
     [Header("Camera Position")]
