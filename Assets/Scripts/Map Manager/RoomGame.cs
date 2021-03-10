@@ -13,6 +13,9 @@ public class RoomGame : Room
     [SerializeField] float precisionPosition = 0.1f;
     [SerializeField] List<RoomGame> roomAlternatives = new List<RoomGame>();
 
+    public int ID => id;
+    public List<DoorStruct> Doors => doors;
+
     Transform cam;
     Coroutine moveCameraCoroutine;
 

@@ -30,7 +30,7 @@ public class ProceduralMapManagerGame : ProceduralMapManager
         //now deactive every room, apart the first
         foreach(RoomGame room in roomsInScene)
         {
-            if (room.id != 0)
+            if (room.ID != 0)
                 room.gameObject.SetActive(false);
             //set enter in first room (to move camera)
             else
@@ -41,7 +41,7 @@ public class ProceduralMapManagerGame : ProceduralMapManager
     void ConnectDoors(RoomGame room)
     {
         //foreach door struct do overlap and get activable doors
-        foreach (DoorStruct door in room.doors)
+        foreach (DoorStruct door in room.Doors)
         {
             Collider[] colliders = Physics.OverlapSphere(door.doorTransform.position, 2);
             List<Door> activableDoors = new List<Door>();
