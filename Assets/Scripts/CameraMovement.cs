@@ -8,8 +8,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float smooth = 20;
 
     [Header("Limits Rotation")]
-    [SerializeField] float limitX = 170;
-    [SerializeField] float limitY = 40;
+    [SerializeField] float minLimitX = -110;
+    [SerializeField] float maxLimitX = 110;
+    [SerializeField] float minLimitY = 20;
+    [SerializeField] float maxLimitY = 40;
 
     //rotation
     Transform cam;
@@ -47,8 +49,8 @@ public class CameraMovement : MonoBehaviour
         Quaternion newRotation = Quaternion.Euler(axis * angle) * transformToRotate.rotation;       //add rotation
 
         //clamp rotation
-        float eulerY = Mathf.Clamp(NegativeAngle(newRotation.eulerAngles.y), -limitX, limitX);
-        float eulerX = Mathf.Clamp(NegativeAngle(newRotation.eulerAngles.x), -limitY, limitY);
+        float eulerY = Mathf.Clamp(NegativeAngle(newRotation.eulerAngles.y), minLimitX, maxLimitX);
+        float eulerX = Mathf.Clamp(NegativeAngle(newRotation.eulerAngles.x), minLimitY, maxLimitY);
         newRotation = Quaternion.Euler(PositiveAngle(eulerX), PositiveAngle(eulerY), 0);
 
         Quaternion angleRotation = newRotation * Quaternion.Inverse(transformToRotate.rotation);    //subtract old rotation to obtain angle rotation
