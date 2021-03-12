@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9130453570722670355}
   - component: {fileID: 2191401332918638931}
+  - component: {fileID: 944606943227172232}
   - component: {fileID: 8295705607832129752}
   m_Layer: 8
   m_Name: Player
@@ -73,7 +74,22 @@ MonoBehaviour:
     leftHand: {fileID: 8216472718348016952}
     ropePositions: []
   connectedPoint: {fileID: 0}
-  usingRightHand: 1
+--- !u!114 &944606943227172232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452766764786365522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d626cf57000c1bc438c771bcda57e1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesOnChangeHand: {fileID: 0}
+  soundOnChangeHand:
+    audioClip: {fileID: 0}
+    volume: 0
 --- !u!54 &8295705607832129752
 Rigidbody:
   m_ObjectHideFlags: 0
