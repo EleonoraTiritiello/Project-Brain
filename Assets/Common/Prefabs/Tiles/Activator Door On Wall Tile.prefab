@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 3668709281132676008}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 6
+  canPickRope: 0
   ObjectsToActivate: []
 --- !u!114 &9209449243114586569
 MonoBehaviour:
