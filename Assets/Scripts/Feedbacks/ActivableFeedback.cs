@@ -56,15 +56,15 @@ public class ActivableFeedback : MonoBehaviour
     void OnActive()
     {
         //instantiate particles and sounds
-        ParticlesManager.instance.Play(poolParticlesOnActive, particlesOnActive, transform.position, transform.rotation);
-        SoundManager.instance.Play(poolSoundsOnActive, soundOnActive.audioClip, transform.position, soundOnActive.volume);
+        ParticlesManager.instance.Play(poolParticlesOnActive, particlesOnActive, activable.ObjectToControl.transform.position, activable.ObjectToControl.transform.rotation);
+        SoundManager.instance.Play(poolSoundsOnActive, soundOnActive.audioClip, activable.ObjectToControl.transform.position, soundOnActive.volume);
     }
 
     void OnDeactive()
     {
         //instantiate particles and sounds
-        ParticlesManager.instance.Play(poolParticlesOnDeactive, particlesOnDeactive, transform.position, transform.rotation);
-        SoundManager.instance.Play(poolSoundsOnDeactive, soundOnDeactive.audioClip, transform.position, soundOnDeactive.volume);
+        ParticlesManager.instance.Play(poolParticlesOnDeactive, particlesOnDeactive, activable.ObjectToControl.transform.position, activable.ObjectToControl.transform.rotation);
+        SoundManager.instance.Play(poolSoundsOnDeactive, soundOnDeactive.audioClip, activable.ObjectToControl.transform.position, soundOnDeactive.volume);
     }
 
     #endregion

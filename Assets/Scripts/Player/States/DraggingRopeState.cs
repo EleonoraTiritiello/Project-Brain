@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using redd096;
 
 [System.Serializable]
 public class DraggingRopeState : NormalState
@@ -79,7 +80,7 @@ public class DraggingRopeState : NormalState
         joint.connectedAnchor = lastRope;
 
         //calculate length
-        float length = player.connectedPoint.RopeLength;
+        float length = GameManager.instance.levelManager.RopeLength;
         for(int i = 0; i < ropePositions.Count -1; i++)
         {
             length -= Vector3.Distance(ropePositions[i], ropePositions[i + 1]);
