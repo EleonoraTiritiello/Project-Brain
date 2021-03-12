@@ -273,7 +273,7 @@ public abstract class Interactable : MonoBehaviour
 
     #region private API
 
-    bool CanCreateRope()
+    protected virtual bool CanCreateRope()
     {
         bool thisIsActive = isActive;                                       //be sure this interactable is active
         bool thisIsNotAlreadyAttached = attachedTo == null;                 //be sure is not attached to something
