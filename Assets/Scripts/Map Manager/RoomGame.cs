@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using redd096;
 
+[AddComponentMenu("Project Brain/Procedural Map/Room")]
 public class RoomGame : Room
 {
     [Header("Camera Position")]
@@ -12,6 +13,9 @@ public class RoomGame : Room
     [Header("This room alternatives")]
     [SerializeField] float precisionPosition = 0.1f;
     [SerializeField] List<RoomGame> roomAlternatives = new List<RoomGame>();
+
+    public int ID => id;
+    public List<DoorStruct> Doors => doors;
 
     Transform cam;
     Coroutine moveCameraCoroutine;
@@ -104,6 +108,9 @@ public class RoomGame : Room
         Vector3 startPosition = cam.position;
         Quaternion startRotation = cam.rotation;
 
+        //remove pivot camera
+        cam.GetComponent<CameraMovement>().RemovePivot();
+
         //move cam smooth to position and rotation
         float delta = 0;
         while (delta < 1)
@@ -114,6 +121,9 @@ public class RoomGame : Room
 
             yield return null;
         }
+
+        //set new pivot
+        cam.GetComponent<CameraMovement>().SetPivot(transform);
     }
 
     void ActiveDeactiveConnectedRooms(bool active, Door door)

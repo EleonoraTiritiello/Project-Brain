@@ -49,7 +49,11 @@ MonoBehaviour:
   maxAttempts: 5
   roomsPerAttempt: 5
   doorsPerAttempt: 2
-  roomPrefabs: []
+  fillerRooms:
+  - nameList: Puzzle Generici
+    percentage: 100
+    roomPrefabs:
+    - {fileID: 2488558486181098569, guid: 1f188b2ba4c35f54fa246227d3911b3a, type: 3}
   fixedRooms: []
   playerPrefab: {fileID: 2191401332918638931, guid: 9a86a4c39db540d4ba67d0626f987ce1,
     type: 3}

@@ -8,7 +8,8 @@
 
     using UnityEditor;
 
-    [CustomEditor(typeof(ProceduralMapManager))]
+    [CustomEditor(typeof(ProceduralMapManager), true)]
+    [CanEditMultipleObjects]
     public class ProceduralMapManagerEditor : Editor
     {
         private ProceduralMapManager mapManager;
@@ -23,15 +24,6 @@
             base.OnInspectorGUI();
 
             GUILayout.Space(10);
-
-            if (GUILayout.Button("Regen Map - OLD"))
-            {
-                mapManager.DestroyMap();
-                mapManager.CreateEditorMap();
-
-                //set undo
-                Undo.RegisterFullObjectHierarchyUndo(target, "Regen World");
-            }
 
             if (GUILayout.Button("Destroy Map"))
             {
@@ -56,7 +48,15 @@
     {
         [Min(0)] public int minID;
         [Min(0)] public int maxID;
-        public Room roomPrefab;
+        public Room[] roomPrefabs;
+    }
+
+    [System.Serializable]
+    public class StructFillerRooms
+    {
+        public string nameList;
+        [Range(0, 100)] public int percentage = 100;
+        public Room[] roomPrefabs;
     }
 
     [AddComponentMenu("redd096/Procedural Map/Procedural Map Manager")]
@@ -65,18 +65,18 @@
         [Header("Setup")]
         [SerializeField] bool regenOnPlay = true;
         [Min(1)] [SerializeField] int numberRooms = 12;
-        [SerializeField] ProceduralMapManagerCheck[] checks = default;
+        [SerializeField] protected ProceduralMapManagerCheck[] checks = default;
 
         [Header("Attempts")]
         [Min(1)] [SerializeField] int maxAttempts = 5;
         [Min(1)] [SerializeField] int roomsPerAttempt = 5;
         [Min(1)] [SerializeField] int doorsPerAttempt = 2;
 
-        [Header("Prefabs")]
-        [SerializeField] Room[] roomPrefabs = default;
+        [Header("Filler Rooms - be sure the sum of every percentage is 100")]
+        [SerializeField] protected StructFillerRooms[] fillerRooms = default;
 
         [Header("Fixed Rooms")]
-        [SerializeField] StructFixedRooms[] fixedRooms = default;
+        [SerializeField] protected StructFixedRooms[] fixedRooms = default;
 
         //rooms
         List<Room> rooms = new List<Room>();
@@ -87,7 +87,7 @@
 
         //for fixed rooms
         List<StructFixedRooms> fixedRoomsAlreadyChecked = new List<StructFixedRooms>();
-        StructFixedRooms roomTryingToPut;
+        StructFixedRooms fixedRoomTryingToPut;
         List<StructFixedRooms> fixedRoomsAlreadyPut = new List<StructFixedRooms>();
 
         //to use more map managers
@@ -115,14 +115,17 @@
 
             //clear fixed rooms
             fixedRoomsAlreadyChecked.Clear();
-            roomTryingToPut = null;
+            fixedRoomTryingToPut = null;
             fixedRoomsAlreadyPut.Clear();
 
             //remove every child
             foreach (Transform child in transform)
             {
 #if UNITY_EDITOR
-                EditorApplication.delayCall += () => DestroyImmediate(child.gameObject);
+                if (Application.isPlaying)
+                    Destroy(child.gameObject);
+                else
+                    EditorApplication.delayCall += () => DestroyImmediate(child.gameObject);
 #else
                 Destroy(child.gameObject);
 #endif
@@ -212,12 +215,9 @@
             //se una stanza non viene creata nel suo range, distruggere e ricreare il dungeon
 
             //if a room failed at its maxID, recreate dungeon
-            if (roomTryingToPut != null)
+            if (fixedRoomTryingToPut != null && roomID >= fixedRoomTryingToPut.maxID)
             {
-                if (roomID >= roomTryingToPut.maxID)
-                {
-                    return null;
-                }
+                return null;
             }
 
             //check fixed rooms
@@ -235,15 +235,31 @@
                     //add to list already check
                     fixedRoomsAlreadyChecked.Add(checkRoom);
 
-                    //return it
-                    roomTryingToPut = checkRoom;
-                    return checkRoom.roomPrefab;
+                    //return its prefab
+                    fixedRoomTryingToPut = checkRoom;
+                    return checkRoom.roomPrefabs[Random.Range(0, checkRoom.roomPrefabs.Length)];
                 }
             }
 
-            //else return random room
-            roomTryingToPut = null;
-            return roomPrefabs[Random.Range(0, roomPrefabs.Length)];
+            //else check for filler room
+            fixedRoomTryingToPut = null;
+
+            //get random value from 1 to 100
+            int random = Mathf.Max(1, Mathf.RoundToInt(Random.value * 100));
+            int currentPercentage = 0;
+
+            //foreach filler, check if percentage is inside random value
+            foreach (StructFillerRooms filler in fillerRooms)
+            {
+                //if inside, return its prefab
+                if (filler.percentage + currentPercentage >= random)
+                    return filler.roomPrefabs[Random.Range(0, filler.roomPrefabs.Length)];
+
+                //else, add to currentPercentage, to check next one
+                currentPercentage += filler.percentage;
+            }
+
+            return null;
         }
 
         private IEnumerator PositionRoom(Room newRoom)
@@ -251,7 +267,7 @@
             succeded = false;
             teleported = false;
 
-            if (rooms.Count == 0)
+            if (rooms.Count <= 0 && RoomsEveryOtherMapManager.Count <= 0)
             {
                 //first room
                 Debug.Log("<color=lime>positioned first room</color>");
@@ -297,7 +313,7 @@
             //foreach check, be sure is valid
             foreach (ProceduralMapManagerCheck check in checks)
             {
-                if (!check.IsValid(roomToPlace, this))
+                if (check && !check.IsValid(roomToPlace, this))
                     return false;
             }
 
@@ -321,122 +337,11 @@
             fixedRoomsAlreadyChecked.Clear();
 
             //and add to list already put
-            if (roomTryingToPut != null)
+            if (fixedRoomTryingToPut != null)
             {
-                fixedRoomsAlreadyPut.Add(roomTryingToPut);
-                roomTryingToPut = null;
+                fixedRoomsAlreadyPut.Add(fixedRoomTryingToPut);
+                fixedRoomTryingToPut = null;
             }
-        }
-
-        #endregion
-
-        #region editor but old
-
-        public void CreateEditorMap()
-        {
-            int roomID = 0;
-            Room currentRoom = null;
-            Room lastRoom = null;
-
-            int loopCount = 0;
-
-            while (rooms.Count < numberRooms)
-            {
-                //generate first room
-                if (rooms.Count <= 0)
-                {
-                    GenerateFirstRoom(ref currentRoom, ref roomID, ref lastRoom);
-                    currentRoom = null;
-                }
-                //generate other rooms
-                else
-                {
-                    //if generate room, be sure to have loop count at 0
-                    if (GenerateOtherRooms(ref currentRoom, ref roomID, ref lastRoom, loopCount > 20))
-                    {
-                        currentRoom = null;
-                        loopCount = 0;
-                    }
-                    //if no generate, increase loopCount
-                    else
-                    {
-                        loopCount++;
-                    }
-                }
-
-                //if we are in endless loop (no space for a room)
-                if (loopCount > 20)
-                {
-                    //try to put room adjacent to another room in the list (instead of last one created)
-                    lastRoom = rooms[Random.Range(0, rooms.Count)];
-                }
-
-                //if continue loop, maybe this room can't attach to others, destroy and try new one
-                if (loopCount > 50)
-                {
-#if UNITY_EDITOR
-                    if (EditorApplication.isPlaying)
-                        Destroy(currentRoom.gameObject);
-                    else
-                        DestroyImmediate(currentRoom.gameObject);
-#else
-                Destroy(currentRoom.gameObject);
-#endif
-                }
-
-                //if loop count is too big, break while
-                if (loopCount > 100)
-                {
-                    Debug.Log("<color=yellow>Stopped an endless loop</color>");
-                    break;
-                }
-            }
-
-            if (rooms.Count >= numberRooms)
-            {
-                //end generation
-                EndGeneration();
-
-                Debug.Log("<color=cyan>Mission complete!</color>");
-            }
-        }
-
-        void GenerateFirstRoom(ref Room currentRoom, ref int roomID, ref Room lastRoom)
-        {
-            //instantiate room (child of this transform) and initialize
-            currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], transform);
-            currentRoom.Register(roomID, false);
-            currentRoom.SetPosition(Vector3.zero);
-
-            //add to list and update ID and last room
-            rooms.Add(currentRoom);
-            lastRoom = currentRoom;
-            roomID++;
-        }
-
-        bool GenerateOtherRooms(ref Room currentRoom, ref int roomID, ref Room lastRoom, bool teleported)
-        {
-            //get random direction by last room
-            DoorStruct door = lastRoom.GetRandomDoor();
-
-            //instantiate room (only if != null, cause can be just a teleport of current room)
-            if (currentRoom == null)
-            {
-                currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], transform);
-            }
-
-            //initialize and set position
-            currentRoom.Register(roomID, teleported);
-            if (currentRoom.SetPosition(door, lastRoom, this))    //if can't set position is because there are not doors which attach - EDIT now check also if there is space for this room
-            {
-                //add to list and update ID and last room
-                rooms.Add(currentRoom);
-                lastRoom = currentRoom;
-                roomID++;
-                return true;
-            }
-
-            return false;
         }
 
         #endregion

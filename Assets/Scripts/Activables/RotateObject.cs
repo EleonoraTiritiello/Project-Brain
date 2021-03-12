@@ -11,8 +11,10 @@ public class RotateObject : Activable
     Quaternion localRotationOnDeactive;
     Coroutine movementCoroutine;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         //save rotations when active or deactive
         localRotationOnDeactive = ObjectToControl.transform.localRotation;
     }

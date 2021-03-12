@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using redd096;
 
+[AddComponentMenu("Project Brain/Procedural Map/Map Manager")]
 public class ProceduralMapManagerGame : ProceduralMapManager
 {
     [Header("Player")]
@@ -13,7 +14,7 @@ public class ProceduralMapManagerGame : ProceduralMapManager
         yield return base.EndGeneration();
 
         //instantiate player
-        Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        Instantiate(playerPrefab, Vector3.up, Quaternion.identity);
 
         //wait
         yield return new WaitForFixedUpdate();
@@ -30,7 +31,7 @@ public class ProceduralMapManagerGame : ProceduralMapManager
         //now deactive every room, apart the first
         foreach(RoomGame room in roomsInScene)
         {
-            if (room.id != 0)
+            if (room.ID != 0)
                 room.gameObject.SetActive(false);
             //set enter in first room (to move camera)
             else
@@ -41,7 +42,7 @@ public class ProceduralMapManagerGame : ProceduralMapManager
     void ConnectDoors(RoomGame room)
     {
         //foreach door struct do overlap and get activable doors
-        foreach (DoorStruct door in room.doors)
+        foreach (DoorStruct door in room.Doors)
         {
             Collider[] colliders = Physics.OverlapSphere(door.doorTransform.position, 2);
             List<Door> activableDoors = new List<Door>();

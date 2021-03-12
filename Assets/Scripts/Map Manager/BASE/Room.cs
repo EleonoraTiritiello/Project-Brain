@@ -35,18 +35,15 @@
         [Tooltip("Size of every tile which compose this room")] [SerializeField] float tileSize = 1f;
         [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int width = 1;
         [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int height = 1;
-        [SerializeField] public List<DoorStruct> doors = new List<DoorStruct>();
+        [SerializeField] protected List<DoorStruct> doors = new List<DoorStruct>();
 
         float HalfWidth => width * tileSize * 0.5f;
         float HalfHeight => height * tileSize * 0.5f;
         Vector2 UpRight => useZ ? new Vector3(transform.position.x + HalfWidth, transform.position.z + HalfHeight) : new Vector3(transform.position.x + HalfWidth, transform.position.y + HalfHeight);
         Vector2 DownLeft => useZ ? new Vector3(transform.position.x - HalfWidth, transform.position.z - HalfHeight) : new Vector3(transform.position.x - HalfWidth, transform.position.y - HalfHeight);
 
-        [Header("DEBUG")]
-        [SerializeField] TextMesh textID = default;
-        [SerializeField] bool changeColor = false;
-        public int id = 0;
-        protected bool teleported = false;
+        protected int id = 0;
+        protected bool teleported;
 
         DoorStruct adjacentDoor = default;
         Room adjacentRoom = default;
@@ -55,7 +52,7 @@
 
         #endregion
 
-        void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
 
@@ -105,11 +102,15 @@
                     possibleDoors.Add(doorStruct);
             }
 
+            //give a door, just to fail at position room
+            if (possibleDoors.Count <= 0)
+                return doors[0];
+
             //return random door
             return possibleDoors[Random.Range(0, possibleDoors.Count)];
         }
 
-        public void Register(int id, bool teleported)
+        public virtual void Register(int id, bool teleported)
         {
             this.id = id;
             this.teleported = teleported;
@@ -119,24 +120,6 @@
             {
                 usedDoors.Add(entranceDoor);
                 adjacentRoom.usedDoors.Add(adjacentDoor);
-            }
-
-            //debug
-            if (textID)
-            {
-                textID.text = teleported ? "tp: " + id.ToString() : id.ToString();
-            }
-
-            if (changeColor)
-            {
-                //debug random color
-                float h = Random.value;
-                Color color = Color.HSVToRGB(h, 0.8f, 0.8f);
-                foreach (Renderer r in GetComponentsInChildren<Renderer>())
-                {
-                    r.material.color = color;
-                    color = Color.HSVToRGB(h, 1f, 1f);
-                }
             }
         }
 

@@ -11,8 +11,10 @@ public class MoveObject : Activable
     Vector3 localPositionOnDeactive;
     Coroutine movementCoroutine;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         //save positions when active or deactive
         localPositionOnDeactive = ObjectToControl.transform.localPosition;
     }
