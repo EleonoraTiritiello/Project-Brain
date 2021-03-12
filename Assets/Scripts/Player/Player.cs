@@ -9,9 +9,8 @@ public class Player : StateMachine
     public DraggingRopeState draggingRopeState;
 
     [HideInInspector] public Interactable connectedPoint;
-    [HideInInspector] public bool usingRightHand = true;
 
-    public System.Action onChangeHand;
+    public System.Action<Transform> onChangeHand { get; set; }
 
     private void Start()
     {
@@ -24,14 +23,5 @@ public class Player : StateMachine
         //draw radius pick of normalState
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, normalState.radiusInteract);
-    }
-
-    public void ChangeHand()
-    {
-        //change hand
-        usingRightHand = !usingRightHand;
-
-        //call event
-        onChangeHand?.Invoke();
     }
 }
