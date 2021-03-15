@@ -1179,6 +1179,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4675331397172826862, guid: 2f9d3ad64ada3084186be3ff2cadfd44,
+        type: 3}
+      propertyPath: RopeLength
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9d3ad64ada3084186be3ff2cadfd44, type: 3}
 --- !u!1001 &5395595349863963992
@@ -1193,6 +1198,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: numberRooms
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: doorsPerAttempt
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6595384632044376230, guid: 0e3d8b091e2a4954089954f3506fbaca,
+        type: 3}
     - target: {fileID: 5395595350726697735, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: m_RootOrder

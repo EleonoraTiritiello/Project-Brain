@@ -17,7 +17,7 @@ MonoBehaviour:
     type: 3}
   colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
     type: 3}
-  RopeLength: 10
+  RopeLength: 6
   ObjectsToActivate: []
 --- !u!114 &9097967388705779332
 MonoBehaviour:
