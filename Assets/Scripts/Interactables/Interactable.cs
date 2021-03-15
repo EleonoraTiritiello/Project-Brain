@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using redd096;
 
 public abstract class Interactable : MonoBehaviour
 {
@@ -8,10 +9,7 @@ public abstract class Interactable : MonoBehaviour
     [Tooltip("The object to interact with")] [SerializeField] GameObject objectToControl = default;
     public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
 
-    [Header("Rope")]
-    [SerializeField] LineRenderer ropePrefab = default;
-    [SerializeField] RopeColliderInteraction colliderPrefab = default;
-    public float RopeLength = 10;
+    public RoomGame RoomParent { get; protected set; }
 
     protected bool isActive;
     protected Interactable attachedTo;
@@ -30,6 +28,12 @@ public abstract class Interactable : MonoBehaviour
 
     #endregion
 
+    protected virtual void Start()
+    {
+        //save room parent
+        RoomParent = GetComponentInParent<RoomGame>();
+    }
+
     #region public API
 
     /// <summary>
@@ -46,19 +50,19 @@ public abstract class Interactable : MonoBehaviour
     /// <summary>
     /// Create rope from line prefab
     /// </summary>
-    public bool CreateRope()
+    public virtual bool CreateRope()
     {
         //check if can create
         if (CanCreateRope())
         {
             //if there isn't a rope (and there is a prefab)
-            if (rope == null && ropePrefab != null)
+            if (rope == null && GameManager.instance.levelManager.RopePrefab != null)
             {
                 //instantiate rope
-                rope = Instantiate(ropePrefab, transform);
+                rope = Instantiate(GameManager.instance.levelManager.RopePrefab, transform);
             }
             //there is not prefab, so can't create rope
-            else if (ropePrefab == null)
+            else if (GameManager.instance.levelManager.RopePrefab == null)
                 return false;
 
             //call event
@@ -216,7 +220,7 @@ public abstract class Interactable : MonoBehaviour
     public void CreateCollider(Vector3 startPoint, Vector3 endPoint)
     {
         //create collider
-        RopeColliderInteraction collider = colliders.Instantiate(colliderPrefab);
+        RopeColliderInteraction collider = colliders.Instantiate(GameManager.instance.levelManager.ColliderPrefab);
         collidersInOrder.Add(collider);
 
         //set rope vars
@@ -269,7 +273,7 @@ public abstract class Interactable : MonoBehaviour
 
     #region private API
 
-    bool CanCreateRope()
+    protected virtual bool CanCreateRope()
     {
         bool thisIsActive = isActive;                                       //be sure this interactable is active
         bool thisIsNotAlreadyAttached = attachedTo == null;                 //be sure is not attached to something

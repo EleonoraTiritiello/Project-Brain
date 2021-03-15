@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActivatorNeuron : Neuron
 {
     [Header("Activator")]
+    public bool canPickRope = true;
     public List<Activable> ObjectsToActivate = new List<Activable>();
 
     void OnDrawGizmos()
@@ -15,6 +16,12 @@ public class ActivatorNeuron : Neuron
         foreach (Activable activable in ObjectsToActivate)
             if (activable)
                 Gizmos.DrawLine(activable.ObjectToControl.transform.position, ObjectToControl.transform.position);
+    }
+
+    protected override bool CanCreateRope()
+    {
+        //if can pick rope is false, return false withouth check anything
+        return canPickRope ? base.CanCreateRope() : false;
     }
 
     public override void ActiveInteractable(bool active, Interactable interactable)

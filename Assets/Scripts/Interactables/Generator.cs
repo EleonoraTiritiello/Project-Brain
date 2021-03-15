@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Generator : Interactable
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         //generator is active by default
         ActiveInteractable(true, null);
     }
@@ -14,5 +16,18 @@ public class Generator : Interactable
     {
         //can't attach to generator
         return false;
+    }
+
+    public override bool CreateRope()
+    {
+        bool pickRopeFromGenerator = base.CreateRope();
+
+        //when pick rope, force closing enter door
+        if(pickRopeFromGenerator)
+        {
+            RoomParent.ForceOpenCloseEnterDoor(false);
+        }
+
+        return pickRopeFromGenerator;
     }
 }
