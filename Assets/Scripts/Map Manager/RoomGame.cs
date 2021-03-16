@@ -23,21 +23,28 @@ public class RoomGame : Room
     public Door enterDoor { get; set; }                                 //opened from previous room, which give electricity to this room
     public List<Door> openedDoors { get; set; } = new List<Door>();     //doors in this room connected from player (so enter door is not in this list, apart if player connect that door to come back)
 
+    GameObject minimapIcon;
+
     public override IEnumerator EndRoom()
     {
+        RoomGame currentRoom = this;
+
         //foreach alternative
         foreach (RoomGame alternative in roomAlternatives)
         {
             //find one with same doors
             if (SameDoors(alternative.doors))
             {
-                RegenRoom(alternative);
+                currentRoom = RegenRoom(alternative);
                 break;
             }
         }
 
         //wait next frame (so room is already instatiated)
         yield return null;
+
+        //create minimap icon
+        currentRoom.minimapIcon = GameManager.instance.levelManager.CreateIcon(currentRoom.transform.position, currentRoom.tileSize, currentRoom.width, currentRoom.height);
     }
 
     #region select alternative
@@ -122,8 +129,9 @@ public class RoomGame : Room
             yield return null;
         }
 
-        //set new pivot
+        //set new pivot and current room
         cam.GetComponent<CameraMovement>().SetPivot(transform);
+        GameManager.instance.levelManager.currentRoom = this;
     }
 
     void ActiveDeactiveConnectedRooms(bool active, Door door)
@@ -151,6 +159,10 @@ public class RoomGame : Room
     /// <param name="door">entered from this door</param>
     public void OnEnterRoom(Door door = null)
     {
+        //active minimap icon when enter for the first time in the room
+        if (minimapIcon.activeInHierarchy == false)
+            minimapIcon.SetActive(true);
+
         //start coroutine (move camera)
         moveCameraCoroutine = StartCoroutine(MoveCameraCoroutine());
 

@@ -32,9 +32,9 @@
         [SerializeField] bool useZ = true;
 
         [Header("Important")]
-        [Tooltip("Size of every tile which compose this room")] [SerializeField] float tileSize = 1f;
-        [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int width = 1;
-        [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] int height = 1;
+        [Tooltip("Size of every tile which compose this room")] [SerializeField] protected float tileSize = 1f;
+        [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] protected int width = 1;
+        [Tooltip("Int because the size will be exspressed in tiles")] [SerializeField] protected int height = 1;
         [SerializeField] protected List<DoorStruct> doors = new List<DoorStruct>();
 
         float HalfWidth => width * tileSize * 0.5f;
