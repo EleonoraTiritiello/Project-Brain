@@ -2086,11 +2086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 4657646866368251896}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!1 &769535259922135271
 GameObject:
   m_ObjectHideFlags: 0
@@ -11349,11 +11344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 8911234706470131576}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!1 &4789750808990018127
 GameObject:
   m_ObjectHideFlags: 0
@@ -11416,9 +11406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 4894112590933142053}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate: []
 --- !u!114 &8579082443096187831
 MonoBehaviour:
@@ -15307,11 +15295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1128039869225243515}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!1 &6317975733880297065
 GameObject:
   m_ObjectHideFlags: 0
@@ -17211,11 +17194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 5556301287457141629}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
   ObjectsToActivate:
   - {fileID: 370883637282664929}
   - {fileID: 172016852622950592}
@@ -17600,7 +17578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7057371854900410521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.56, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1190086980652274039}
@@ -17629,9 +17607,6 @@ MonoBehaviour:
   - doorTransform: {fileID: 4219349420345181305}
     direction: 1
     typeOfDoor: 0
-  textID: {fileID: 0}
-  changeColor: 0
-  id: 0
   cameraPosition: {fileID: 1783919150006509017}
   timeToMoveCamera: 1
   precisionPosition: 0.1
@@ -20102,9 +20077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 7073081701998846571}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 8568498881009958141}
 --- !u!1 &7808562572149508842
