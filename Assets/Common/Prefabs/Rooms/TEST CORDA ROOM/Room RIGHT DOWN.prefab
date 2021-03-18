@@ -1919,6 +1919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853363379394}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174852218708514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,6 +4257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852493114426}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
   canPickRope: 1
   ObjectsToActivate:
   - {fileID: 2315174853044738107}
@@ -5408,6 +5412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853875467167}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174852324041128
 GameObject:
   m_ObjectHideFlags: 0
@@ -10645,6 +10651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853292890665}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174852505201618
 GameObject:
   m_ObjectHideFlags: 0
@@ -12010,7 +12018,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &2315174852542050222
 GameObject:
@@ -19595,6 +19603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853267068681}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
   ObjectsToActivate:
   - {fileID: 2315174852885677402}
   - {fileID: 2315174852477231719}
@@ -20110,6 +20120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853297718721}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174852797100399
 GameObject:
   m_ObjectHideFlags: 0
@@ -21714,6 +21726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853452073556}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174852839689779
 GameObject:
   m_ObjectHideFlags: 0
@@ -28278,6 +28292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852798333967}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174853079716811
 GameObject:
   m_ObjectHideFlags: 0
@@ -29002,6 +29018,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852492740513}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
   canPickRope: 1
   ObjectsToActivate:
   - {fileID: 2315174853044738107}
@@ -36475,6 +36493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853360738883}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
   canPickRope: 0
   ObjectsToActivate:
   - {fileID: 2315174854195979235}
@@ -40327,6 +40347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852843573039}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174853440784826
 GameObject:
   m_ObjectHideFlags: 0
@@ -41610,6 +41632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174853777011901}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174853467132547
 GameObject:
   m_ObjectHideFlags: 0
@@ -58660,6 +58684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852828827149}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
   canPickRope: 0
   ObjectsToActivate:
   - {fileID: 2315174853645810674}
@@ -59538,6 +59564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852540237026}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2315174853976563614
 GameObject:
   m_ObjectHideFlags: 0
@@ -68399,6 +68427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2315174852348771471}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!114 &2315174854255556502
 MonoBehaviour:
   m_ObjectHideFlags: 0
