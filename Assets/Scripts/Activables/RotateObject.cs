@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateObject : Activable
@@ -10,6 +9,8 @@ public class RotateObject : Activable
 
     Quaternion localRotationOnDeactive;
     Coroutine movementCoroutine;
+
+    public System.Action onEndRotation { get; set; }
 
     protected override void Start()
     {
@@ -26,6 +27,10 @@ public class RotateObject : Activable
         {
             Quaternion endRotation = isActive ? Quaternion.Euler(localRotationOnActive) : localRotationOnDeactive;
             ObjectToControl.transform.localRotation = endRotation;
+
+            //call event
+            onEndRotation?.Invoke();
+            movementCoroutine = null;
         }
     }
 
@@ -58,13 +63,11 @@ public class RotateObject : Activable
 
         while (true)
         {
-            float angle = Quaternion.Angle(ObjectToControl.transform.localRotation, endRotation);
-
             //rotate
             ObjectToControl.transform.localRotation = Quaternion.RotateTowards(ObjectToControl.transform.localRotation, endRotation, speedRotation * Time.deltaTime);
 
-            //if passed end rotation, stop rotation
-            if (Quaternion.Angle(ObjectToControl.transform.localRotation, endRotation) > angle)
+            //if angle is 0 (reached rotation), stop
+            if (Quaternion.Angle(ObjectToControl.transform.localRotation, endRotation) <= 0)
             {
                 ObjectToControl.transform.localRotation = endRotation;
                 break;
@@ -73,6 +76,8 @@ public class RotateObject : Activable
             yield return null;
         }
 
+        //call event
+        onEndRotation?.Invoke();
         movementCoroutine = null;
     }
 
