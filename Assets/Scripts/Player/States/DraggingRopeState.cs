@@ -35,7 +35,7 @@ public class DraggingRopeState : NormalState
 
         //start with position at connected point
         if (ropePositions.Count <= 0)
-            ropePositions.Add(player.connectedPoint.ObjectToControl.transform.position);
+            ropePositions.Add(player.connectedPoint.RopeStartPoint.position);
 
         //create spring joint from connected point        
         RecreateSpringJoint();
