@@ -129,9 +129,8 @@ public class RoomGame : Room
             yield return null;
         }
 
-        //set new pivot and current room
+        //set new pivot
         cam.GetComponent<CameraMovement>().SetPivot(transform);
-        GameManager.instance.levelManager.currentRoom = this;
     }
 
     void ActiveDeactiveConnectedRooms(bool active, Door door)
@@ -162,6 +161,9 @@ public class RoomGame : Room
         //active minimap icon when enter for the first time in the room
         if (minimapIcon.activeInHierarchy == false)
             minimapIcon.SetActive(true);
+
+        //set new current room
+        GameManager.instance.levelManager.currentRoom = this;
 
         //start coroutine (move camera)
         moveCameraCoroutine = StartCoroutine(MoveCameraCoroutine());
