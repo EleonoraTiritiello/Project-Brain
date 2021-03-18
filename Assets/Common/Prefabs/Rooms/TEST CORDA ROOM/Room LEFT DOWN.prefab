@@ -1260,7 +1260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852204058282}
   - component: {fileID: 2315174852204058281}
-  m_Layer: 0
+  - component: {fileID: 3128005383857623870}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1296,6 +1297,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 13, y: 8}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &3128005383857623870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852204058283}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852204061092
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,7 +6578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852357978271}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6640,7 +6654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852361870322}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6733,7 +6747,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852375611241}
   - component: {fileID: 2315174852375611240}
-  m_Layer: 0
+  - component: {fileID: 8359404256044155483}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6769,6 +6784,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 12, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &8359404256044155483
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852375611242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852378663334
 GameObject:
   m_ObjectHideFlags: 0
@@ -7705,7 +7733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852414166204}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8894,7 +8922,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852450626094}
   - component: {fileID: 2315174852450626093}
-  m_Layer: 0
+  - component: {fileID: 2567457445502238687}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8930,6 +8959,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 6, y: 8}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &2567457445502238687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852450626095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852452984556
 GameObject:
   m_ObjectHideFlags: 0
@@ -13837,7 +13879,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852586166202}
   - component: {fileID: 2315174852586166201}
-  m_Layer: 0
+  - component: {fileID: 3985724093384262442}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13873,6 +13916,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 6, y: 10}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &3985724093384262442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852586166203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852587522532
 GameObject:
   m_ObjectHideFlags: 0
@@ -14855,7 +14911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852616668610}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15242,7 +15298,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852625859276}
   - component: {fileID: 2315174852625859275}
-  m_Layer: 0
+  - component: {fileID: 8585028781829387508}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15278,6 +15335,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 11, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &8585028781829387508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852625859277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852626457266
 GameObject:
   m_ObjectHideFlags: 0
@@ -15751,7 +15821,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852652177254}
   - component: {fileID: 2315174852652177253}
-  m_Layer: 0
+  - component: {fileID: 1493665761190482223}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15787,6 +15858,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 12, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &1493665761190482223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852652177255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852653287492
 GameObject:
   m_ObjectHideFlags: 0
@@ -15797,7 +15881,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852653287491}
   - component: {fileID: 2315174852653287490}
-  m_Layer: 0
+  - component: {fileID: 264696769696834264}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15833,6 +15918,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 11, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &264696769696834264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852653287492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852654073141
 GameObject:
   m_ObjectHideFlags: 0
@@ -21445,7 +21543,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852819795512}
   - component: {fileID: 2315174852819795463}
-  m_Layer: 0
+  - component: {fileID: 3630552930919318534}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21481,6 +21580,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 6, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &3630552930919318534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852819795513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852820243085
 GameObject:
   m_ObjectHideFlags: 0
@@ -22356,7 +22468,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174852864367921}
   - component: {fileID: 2315174852864367920}
-  m_Layer: 0
+  - component: {fileID: 1111817321702096417}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22392,6 +22505,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 8, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &1111817321702096417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174852864367922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174852866108317
 GameObject:
   m_ObjectHideFlags: 0
@@ -24330,7 +24456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852924989759}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25720,7 +25846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852986319808}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25843,7 +25969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174852988026925}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27780,7 +27906,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853054898067}
   - component: {fileID: 2315174853054898066}
-  m_Layer: 0
+  - component: {fileID: 7237881445849616755}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27816,6 +27943,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 8, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &7237881445849616755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853054898068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853056510929
 GameObject:
   m_ObjectHideFlags: 0
@@ -29567,7 +29707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853113089698}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30062,7 +30202,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853127781037}
   - component: {fileID: 2315174853127781036}
-  m_Layer: 0
+  - component: {fileID: 257241831962694320}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30098,6 +30239,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 10, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &257241831962694320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853127781038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853129364557
 GameObject:
   m_ObjectHideFlags: 0
@@ -32075,7 +32229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853177612007}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32738,7 +32892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853199330906}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34870,7 +35024,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853258034241}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35136,7 +35290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853263607045}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35691,7 +35845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853286981653}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36465,7 +36619,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853307412626}
   - component: {fileID: 2315174853307412625}
-  m_Layer: 0
+  - component: {fileID: 8115880738574927233}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36501,6 +36656,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 13, y: 11}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &8115880738574927233
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853307412627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853310360245
 GameObject:
   m_ObjectHideFlags: 0
@@ -37180,7 +37348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853339300993}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39113,7 +39281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853395151884}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39578,7 +39746,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853409336740}
   - component: {fileID: 2315174853409336739}
-  m_Layer: 0
+  - component: {fileID: 4980419223014474830}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39614,6 +39783,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 7, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &4980419223014474830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853409336741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853409508608
 GameObject:
   m_ObjectHideFlags: 0
@@ -39810,7 +39992,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853410037368}
   - component: {fileID: 2315174853410037319}
-  m_Layer: 0
+  - component: {fileID: 4534104474015233722}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39846,6 +40029,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 6, y: 11}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &4534104474015233722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853410037369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853410229371
 GameObject:
   m_ObjectHideFlags: 0
@@ -49664,7 +49860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853687201998}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50282,7 +50478,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853698618341}
   - component: {fileID: 2315174853698618340}
-  m_Layer: 0
+  - component: {fileID: 8964588238200716944}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50318,6 +50515,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 7, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &8964588238200716944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853698618342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853699537934
 GameObject:
   m_ObjectHideFlags: 0
@@ -56367,7 +56577,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853877489863}
   - component: {fileID: 2315174853877489862}
-  m_Layer: 0
+  - component: {fileID: 4581549496890422602}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56403,6 +56614,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 13, y: 7}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &4581549496890422602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853877489912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853877629598
 GameObject:
   m_ObjectHideFlags: 0
@@ -56614,7 +56838,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853885627864}
   - component: {fileID: 2315174853885627815}
-  m_Layer: 0
+  - component: {fileID: 6331471812536529360}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56650,6 +56875,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 9, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &6331471812536529360
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853885627865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853887732735
 GameObject:
   m_ObjectHideFlags: 0
@@ -56721,7 +56959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853892138788}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58528,7 +58766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853932048105}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58744,7 +58982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174853942284728}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59206,7 +59444,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174853969350443}
   - component: {fileID: 2315174853969350442}
-  m_Layer: 0
+  - component: {fileID: 2512447289778716125}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59242,6 +59481,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 6, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &2512447289778716125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174853969350444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174853971419303
 GameObject:
   m_ObjectHideFlags: 0
@@ -61708,7 +61960,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174854042905455}
   - component: {fileID: 2315174854042905454}
-  m_Layer: 0
+  - component: {fileID: 4004307003754755978}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61744,6 +61997,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 13, y: 12}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &4004307003754755978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174854042905440}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174854042942074
 GameObject:
   m_ObjectHideFlags: 0
@@ -67523,7 +67789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315174854228390791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68405,7 +68671,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2315174854253367894}
   - component: {fileID: 2315174854253367893}
-  m_Layer: 0
+  - component: {fileID: 8695380869284046638}
+  m_Layer: 11
   m_Name: Hole(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68441,6 +68708,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInGrid: {x: 13, y: 9}
   tileColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!65 &8695380869284046638
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315174854253367895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2315174854255556488
 GameObject:
   m_ObjectHideFlags: 0
