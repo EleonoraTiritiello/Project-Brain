@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using redd096;
 
 [RequireComponent(typeof(Player))]
 public class PlayerFeedback : MonoBehaviour
@@ -6,15 +7,8 @@ public class PlayerFeedback : MonoBehaviour
     #region variables in inspector
 
     [Header("On Change Hand")]
-    [SerializeField] ParticleSystem particlesOnChangeHand = default;
-    [SerializeField] AudioStruct soundOnChangeHand = default;
-
-    #endregion
-
-    #region poolings
-
-    Pooling<ParticleSystem> poolParticlesOnChangeHand = new Pooling<ParticleSystem>();
-    Pooling<AudioSource> poolSoundsOnChangeHand = new Pooling<AudioSource>();
+    [SerializeField] ParticleSystem[] particlesOnChangeHand = default;
+    [SerializeField] AudioStruct[] soundOnChangeHand = default;
 
     #endregion
 
@@ -45,8 +39,8 @@ public class PlayerFeedback : MonoBehaviour
     void OnChangeHand(Transform hand)
     {
         //instantiate particles and sounds
-        ParticlesManager.instance.Play(poolParticlesOnChangeHand, particlesOnChangeHand, hand.position, hand.rotation);
-        SoundManager.instance.Play(poolSoundsOnChangeHand, soundOnChangeHand.audioClip, hand.position, soundOnChangeHand.volume);
+        ParticlesManager.instance.Play(particlesOnChangeHand, hand.position, hand.rotation);
+        SoundManager.instance.Play(soundOnChangeHand, hand.position);
     }
 
     #endregion

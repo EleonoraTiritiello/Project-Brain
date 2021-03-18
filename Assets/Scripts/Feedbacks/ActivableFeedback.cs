@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using redd096;
 
 [RequireComponent(typeof(Activable))]
 public class ActivableFeedback : MonoBehaviour
@@ -8,22 +7,12 @@ public class ActivableFeedback : MonoBehaviour
     #region variables in inspector
 
     [Header("On Active")]
-    [SerializeField] ParticleSystem particlesOnActive = default;
-    [SerializeField] AudioStruct soundOnActive = default;
+    [SerializeField] ParticleSystem[] particlesOnActive = default;
+    [SerializeField] AudioStruct[] soundOnActive = default;
 
     [Header("On Deactive")]
-    [SerializeField] ParticleSystem particlesOnDeactive = default;
-    [SerializeField] AudioStruct soundOnDeactive = default;
-
-    #endregion
-
-    #region poolings
-
-    Pooling<ParticleSystem> poolParticlesOnActive = new Pooling<ParticleSystem>();
-    Pooling<AudioSource> poolSoundsOnActive = new Pooling<AudioSource>();
-
-    Pooling<ParticleSystem> poolParticlesOnDeactive = new Pooling<ParticleSystem>();
-    Pooling<AudioSource> poolSoundsOnDeactive = new Pooling<AudioSource>();
+    [SerializeField] ParticleSystem[] particlesOnDeactive = default;
+    [SerializeField] AudioStruct[] soundOnDeactive = default;
 
     #endregion
 
@@ -56,15 +45,15 @@ public class ActivableFeedback : MonoBehaviour
     void OnActive()
     {
         //instantiate particles and sounds
-        ParticlesManager.instance.Play(poolParticlesOnActive, particlesOnActive, activable.ObjectToControl.transform.position, activable.ObjectToControl.transform.rotation);
-        SoundManager.instance.Play(poolSoundsOnActive, soundOnActive.audioClip, activable.ObjectToControl.transform.position, soundOnActive.volume);
+        ParticlesManager.instance.Play(particlesOnActive, activable.ObjectToControl.transform.position, activable.ObjectToControl.transform.rotation);
+        SoundManager.instance.Play(soundOnActive, activable.ObjectToControl.transform.position);
     }
 
     void OnDeactive()
     {
         //instantiate particles and sounds
-        ParticlesManager.instance.Play(poolParticlesOnDeactive, particlesOnDeactive, activable.ObjectToControl.transform.position, activable.ObjectToControl.transform.rotation);
-        SoundManager.instance.Play(poolSoundsOnDeactive, soundOnDeactive.audioClip, activable.ObjectToControl.transform.position, soundOnDeactive.volume);
+        ParticlesManager.instance.Play(particlesOnDeactive, activable.ObjectToControl.transform.position, activable.ObjectToControl.transform.rotation);
+        SoundManager.instance.Play(soundOnDeactive, activable.ObjectToControl.transform.position);
     }
 
     #endregion
