@@ -1357,7 +1357,7 @@ PrefabInstance:
     - target: {fileID: 7162545540956327142, guid: 375775519436f5648acd2e82fc48e395,
         type: 3}
       propertyPath: m_Name
-      value: Minimap
+      value: Minimap Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7162545540956327143, guid: 375775519436f5648acd2e82fc48e395,
         type: 3}
