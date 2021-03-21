@@ -1831,11 +1831,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 300279272}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &46005323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7305,11 +7300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 665642566}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 11909596}
   - {fileID: 254339594}
@@ -10465,11 +10456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1979004654}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
   ObjectsToActivate:
   - {fileID: 523805885}
   - {fileID: 650183552}
@@ -10877,11 +10863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2007622694}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &298675187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16131,11 +16112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2029923251}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &474306695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18260,11 +18236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 2002992078}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &541213477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23754,9 +23725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 492873416}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 34654551}
 --- !u!114 &712928700
@@ -29435,11 +29404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 668425693}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 11909596}
   - {fileID: 254339594}
@@ -31591,11 +31556,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1941409061}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &930389483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34498,11 +34458,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1379508856}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 100
 --- !u!114 &1030814701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41091,11 +41046,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1060756840}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &1220679283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50002,11 +49952,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 579314949}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &1480504029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53479,9 +53424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 332673002}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 1818892821}
 --- !u!114 &1578930101
@@ -65041,9 +64984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1936212900}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 1297547780}
 --- !u!114 &1889135289
@@ -67693,9 +67634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 439221777}
-  ropePrefab: {fileID: 0}
-  colliderPrefab: {fileID: 0}
-  RopeLength: 10
+  canPickRope: 1
   ObjectsToActivate:
   - {fileID: 427411476}
 --- !u!114 &1973637002
@@ -69088,11 +69027,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 482029256}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &2016169510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70552,11 +70486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 1415058778}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 10
 --- !u!114 &2044665000
 MonoBehaviour:
   m_ObjectHideFlags: 0
