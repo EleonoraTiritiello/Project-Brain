@@ -1,6 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using redd096;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MinimapCamera : MonoBehaviour
 {
@@ -14,15 +17,62 @@ public class MinimapCamera : MonoBehaviour
     Camera cam;
     Coroutine movementCoroutine;
     RoomGame previousRoom;
+    Vector3 startPosition;
+
+    //player moves on minimap
+    EventSystem eventSystem;
+    GraphicRaycaster graphicRaycaster;
+    bool playerMovesOnMinimap;
+    List<RaycastResult> playerHits = new List<RaycastResult>();
+    Vector2 previousPosition;
 
     void Awake()
     {
-        //remove minimap layer from main camera
+        //get references
         cam = Camera.main;
-        cam.cullingMask = LayerUtility.RemoveLayer(cam.cullingMask, LayerUtility.NameToLayer(minimapLayer));
+        eventSystem = FindObjectOfType<EventSystem>();
+        graphicRaycaster = GetComponentInChildren<GraphicRaycaster>();
 
-        //set layer to this camera
-        GetComponent<Camera>().cullingMask = CreateLayer.LayerOnly(minimapLayer);
+        //set layers for cameras
+        SetLayers();
+
+        //by default hide minimap, but save start position
+        gameObject.SetActive(false);
+        startPosition = transform.position;
+    }
+
+    void Update()
+    {
+        //if pressing mouse
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+            playerHits = RaycastHits();
+
+            //if hit minimap
+            if(playerHits.Count > 0)
+            {
+                //player start to move
+                if (playerMovesOnMinimap == false)
+                {
+                    playerMovesOnMinimap = true;
+                }
+                //or player continue to move
+                else
+                {
+                    MoveOnMinimap();
+                }
+
+                //and save last position
+                previousPosition = playerHits[0].screenPosition;
+                return;
+            }            
+        }
+
+        //if was moving and stop click or stop hit minimap, stop movement
+        if (playerMovesOnMinimap)
+        {
+            playerMovesOnMinimap = false;
+        }
     }
 
     void LateUpdate()
@@ -31,6 +81,7 @@ public class MinimapCamera : MonoBehaviour
         if (GameManager.instance.levelManager.currentRoom && GameManager.instance.levelManager.currentRoom != previousRoom)
         {
             Movement();
+            previousRoom = GameManager.instance.levelManager.currentRoom;   //set new room
         }
 
         //if must follow rotation, rotate with main camera
@@ -41,6 +92,15 @@ public class MinimapCamera : MonoBehaviour
     }
 
     #region private API
+
+    void SetLayers()
+    {
+        //remove minimap layer from main camera
+        cam.cullingMask = LayerUtility.RemoveLayer(cam.cullingMask, LayerUtility.NameToLayer(minimapLayer));
+
+        //set layer to this camera
+        GetComponent<Camera>().cullingMask = CreateLayer.LayerOnly(minimapLayer);
+    }
 
     void Movement()
     {
@@ -73,6 +133,51 @@ public class MinimapCamera : MonoBehaviour
     {
         //follow main camera rotation on Y axis
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.transform.eulerAngles.y, transform.eulerAngles.z);
+    }
+
+    #endregion
+
+    #region player moves on minimap
+
+    List<RaycastResult> RaycastHits()
+    {
+        //set pointer event on input position
+        PointerEventData pointerEvent = new PointerEventData(eventSystem);
+        pointerEvent.position = Player.InputPosition();
+
+        //then raycast and get hits
+        List<RaycastResult> hits = new List<RaycastResult>();
+        graphicRaycaster.Raycast(pointerEvent, hits);
+
+        return hits;
+    }
+
+    void MoveOnMinimap()
+    {
+        //calculate movement input and get camera movement from it
+        Vector2 movementInput = previousPosition - playerHits[0].screenPosition;
+        Vector3 cameraMovement = new Vector3(movementInput.x, 0, movementInput.y);
+
+        //rotate on Y axis to get local movement
+        cameraMovement = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * cameraMovement;
+
+        //move camera
+        transform.position += cameraMovement;
+    }
+
+    #endregion
+
+    #region public API
+
+    public void ToggleMinimap()
+    {
+        //stop camera movement and show minimap - restart camera movement and hide minimap
+        GameManager.instance.cameraMovement.enabled = gameObject.activeInHierarchy;
+        gameObject.SetActive(!gameObject.activeInHierarchy);
+
+        //be sure to be at start position (no moved by player)
+        if(gameObject.activeInHierarchy)
+            transform.position = startPosition;
     }
 
     #endregion

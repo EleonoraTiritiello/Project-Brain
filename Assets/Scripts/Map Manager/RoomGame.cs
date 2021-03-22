@@ -23,7 +23,7 @@ public class RoomGame : Room
     public Door enterDoor { get; set; }                                 //opened from previous room, which give electricity to this room
     public List<Door> openedDoors { get; set; } = new List<Door>();     //doors in this room connected from player (so enter door is not in this list, apart if player connect that door to come back)
 
-    GameObject minimapIcon;
+    public SpriteRenderer minimapIcon { get; set; }
 
     public override IEnumerator EndRoom()
     {
@@ -116,7 +116,7 @@ public class RoomGame : Room
         Quaternion startRotation = cam.rotation;
 
         //remove pivot camera
-        cam.GetComponent<CameraMovement>().RemovePivot();
+        GameManager.instance.cameraMovement.RemovePivot();
 
         //move cam smooth to position and rotation
         float delta = 0;
@@ -130,7 +130,7 @@ public class RoomGame : Room
         }
 
         //set new pivot
-        cam.GetComponent<CameraMovement>().SetPivot(transform);
+        GameManager.instance.cameraMovement.SetPivot(transform);
     }
 
     void ActiveDeactiveConnectedRooms(bool active, Door door)
@@ -157,13 +157,8 @@ public class RoomGame : Room
     /// </summary>
     /// <param name="door">entered from this door</param>
     public void OnEnterRoom(Door door = null)
-    {
-        //active minimap icon when enter for the first time in the room
-        if (minimapIcon.activeInHierarchy == false)
-            minimapIcon.SetActive(true);
-
-        //set new current room
-        GameManager.instance.levelManager.currentRoom = this;
+    {       
+        GameManager.instance.levelManager.ChangeRoom(this);
 
         //start coroutine (move camera)
         moveCameraCoroutine = StartCoroutine(MoveCameraCoroutine());

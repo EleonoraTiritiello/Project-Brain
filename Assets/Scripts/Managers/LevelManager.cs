@@ -9,29 +9,52 @@ public class LevelManager : MonoBehaviour
     public float RopeLength = 12;
 
     [Header("Minimap")]
-    [SerializeField] GameObject MinimapIcon = default;
+    [SerializeField] SpriteRenderer minimapIconPrefab = default;
+    [SerializeField] Sprite spriteRoom = default;
+    [SerializeField] Sprite spriteCurrentRoom = default;
+    [SerializeField] SpriteRenderer playerIconPrefab = default;
 
     [Header("Debug")]
     [ReadOnly] public RoomGame currentRoom;
 
     Transform minimapIconsParent;
+    Transform playerIcon;
 
     void Awake()
     {
         //create parent icons
         minimapIconsParent = new GameObject("Minimap Icons").transform;
+
+        //instantiate player icon
+        playerIcon = Instantiate(playerIconPrefab, minimapIconsParent).transform;
     }
 
-    public GameObject CreateIcon(Vector3 position, float tileSize, int width, int height)
+    public SpriteRenderer CreateIcon(Vector3 position, float tileSize, int width, int height)
     {
         //instantiate minimap icon
-        GameObject minimapIcon = Instantiate(GameManager.instance.levelManager.MinimapIcon, minimapIconsParent);
+        SpriteRenderer minimapIcon = Instantiate(minimapIconPrefab, minimapIconsParent);
         minimapIcon.transform.position = position;
         minimapIcon.transform.localScale = new Vector3(width * tileSize, height * tileSize, 1);
 
         //deactive by default
-        minimapIcon.SetActive(false);
+        minimapIcon.gameObject.SetActive(false);
 
         return minimapIcon;
+    }
+
+    public void ChangeRoom(RoomGame newRoom)
+    {
+        //active minimap icon when enter for the first time in the room
+        if (newRoom.minimapIcon.gameObject.activeInHierarchy == false)
+            newRoom.minimapIcon.gameObject.SetActive(true);
+
+        //set current room and previous room icons
+        newRoom.minimapIcon.sprite = spriteCurrentRoom;
+        if(currentRoom)
+            currentRoom.minimapIcon.sprite = spriteRoom;
+
+        //set new current room and move player icon
+        currentRoom = newRoom;
+        playerIcon.position = currentRoom.minimapIcon.transform.position + Vector3.up;
     }
 }
