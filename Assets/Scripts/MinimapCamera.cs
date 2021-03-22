@@ -9,14 +9,16 @@ public class MinimapCamera : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] float durationMovement = 1;
+    [SerializeField] bool followRotation = true;
 
+    Camera cam;
     Coroutine movementCoroutine;
     RoomGame previousRoom;
 
     void Awake()
     {
         //remove minimap layer from main camera
-        Camera cam = Camera.main;
+        cam = Camera.main;
         cam.cullingMask = LayerUtility.RemoveLayer(cam.cullingMask, LayerUtility.NameToLayer(minimapLayer));
 
         //set layer to this camera
@@ -25,15 +27,28 @@ public class MinimapCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        //if current room != previous room
+        //if current roomm != previous room, move to new position
         if (GameManager.instance.levelManager.currentRoom && GameManager.instance.levelManager.currentRoom != previousRoom)
         {
-            //move to new position
-            if (movementCoroutine != null)
-                StopCoroutine(movementCoroutine);
-
-            movementCoroutine = StartCoroutine(MovementCoroutine());
+            Movement();
         }
+
+        //if must follow rotation, rotate with main camera
+        if (followRotation)
+        {
+            Rotation();
+        }
+    }
+
+    #region private API
+
+    void Movement()
+    {
+        //move to new position
+        if (movementCoroutine != null)
+            StopCoroutine(movementCoroutine);
+
+        movementCoroutine = StartCoroutine(MovementCoroutine());
     }
 
     IEnumerator MovementCoroutine()
@@ -53,4 +68,12 @@ public class MinimapCamera : MonoBehaviour
             yield return null;
         }
     }
+
+    void Rotation()
+    {
+        //follow main camera rotation on Y axis
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.transform.eulerAngles.y, transform.eulerAngles.z);
+    }
+
+    #endregion
 }
