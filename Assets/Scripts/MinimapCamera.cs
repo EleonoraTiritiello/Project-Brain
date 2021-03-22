@@ -27,7 +27,7 @@ public class MinimapCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        //if current roomm != previous room, move to new position
+        //if current room != previous room, move to new position
         if (GameManager.instance.levelManager.currentRoom && GameManager.instance.levelManager.currentRoom != previousRoom)
         {
             Movement();
