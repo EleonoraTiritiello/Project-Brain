@@ -17,6 +17,7 @@ public class MinimapCamera : MonoBehaviour
     [Header("Interact")]
     [SerializeField] bool toggleable = true;
     [SerializeField] bool canInteract = true;
+    [SerializeField] bool forceToClickOnMinimap = true;
 
     Camera cam;
     Coroutine movementCoroutine;
@@ -51,9 +52,6 @@ public class MinimapCamera : MonoBehaviour
 
     void Update()
     {
-        //TODO accertarsi che il keydown (il primo input) avvenga all'interno della minimappa
-        //altrimenti capita che puoi cliccare fuori dalla minimappa, poi tenendo premuto se ci si sposta all'interno della minimappa inizia a funzionare lo stesso
-
         //if player can interact and pressing mouse
         if(canInteract && Input.GetKey(KeyCode.Mouse0))
         {
@@ -65,7 +63,9 @@ public class MinimapCamera : MonoBehaviour
                 //player start to move
                 if (playerMovesOnMinimap == false)
                 {
-                    playerMovesOnMinimap = true;
+                    //be sure to start with a key down. Else player can press input out of minimap and move anyway
+                    if(Input.GetKeyDown(KeyCode.Mouse0) || forceToClickOnMinimap == false)
+                        playerMovesOnMinimap = true;
                 }
                 //or player continue to move
                 else
