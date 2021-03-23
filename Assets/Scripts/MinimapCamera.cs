@@ -14,6 +14,10 @@ public class MinimapCamera : MonoBehaviour
     [SerializeField] float durationMovement = 1;
     [SerializeField] bool followRotation = true;
 
+    [Header("Interact")]
+    [SerializeField] bool toggleable = true;
+    [SerializeField] bool canInteract = true;
+
     Camera cam;
     Coroutine movementCoroutine;
     RoomGame previousRoom;
@@ -36,15 +40,22 @@ public class MinimapCamera : MonoBehaviour
         //set layers for cameras
         SetLayers();
 
-        //by default hide minimap, but save start position
-        gameObject.SetActive(false);
-        startPosition = transform.position;
+        //if toggleable, by default hide minimap
+        if(toggleable)
+            gameObject.SetActive(false);
+
+        //if can interact, save start position
+        if (canInteract)
+            startPosition = transform.position;
     }
 
     void Update()
     {
-        //if pressing mouse
-        if(Input.GetKey(KeyCode.Mouse0))
+        //TODO accertarsi che il keydown (il primo input) avvenga all'interno della minimappa
+        //altrimenti capita che puoi cliccare fuori dalla minimappa, poi tenendo premuto se ci si sposta all'interno della minimappa inizia a funzionare lo stesso
+
+        //if player can interact and pressing mouse
+        if(canInteract && Input.GetKey(KeyCode.Mouse0))
         {
             playerHits = RaycastHits();
 
@@ -171,11 +182,15 @@ public class MinimapCamera : MonoBehaviour
 
     public void ToggleMinimap()
     {
+        //do only if toggleable
+        if (toggleable == false)
+            return;
+
         //stop camera movement and show minimap - restart camera movement and hide minimap
         GameManager.instance.cameraMovement.enabled = gameObject.activeInHierarchy;
         gameObject.SetActive(!gameObject.activeInHierarchy);
 
-        //be sure to be at start position (no moved by player)
+        //be sure to be at start position (no moved by player when can interact)
         if(gameObject.activeInHierarchy)
             transform.position = startPosition;
     }

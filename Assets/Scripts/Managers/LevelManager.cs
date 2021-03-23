@@ -9,10 +9,10 @@ public class LevelManager : MonoBehaviour
     public float RopeLength = 12;
 
     [Header("Minimap")]
+    [SerializeField] SpriteRenderer playerIconPrefab = default;
     [SerializeField] SpriteRenderer minimapIconPrefab = default;
     [SerializeField] Sprite spriteRoom = default;
     [SerializeField] Sprite spriteCurrentRoom = default;
-    [SerializeField] SpriteRenderer playerIconPrefab = default;
 
     [Header("Debug")]
     [ReadOnly] public RoomGame currentRoom;

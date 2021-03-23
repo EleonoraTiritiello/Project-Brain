@@ -25,7 +25,7 @@ public class DraggingRopeState : NormalState
     bool usingRightHand = true;
 
     int anglePositive;
-    public List<Vector3> ropePositions = new List<Vector3>();
+    [ReadOnly] public List<Vector3> ropePositions = new List<Vector3>();
     Vector3 lastRope => ropePositions[ropePositions.Count - 1];
     Vector3 penultimaRope => ropePositions[ropePositions.Count - 2];
 
