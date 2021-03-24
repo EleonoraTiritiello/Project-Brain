@@ -1182,7 +1182,7 @@ PrefabInstance:
     - target: {fileID: 4675331397172826862, guid: 2f9d3ad64ada3084186be3ff2cadfd44,
         type: 3}
       propertyPath: RopeLength
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9d3ad64ada3084186be3ff2cadfd44, type: 3}
@@ -1211,13 +1211,13 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 3375592631706720129, guid: 2a46e43761ad98645b6396fa06b2e63b,
+      objectReference: {fileID: 6595384632044376230, guid: 0e3d8b091e2a4954089954f3506fbaca,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}

@@ -599,9 +599,6 @@ MonoBehaviour:
   width: 18
   height: 22
   doors:
-  - doorTransform: {fileID: 458077482988957527}
-    direction: 1
-    typeOfDoor: 0
   - doorTransform: {fileID: 3941598364723764354}
     direction: 2
     typeOfDoor: 0
