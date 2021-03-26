@@ -1201,7 +1201,7 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: numberRooms
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -1217,7 +1217,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 8369307185107997031, guid: 3952adbce205b5f4590c7bc7dfb105b2,
+      objectReference: {fileID: 4830860810075847650, guid: a29c6894b7576644b9f62ae7c51704f6,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}

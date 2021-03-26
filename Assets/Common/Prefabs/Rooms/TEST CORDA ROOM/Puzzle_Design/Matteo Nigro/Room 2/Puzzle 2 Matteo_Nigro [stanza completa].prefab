@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 8952007966254480497}
   - component: {fileID: 4830860810075847650}
   m_Layer: 0
-  m_Name: Puzzle Matteo_Nigro [stanza completa]
+  m_Name: Puzzle 2 Matteo_Nigro [stanza completa]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,12 +124,20 @@ MonoBehaviour:
   timeToMoveCamera: 1
   precisionPosition: 0.1
   roomAlternatives:
-  - {fileID: 4830860810075847650, guid: 279c06cabab3b60489a1156687d4f69a, type: 3}
-  - {fileID: 4830860810075847650, guid: 8a69ad9930fcfcf42bc2315fc702b2d5, type: 3}
-  - {fileID: 4830860810075847650, guid: 3c267161f61a1a4429a1b865cfb3e0be, type: 3}
-  - {fileID: 4830860810075847650, guid: a8d9c0d4c8d16e14d9d185c0b4e00ebf, type: 3}
-  - {fileID: 4830860810075847650, guid: 175492a9ee26fd04a85228ff7f99d0aa, type: 3}
-  - {fileID: 4830860810075847650, guid: bf60490fa2813294e8d87d773b0554d8, type: 3}
+  - {fileID: 4830860810075847650, guid: c6637fbb981b45e489d5e636165f9b51, type: 3}
+  - {fileID: 4830860810075847650, guid: 31cb5100e27640d4d817e9cafdfe08aa, type: 3}
+  - {fileID: 4830860810075847650, guid: 0043f7a7e707ff4478fd5ba7b644ab4c, type: 3}
+  - {fileID: 4830860810075847650, guid: 28be637b2f721884fbd96b5d21f74dc5, type: 3}
+  - {fileID: 4830860810075847650, guid: 4f126a362148ee34385c4db92a239aaf, type: 3}
+  - {fileID: 4830860810075847650, guid: f22386dda3513114f87dfb1d4254cabd, type: 3}
+  - {fileID: 4830860810075847650, guid: cc81e449820d091488590c824b86f36c, type: 3}
+  - {fileID: 4830860810075847650, guid: 3beb827735aa77c42878ae4e55d4d475, type: 3}
+  - {fileID: 4830860810075847650, guid: 45eb35e57a5df414488ab6cdc1f2c725, type: 3}
+  - {fileID: 4830860810075847650, guid: d734e7c14d4bc5646842d5b722fb597e, type: 3}
+  - {fileID: 4830860810075847650, guid: 0961dbab385da06439b9c545dfbc8bea, type: 3}
+  - {fileID: 4830860810075847650, guid: 82ae18583c1ad814aaf38de9edd0b1d1, type: 3}
+  - {fileID: 4830860810075847650, guid: 0f017a1992ba4ca4eb7c0ea2cd8ab8d5, type: 3}
+  - {fileID: 4830860810075847650, guid: 57a5c7c2c2da2b34a92c713f98d5579f, type: 3}
 --- !u!1 &5327180644547013609
 GameObject:
   m_ObjectHideFlags: 0
