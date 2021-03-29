@@ -2062,10 +2062,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5210155938848505694}
     m_Modifications:
+    - target: {fileID: 425789464164696392, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678827346502834660, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667161009545503544, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50d609260ba7c1a4d9beeec6f40380fb, type: 2}
     - target: {fileID: 3684567894906713286, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -2110,22 +2145,22 @@ PrefabInstance:
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -2135,7 +2170,7 @@ PrefabInstance:
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -9051,6 +9086,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5210155938848505694}
     m_Modifications:
+    - target: {fileID: 678827346502834660, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3684567894906713286, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_Name
@@ -9066,6 +9106,31 @@ PrefabInstance:
       propertyPath: ObjectsForActivate.Array.data[0]
       value: 
       objectReference: {fileID: 3782025336314948348}
+    - target: {fileID: 5158119068172954194, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158119068172954194, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158119068172954194, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158119068172954194, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398713461375032511, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50d609260ba7c1a4d9beeec6f40380fb, type: 2}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -9075,6 +9140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: positionInGrid.y
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961247251792132505, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -12874,10 +12944,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5210155938848505694}
     m_Modifications:
+    - target: {fileID: 425789464164696392, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3684567894906713286, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -12899,6 +12994,31 @@ PrefabInstance:
       propertyPath: positionInGrid.y
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6961247251792132505, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992483721869440077, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992483721869440077, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992483721869440077, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314894283287013625, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50d609260ba7c1a4d9beeec6f40380fb, type: 2}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_RootOrder
