@@ -329,14 +329,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 5020365539615078396}
   timeToMoveCamera: 1
   precisionPosition: 0.1
-  roomAlternatives:
-  - {fileID: 6201096575107143595, guid: 8ea80c4e9e5138b45aa163e4407d45ed, type: 3}
-  - {fileID: 8477229092584637890, guid: 3850f37dcb567da44a21fd5ced18f9c0, type: 3}
-  - {fileID: 5421499727053896798}
-  - {fileID: 4790178065475645312, guid: cb57d1d1927182c46945f9bef92ae0da, type: 3}
-  - {fileID: 3752364530825923985, guid: 0b9f174f3105a4048994a2d4a6017dc3, type: 3}
-  - {fileID: 5765480743757763421, guid: dee0a80f1b983ec46bb881612c1a716e, type: 3}
-  - {fileID: 4520304885387474753, guid: 65eeb62e8fe55da428d808439c40c242, type: 3}
+  roomAlternatives: []
 --- !u!1001 &255460743249609172
 PrefabInstance:
   m_ObjectHideFlags: 0

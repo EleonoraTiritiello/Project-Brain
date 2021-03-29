@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useZ: 1
-  startPosition: {x: -16, y: 0, z: -16}
+  startPosition: {x: -10, y: 0, z: -10}
   tileSize: {x: 2, y: 1, z: 2}
   gridImage: {fileID: 2800000, guid: 682859a70017ef64a98115976c92d09b, type: 3}
   tiles:
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useZ: 1
   tileSize: 2
-  width: 20
-  height: 20
+  width: 11
+  height: 11
   doors:
   - doorTransform: {fileID: 1285179391489536337}
     direction: 0
@@ -3008,22 +3008,22 @@ PrefabInstance:
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
@@ -3033,7 +3033,7 @@ PrefabInstance:
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
@@ -9168,22 +9168,22 @@ PrefabInstance:
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
@@ -9193,7 +9193,7 @@ PrefabInstance:
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
         type: 3}
