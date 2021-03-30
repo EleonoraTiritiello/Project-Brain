@@ -222,7 +222,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -679,10 +679,10 @@ MonoBehaviour:
   rotationSpeedX: 8
   rotationSpeedY: 8
   smooth: 20
-  minLimitX: -110
-  maxLimitX: 110
+  minLimitX: -360
+  maxLimitX: 360
   minLimitY: 20
-  maxLimitY: 40
+  maxLimitY: 60
 --- !u!1 &1017026030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,7 +1182,7 @@ PrefabInstance:
     - target: {fileID: 4675331397172826862, guid: 2f9d3ad64ada3084186be3ff2cadfd44,
         type: 3}
       propertyPath: RopeLength
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9d3ad64ada3084186be3ff2cadfd44, type: 3}

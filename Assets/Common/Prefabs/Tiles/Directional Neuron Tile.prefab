@@ -41,11 +41,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 3816192322763106691}
-  ropePrefab: {fileID: 5571142256544732861, guid: 55790f0279c591f40abba4ea01804310,
-    type: 3}
-  colliderPrefab: {fileID: 7427906282215950925, guid: 478f66392c2882f4a977dfdeb9924ea2,
-    type: 3}
-  RopeLength: 6
 --- !u!114 &2599571951700356491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +69,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2087832759964224603}
     m_Modifications:
+    - target: {fileID: 2379128447771617371, guid: af06c26f1cdd11b4c8e9d277be1f8bba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2575723496577677447, guid: af06c26f1cdd11b4c8e9d277be1f8bba,
         type: 3}
       propertyPath: m_RootOrder
