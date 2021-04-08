@@ -1201,13 +1201,54 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: numberRooms
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: doorsPerAttempt
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 27702ebbbd44ab34d891240ffa1272d7,
+        type: 2}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e6904f5d3be8d9c48a598d0eff32a57c,
+        type: 2}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: db6e68b346ca02247b494e4266cf7a49,
+        type: 2}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 10b44bd5b9b2907409d45e463fe86585,
+        type: 2}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 10b44bd5b9b2907409d45e463fe86585,
+        type: 2}
+    - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
+        type: 3}
+      propertyPath: checks.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 10b44bd5b9b2907409d45e463fe86585,
+        type: 2}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.size
