@@ -439,8 +439,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6595384633633450927}
-  m_LocalRotation: {x: 0.26974455, y: -0.39630446, z: 0.12279474, w: 0.86896616}
-  m_LocalPosition: {x: 11.496965, y: 10.001826, z: -12.322985}
+  m_LocalRotation: {x: 0.384473, y: -0.37491795, z: 0.17450652, w: 0.825327}
+  m_LocalPosition: {x: 8.782558, y: 12.688746, z: -8.608446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6595384632044376229}
@@ -535,12 +535,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f42cbb0fef46294492c385322e5b356, type: 3}
---- !u!4 &1540381259161386173 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1514757032209860956, guid: 1f42cbb0fef46294492c385322e5b356,
-    type: 3}
-  m_PrefabInstance: {fileID: 28701543135933921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1580340012695048449 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1552485372755780832, guid: 1f42cbb0fef46294492c385322e5b356,
@@ -553,6 +547,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1540381259161386173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1514757032209860956, guid: 1f42cbb0fef46294492c385322e5b356,
+    type: 3}
+  m_PrefabInstance: {fileID: 28701543135933921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &304505782817137142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1012,6 +1012,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6968525631333291034}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -1079,6 +1089,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &4456646779397005570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 741262384392706757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9106384025727299452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -1097,6 +1119,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6946441488473103966}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -1164,6 +1201,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &4395720766141532782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 761374605433794985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9131589322111190032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -1284,12 +1333,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74702fc0c6beed74e9716e052d427ded, type: 3}
---- !u!4 &3816243317001138022 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4548373080361835623, guid: 74702fc0c6beed74e9716e052d427ded,
-    type: 3}
-  m_PrefabInstance: {fileID: 858239349758964481}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7965842312258778959 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7306333128120910926, guid: 74702fc0c6beed74e9716e052d427ded,
@@ -1302,6 +1345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1d3a6527b9f1f4ea45861d42e3c0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &3816243317001138022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4548373080361835623, guid: 74702fc0c6beed74e9716e052d427ded,
+    type: 3}
+  m_PrefabInstance: {fileID: 858239349758964481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &908147736547083385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1569,6 +1618,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -1642,6 +1706,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1075886191051134080}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4142782097915326279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 1075886191051134080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1191602267886080182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2236,6 +2312,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f7fc9548753d47809aaaaf08deccf, type: 3}
+--- !u!4 &2980177869060312746 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1648788820198900683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2686410362492226436 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3722690527172249679, guid: c49f7fc9548753d47809aaaaf08deccf,
@@ -2248,12 +2330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018752eff27bf75478d87820f6661bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2980177869060312746 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1648788820198900683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1852802414561808503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2346,6 +2422,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -2413,6 +2504,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &3294287919510188455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 1884730041045944928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7930550650845233113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -3043,6 +3146,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6946441488473103966}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -3110,6 +3228,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &1676152516815507559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 2365143250725284768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6123685417942703641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -3375,12 +3505,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
---- !u!4 &6186197190060610960 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
-    type: 3}
-  m_PrefabInstance: {fileID: 2445691686480207913}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1612457122573425646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
@@ -3393,6 +3517,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6186197190060610960 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 2445691686480207913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2615521885565256418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3404,6 +3534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -3589,6 +3724,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f42cbb0fef46294492c385322e5b356, type: 3}
+--- !u!4 &3585374568231085512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1514757032209860956, guid: 1f42cbb0fef46294492c385322e5b356,
+    type: 3}
+  m_PrefabInstance: {fileID: 2649436350251986068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3553121759083350132 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1552485372755780832, guid: 1f42cbb0fef46294492c385322e5b356,
@@ -3601,12 +3742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &3585374568231085512 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1514757032209860956, guid: 1f42cbb0fef46294492c385322e5b356,
-    type: 3}
-  m_PrefabInstance: {fileID: 2649436350251986068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2684838229209129950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3704,6 +3839,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -3777,6 +3927,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2801631852380333694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1256833905865153977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 2801631852380333694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2838977701865104425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4039,6 +4201,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -4112,6 +4289,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2880665252501309543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182867102557025184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 2880665252501309543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2971619716686037904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5211,12 +5400,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
---- !u!4 &5507161761945273772 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
-    type: 3}
-  m_PrefabInstance: {fileID: 4054436215671140373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1140552915832818642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
@@ -5229,6 +5412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5507161761945273772 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 4054436215671140373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4248467170466303129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5331,6 +5520,16 @@ PrefabInstance:
       propertyPath: localPositionOnActive.y
       value: -2.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6946441488473103966}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -5404,6 +5603,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4309096119985500198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &890783102340762593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 4309096119985500198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4391555776172965469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5600,6 +5811,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f7fc9548753d47809aaaaf08deccf, type: 3}
+--- !u!4 &193029535004382145 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4402229190042918560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1062422146783729391 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3722690527172249679, guid: c49f7fc9548753d47809aaaaf08deccf,
@@ -5612,12 +5829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018752eff27bf75478d87820f6661bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &193029535004382145 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4592012771297938785, guid: c49f7fc9548753d47809aaaaf08deccf,
-    type: 3}
-  m_PrefabInstance: {fileID: 4402229190042918560}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4458517504054858473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6167,6 +6378,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -6240,6 +6461,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4817945833412587395}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8452278627922318404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 4817945833412587395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4825777649212537247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7417,6 +7650,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -7490,6 +7738,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6277627821430305453}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6957731203381758314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 6277627821430305453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6422522666829188297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8179,6 +8439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -8284,6 +8549,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6946441488473103966}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -8351,6 +8631,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &6126862340313129780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 7104061460813961459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1639218397034687818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -8614,6 +8906,51 @@ PrefabInstance:
       propertyPath: positionInGrid.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 1182867102557025184}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 1256833905865153977}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[2]
+      value: 
+      objectReference: {fileID: 4142782097915326279}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[3]
+      value: 
+      objectReference: {fileID: 5690961201254399918}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[4]
+      value: 
+      objectReference: {fileID: 8452278627922318404}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[5]
+      value: 
+      objectReference: {fileID: 3294287919510188455}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[6]
+      value: 
+      objectReference: {fileID: 6957731203381758314}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[7]
+      value: 
+      objectReference: {fileID: 6546873541854348892}
     - target: {fileID: 3829832107283772680, guid: 7d1694fe650883a4ba032e5ea0a07a73,
         type: 3}
       propertyPath: m_RootOrder
@@ -8682,6 +9019,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7561246655986410046}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8175397141003819836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+    type: 3}
+  m_PrefabInstance: {fileID: 7561246655986410046}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7579007648017623764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8694,6 +9043,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6968525631333291034}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -8767,6 +9131,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7579007648017623764}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6826970882615922963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 7579007648017623764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7706125089181961902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9034,6 +9410,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -9107,6 +9498,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7875498705056382363}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6546873541854348892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 7875498705056382363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7914512984296956215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9794,6 +10197,31 @@ PrefabInstance:
       propertyPath: positionInGrid.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 4456646779397005570}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 5354685069394663625}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[2]
+      value: 
+      objectReference: {fileID: 6826970882615922963}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[3]
+      value: 
+      objectReference: {fileID: 5623677500038453096}
     - target: {fileID: 3829832107283772680, guid: 7d1694fe650883a4ba032e5ea0a07a73,
         type: 3}
       propertyPath: m_RootOrder
@@ -9856,6 +10284,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d1694fe650883a4ba032e5ea0a07a73, type: 3}
+--- !u!114 &6968525631333291034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+    type: 3}
+  m_PrefabInstance: {fileID: 8732203166499319064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5478990142267152400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3829832107283772680, guid: 7d1694fe650883a4ba032e5ea0a07a73,
@@ -9874,6 +10314,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8175397141003819836}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -9947,6 +10397,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8748828982708962409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5690961201254399918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 8748828982708962409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8762630967260671151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9959,6 +10421,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6968525631333291034}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -10026,6 +10498,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &5623677500038453096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 8762630967260671151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &986851544160442646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -10049,6 +10533,31 @@ PrefabInstance:
       propertyPath: positionInGrid.y
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 890783102340762593}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 6126862340313129780}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[2]
+      value: 
+      objectReference: {fileID: 4395720766141532782}
+    - target: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+        type: 3}
+      propertyPath: ObjectsToActivate.Array.data[3]
+      value: 
+      objectReference: {fileID: 1676152516815507559}
     - target: {fileID: 3829832107283772680, guid: 7d1694fe650883a4ba032e5ea0a07a73,
         type: 3}
       propertyPath: m_RootOrder
@@ -10117,6 +10626,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8790074420498622300}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6946441488473103966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1844832797993793794, guid: 7d1694fe650883a4ba032e5ea0a07a73,
+    type: 3}
+  m_PrefabInstance: {fileID: 8790074420498622300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8858643935163747046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10651,6 +11172,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: ObjectsForActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 6968525631333291034}
     - target: {fileID: 6255620584234254588, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: positionInGrid.x
@@ -10718,6 +11249,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470851e7060d1ec40836456d6da32353, type: 3}
+--- !u!114 &5354685069394663625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+    type: 3}
+  m_PrefabInstance: {fileID: 9070222331268670222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a64732063035549b518b805434edfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &718035069868431031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
@@ -10978,6 +11521,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f42cbb0fef46294492c385322e5b356, type: 3}
+--- !u!4 &7667728772786780543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1514757032209860956, guid: 1f42cbb0fef46294492c385322e5b356,
+    type: 3}
+  m_PrefabInstance: {fileID: 9181786098926071843}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7703346654379939011 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1552485372755780832, guid: 1f42cbb0fef46294492c385322e5b356,
@@ -10990,9 +11539,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69df5f224a1593643be99e5752c8a72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &7667728772786780543 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1514757032209860956, guid: 1f42cbb0fef46294492c385322e5b356,
-    type: 3}
-  m_PrefabInstance: {fileID: 9181786098926071843}
-  m_PrefabAsset: {fileID: 0}
