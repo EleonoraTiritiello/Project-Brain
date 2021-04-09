@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveObject : Activable
@@ -10,6 +9,8 @@ public class MoveObject : Activable
 
     Vector3 localPositionOnDeactive;
     Coroutine movementCoroutine;
+
+    public System.Action onEndMovement { get; set; }
 
     protected override void Start()
     {
@@ -26,6 +27,10 @@ public class MoveObject : Activable
         {
             Vector3 endPosition = isActive ? localPositionOnActive : localPositionOnDeactive;
             ObjectToControl.transform.localPosition = endPosition;
+
+            //call event
+            onEndMovement?.Invoke();
+            movementCoroutine = null;
         }
     }
 
@@ -58,13 +63,11 @@ public class MoveObject : Activable
 
         while(true)
         {
-            float distance = Vector3.Distance(ObjectToControl.transform.localPosition, endPosition);
-
             //move
             ObjectToControl.transform.localPosition = Vector3.MoveTowards(ObjectToControl.transform.localPosition, endPosition, speedMovement * Time.deltaTime);
 
-            //if passed end position, stop movement
-            if(Vector3.Distance(ObjectToControl.transform.localPosition, endPosition) > distance)
+            //if distance is 0 (reached position), stop
+            if(Vector3.Distance(ObjectToControl.transform.localPosition, endPosition) <= 0)
             {
                 ObjectToControl.transform.localPosition = endPosition;
                 break;
@@ -73,6 +76,8 @@ public class MoveObject : Activable
             yield return null;
         }
 
+        //call event
+        onEndMovement?.Invoke();
         movementCoroutine = null;
     }
 

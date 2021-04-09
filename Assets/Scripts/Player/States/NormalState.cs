@@ -81,8 +81,8 @@ public class NormalState : State
         direction.y = 0;
         direction = direction.normalized;
 
-        //move player
-        rb.velocity = direction * speed;
+        //move player on X and Z
+        rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, direction.z * speed);
     }
 
     protected Interactable FindInteractable()

@@ -25,7 +25,7 @@ public class DraggingRopeState : NormalState
     bool usingRightHand = true;
 
     int anglePositive;
-    public List<Vector3> ropePositions = new List<Vector3>();
+    [ReadOnly] public List<Vector3> ropePositions = new List<Vector3>();
     Vector3 lastRope => ropePositions[ropePositions.Count - 1];
     Vector3 penultimaRope => ropePositions[ropePositions.Count - 2];
 
@@ -35,7 +35,7 @@ public class DraggingRopeState : NormalState
 
         //start with position at connected point
         if (ropePositions.Count <= 0)
-            ropePositions.Add(player.connectedPoint.ObjectToControl.transform.position);
+            ropePositions.Add(player.connectedPoint.RopeStartPoint.position);
 
         //create spring joint from connected point        
         RecreateSpringJoint();

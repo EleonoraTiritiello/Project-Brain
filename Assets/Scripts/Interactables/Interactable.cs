@@ -7,7 +7,12 @@ public abstract class Interactable : MonoBehaviour
 {
     [Header("Important")]
     [Tooltip("The object to interact with")] [SerializeField] GameObject objectToControl = default;
-    public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;
+    [Tooltip("From where the rope start")] [SerializeField] Transform ropeStartPoint = default;
+    [Tooltip("Where to attach rope")] [SerializeField] Transform ropeAttachPoint = default;
+
+    public GameObject ObjectToControl => objectToControl != null ? objectToControl : gameObject;                //if null, this gameObject
+    public Transform RopeStartPoint => ropeStartPoint != null ? ropeStartPoint : ObjectToControl.transform;     //if null, is ObjectToControl
+    public Transform RopeAttachPoint => ropeAttachPoint != null ? ropeAttachPoint : ObjectToControl.transform;  //if null, is ObjectToControl
 
     public RoomGame RoomParent { get; protected set; }
 
@@ -66,7 +71,7 @@ public abstract class Interactable : MonoBehaviour
                 return false;
 
             //call event
-            onPickRope?.Invoke(transform.position, transform.rotation);
+            onPickRope?.Invoke(RopeStartPoint.position, RopeStartPoint.rotation);
 
             return true;
         }
@@ -104,11 +109,11 @@ public abstract class Interactable : MonoBehaviour
             attachedTo = interactable;
 
             //set last rope position (and collider)
-            rope.SetPosition(rope.positionCount -1, interactable.ObjectToControl.transform.position);
+            rope.SetPosition(rope.positionCount -1, interactable.RopeAttachPoint.position);
             CreateCollider(rope.GetPosition(rope.positionCount - 2), rope.GetPosition(rope.positionCount - 1));
 
             //call event
-            onAttach?.Invoke(interactable.transform.position, interactable.transform.rotation);
+            onAttach?.Invoke(interactable.RopeAttachPoint.position, interactable.RopeAttachPoint.rotation);
 
             return true;
         }
@@ -140,7 +145,7 @@ public abstract class Interactable : MonoBehaviour
             ActiveInteractable(false, null);
 
             //call event
-            onDetach?.Invoke(transform.position, transform.rotation);
+            onDetach?.Invoke(RopeAttachPoint.position, RopeAttachPoint.rotation);
 
             return true;
         }
@@ -167,7 +172,7 @@ public abstract class Interactable : MonoBehaviour
             DestroyAllColliders();
 
             //call event
-            onDetach?.Invoke(transform.position, transform.rotation);
+            onDetach?.Invoke(RopeAttachPoint.position, RopeAttachPoint.rotation);
 
             return true;
         }
@@ -204,7 +209,7 @@ public abstract class Interactable : MonoBehaviour
             }
 
             //call event
-            onRewind?.Invoke(transform.position, transform.rotation);
+            onRewind?.Invoke(RopeAttachPoint.position, RopeAttachPoint.rotation);
 
             return true;
         }

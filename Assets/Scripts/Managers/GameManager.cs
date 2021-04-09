@@ -8,12 +8,16 @@
     {
         public LevelManager levelManager { get; private set; }
         public UIManager uiManager { get; private set; }
+        public MinimapCamera minimapCamera { get; private set; }
+        public CameraMovement cameraMovement { get; private set; }
 
         protected override void SetDefaults()
         {
             //get references
             levelManager = FindObjectOfType<LevelManager>();
             uiManager = FindObjectOfType<UIManager>();
+            minimapCamera = FindObjectOfType<MinimapCamera>();
+            cameraMovement = FindObjectOfType<CameraMovement>();
         }
     }
 }
