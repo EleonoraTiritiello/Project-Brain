@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 8952007966254480497}
   - component: {fileID: 4830860810075847650}
   m_Layer: 0
-  m_Name: Puzzle Matteo_Nigro [stanza con porte 1 e 4]
+  m_Name: Puzzle 2 Matteo_Nigro [stanza con porte 1 e 4]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,13 +146,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6916219263250880976}
-  m_LocalRotation: {x: 0.3478961, y: -0, z: -0, w: 0.9375332}
-  m_LocalPosition: {x: -8.18, y: 20.72, z: -19.75}
+  m_LocalRotation: {x: 0.384473, y: -0.37491795, z: 0.17450652, w: 0.825327}
+  m_LocalPosition: {x: 8.782558, y: 12.688746, z: -8.608446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8952007966254480497}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 40.717003, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7830401462921000564
 GameObject:
   m_ObjectHideFlags: 0

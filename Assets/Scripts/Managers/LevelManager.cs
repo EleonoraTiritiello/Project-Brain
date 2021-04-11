@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using redd096;
+﻿using redd096;
+using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
         //set current room and previous room icons
         newRoom.minimapIcon.sprite = spriteCurrentRoom;
-        if(currentRoom)
+        if (currentRoom)
             currentRoom.minimapIcon.sprite = spriteRoom;
 
         //set new current room and move player icon
