@@ -67,6 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 0}
+  ropeStartPoint: {fileID: 0}
+  ropeAttachPoint: {fileID: 0}
 --- !u!1 &2575723496916493953
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +290,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1bf83843d747b754a8f6536856f9a42f, type: 2}
+      objectReference: {fileID: 2100000, guid: a81ee09fb03410b41abdbd58c317a7a2, type: 2}
     - target: {fileID: 919132149155446097, guid: 18a77734c1c891c4da6c20da40e8ba75,
         type: 3}
       propertyPath: m_Name

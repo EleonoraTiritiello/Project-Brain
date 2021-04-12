@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2191401332918638931}
   - component: {fileID: 944606943227172232}
   - component: {fileID: 8295705607832129752}
+  - component: {fileID: 2972555233444038636}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc33e4b21b11e434bbcb1522a7cc5e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimapInput: 9
   normalState:
     speed: 5
     radiusInteract: 1.5
@@ -86,9 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d626cf57000c1bc438c771bcda57e1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlesOnChangeHand: {fileID: 0}
+  particlesOnChangeHand:
+  - {fileID: 0}
   soundOnChangeHand:
-    audioClip: {fileID: 0}
+  - audioClip: {fileID: 0}
+    volume: 0
+  - audioClip: {fileID: 0}
     volume: 0
 --- !u!54 &8295705607832129752
 Rigidbody:
@@ -106,6 +111,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &2972555233444038636
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452766764786365522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.025216
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.021974564, z: 0}
 --- !u!1 &2997299552734702787
 GameObject:
   m_ObjectHideFlags: 0
