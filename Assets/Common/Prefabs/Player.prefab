@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc33e4b21b11e434bbcb1522a7cc5e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimapInput: 9
   normalState:
     speed: 5
     radiusInteract: 1.5
@@ -86,9 +87,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d626cf57000c1bc438c771bcda57e1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlesOnChangeHand: {fileID: 0}
+  particlesOnChangeHand:
+  - {fileID: 0}
   soundOnChangeHand:
-    audioClip: {fileID: 0}
+  - audioClip: {fileID: 0}
+    volume: 0
+  - audioClip: {fileID: 0}
     volume: 0
 --- !u!54 &8295705607832129752
 Rigidbody:
