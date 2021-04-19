@@ -59,7 +59,7 @@ MonoBehaviour:
   ObjectsForActivate: []
   speedMovement: 1
   localPositionOnActive: {x: 0, y: -1.2, z: 0}
---- !u!65 &3740995301886946754
+--- !u!65 &2075668993703351451
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +70,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0011432, y: 3.0095387, z: 1.9989195}
+  m_Size: {x: 2, y: 3, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &5872496678673221891
 PrefabInstance:
