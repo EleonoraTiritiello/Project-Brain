@@ -1952,7 +1952,7 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: numberRooms
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -2029,13 +2029,13 @@ PrefabInstance:
         type: 3}
       propertyPath: fixedRooms.Array.data[0].roomPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 6502067856607814965, guid: 42d125efd15ed734bb648f93c27e1ac2,
+      objectReference: {fileID: 6595384632044376230, guid: 0e3d8b091e2a4954089954f3506fbaca,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 4830860810075847650, guid: a29c6894b7576644b9f62ae7c51704f6,
+      objectReference: {fileID: 6595384632044376230, guid: 0e3d8b091e2a4954089954f3506fbaca,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
