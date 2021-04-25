@@ -711,6 +711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2068,6 +2073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3034,6 +3044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -4415,6 +4430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5612,6 +5632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -7628,6 +7653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -8338,6 +8368,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Movable Wall Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 4001572778265985260, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: ObjectsForActivate.Array.size
@@ -8366,7 +8406,7 @@ PrefabInstance:
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.15999985
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -8694,6 +8734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -9461,6 +9506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -9990,6 +10040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Movable Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
@@ -10765,6 +10820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -11052,6 +11112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
+      propertyPath: localPositionOnActive.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003786467306306503, guid: 470851e7060d1ec40836456d6da32353,
+        type: 3}
       propertyPath: ObjectsForActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -11078,7 +11143,7 @@ PrefabInstance:
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.15999985
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 8370254573999388089, guid: 470851e7060d1ec40836456d6da32353,
         type: 3}
