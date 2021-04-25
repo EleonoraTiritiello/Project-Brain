@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8537553018248666857}
   - component: {fileID: 1608171984456243407}
   m_Layer: 0
-  m_Name: Puzzle5_4Porte 1
+  m_Name: Puzzle5_4Porte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,20 +101,12 @@ MonoBehaviour:
   timeToMoveCamera: 1
   precisionPosition: 0.1
   roomAlternatives:
-  - {fileID: 2488558486181098569, guid: e9d3cf99f785a6a46b66248db89e9f59, type: 3}
-  - {fileID: 2488558486181098569, guid: f21248dfee361bb4fa7df8c0eddaf67a, type: 3}
-  - {fileID: 2488558486181098569, guid: 852f24281cc9cfd4db80bbaf31d0c225, type: 3}
-  - {fileID: 2488558486181098569, guid: aa809ff6c1d627546a34bb929f95d05d, type: 3}
-  - {fileID: 2488558486181098569, guid: 5160032c7e930b94cb84d5691dc14e15, type: 3}
-  - {fileID: 2488558486181098569, guid: f71e9efaa00e85a4cbaee6f4b03d80c4, type: 3}
-  - {fileID: 2488558486181098569, guid: c99ffdfe1e193b94eac1542a4c3b00c9, type: 3}
-  - {fileID: 2488558486181098569, guid: 228301494a43d3a4fbce4bcc48499056, type: 3}
-  - {fileID: 2488558486181098569, guid: 29a75bf6394bc9644a1d8c2b6b091c4f, type: 3}
-  - {fileID: 2488558486181098569, guid: e596c488ed3774e429e6552dc0e07a63, type: 3}
-  - {fileID: 2488558486181098569, guid: e8fb2c2980da49441804ea13d5a87d65, type: 3}
-  - {fileID: 2488558486181098569, guid: 64363d19e00b54340be210db9f4bda2e, type: 3}
-  - {fileID: 2488558486181098569, guid: 5a07d1927d4975e4c98ad25f03a2584e, type: 3}
-  - {fileID: 2488558486181098569, guid: 16cbfed823141574f8d134803d33e652, type: 3}
+  - {fileID: 2150314511336892943, guid: 8742c67e54bd2134daa9cef5db525b00, type: 3}
+  - {fileID: 8526429859774329832, guid: 2189d09d4b83ba540848ce6e7a3be5cd, type: 3}
+  - {fileID: 1760863125183174537, guid: 223f3b0b045fcce4aaa0c9f516a03f42, type: 3}
+  - {fileID: 8377099326177200902, guid: 20e6b999848c3174db74bcfc3befb747, type: 3}
+  - {fileID: 3788382664079342659, guid: f0b03c2f6f3076d4c8d31a0bcfea0fea, type: 3}
+  - {fileID: 3469222297363320571, guid: 3419c3b0b380d6d45bbcac1c87e6ff9b, type: 3}
 --- !u!1 &1511338549744697961
 GameObject:
   m_ObjectHideFlags: 0
