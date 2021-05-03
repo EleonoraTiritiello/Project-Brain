@@ -280,86 +280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 620347987772036296, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 820145661442016666, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 890783102340762593, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182867102557025184, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256833905865153977, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431157148920740133, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612457122573425646, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1621161023526103972, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091664178298052461, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142782097915326279, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4395720766141532782, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793086506712364891, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965153373637235655, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040228669353672158, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6126862340313129780, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6180862802633680346, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6595384632044376229, guid: 0ead1f8427c8ed04d9673d8467326c81,
         type: 3}
       propertyPath: m_RootOrder
@@ -419,16 +339,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Puzzle 5 Completo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6826970882615922963, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: localPositionOnActive.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8847126830227628345, guid: 0ead1f8427c8ed04d9673d8467326c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ead1f8427c8ed04d9673d8467326c81, type: 3}

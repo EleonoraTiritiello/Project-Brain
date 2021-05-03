@@ -12,33 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71331eaf90456b94b8ead85181d33c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlesOnPick:
-  - {fileID: 0}
+  particlesOnPick: {fileID: 0}
   soundOnPick:
-  - audioClip: {fileID: 0}
+    audioClip: {fileID: 0}
     volume: 0
-  - audioClip: {fileID: 0}
-    volume: 0
-  particlesOnAttach:
-  - {fileID: 0}
+  particlesOnAttach: {fileID: 0}
   soundOnAttach:
-  - audioClip: {fileID: 0}
+    audioClip: {fileID: 0}
     volume: 0
-  - audioClip: {fileID: 0}
-    volume: 0
-  particlesOnDetach:
-  - {fileID: 0}
+  particlesOnDetach: {fileID: 0}
   soundOnDetach:
-  - audioClip: {fileID: 0}
+    audioClip: {fileID: 0}
     volume: 0
-  - audioClip: {fileID: 0}
-    volume: 0
-  particlesOnRewind:
-  - {fileID: 0}
+  particlesOnRewind: {fileID: 0}
   soundOnRewind:
-  - audioClip: {fileID: 0}
-    volume: 0
-  - audioClip: {fileID: 0}
+    audioClip: {fileID: 0}
     volume: 0
 --- !u!114 &6810381997725714593
 MonoBehaviour:
@@ -53,8 +41,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToControl: {fileID: 3480228384637589562}
-  ropeStartPoint: {fileID: 0}
-  ropeAttachPoint: {fileID: 0}
 --- !u!1001 &1437369119697379507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,21 +108,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neuron
       objectReference: {fileID: 0}
-    - target: {fileID: 6328752378186651877, guid: 53b292db27147344397278763cb05f5b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a81ee09fb03410b41abdbd58c317a7a2, type: 2}
-    - target: {fileID: 6328752378186651877, guid: 53b292db27147344397278763cb05f5b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8921b9f6f5b3d8144bae0664b1dfd96b, type: 2}
-    - target: {fileID: 6328752378186651877, guid: 53b292db27147344397278763cb05f5b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8d0bed277a69fa348b9b717eddb8ba42, type: 2}
     - target: {fileID: 8869642788731071177, guid: 53b292db27147344397278763cb05f5b,
         type: 3}
       propertyPath: m_LocalScale.x
