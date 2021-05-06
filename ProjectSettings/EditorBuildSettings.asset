@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/TEST CORDA PROCEDURALE.unity
-    guid: 60971f0b2397e0443a5c0b5f6ae60d7a
+    path: Assets/_Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
