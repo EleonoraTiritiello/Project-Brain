@@ -160,6 +160,9 @@ MonoBehaviour:
   timeToMoveCamera: 1
   precisionPosition: 0.1
   roomAlternatives:
+  - {fileID: 4934186457371255240, guid: 1b8286625593b8648ba7c4f860d402b5, type: 3}
+  - {fileID: 6983855699697179798, guid: 7be7c07bd06bcbb49ad93399fa3e4032, type: 3}
+  - {fileID: 6322789938992084760, guid: e4d3952c83afde44889695680bcfee42, type: 3}
   - {fileID: 1064525200887214746, guid: 5fe7d94dc73fc154baef09e3698b0a9f, type: 3}
   - {fileID: 132296935233786173, guid: fa0f34c8cc55f284a8ab5e27b3bb5613, type: 3}
   - {fileID: 4144355798943705895, guid: d38f7a7a995eb364f8d4962975d14033, type: 3}
