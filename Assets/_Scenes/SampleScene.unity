@@ -6333,7 +6333,7 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fixedRooms.Array.data[0].roomPrefabs.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -6344,7 +6344,8 @@ PrefabInstance:
         type: 3}
       propertyPath: fixedRooms.Array.data[0].roomPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8114831678132053936, guid: 35dd977805811c34284762caf3c57465,
+        type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[0]
