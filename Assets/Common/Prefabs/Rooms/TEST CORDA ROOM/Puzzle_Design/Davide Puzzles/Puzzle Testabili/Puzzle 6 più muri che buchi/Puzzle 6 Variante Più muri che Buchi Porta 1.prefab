@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6595384632044376229}
   - component: {fileID: 6595384632044376230}
   m_Layer: 0
-  m_Name: "Puzzle 6 Pi\xF9 muri che Buchi Porta 1"
+  m_Name: "Puzzle 6 Variante Pi\xF9 muri che Buchi Porta 1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   height: 11
   doors:
   - doorTransform: {fileID: 6595384632266126536}
-    direction: 1
+    direction: 2
     typeOfDoor: 0
   cameraPosition: {fileID: 6595384633633450926}
   timeToMoveCamera: 1
