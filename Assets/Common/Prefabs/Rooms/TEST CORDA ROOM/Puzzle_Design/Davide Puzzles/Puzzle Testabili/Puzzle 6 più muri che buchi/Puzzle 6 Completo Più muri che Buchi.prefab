@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6595384632044376229}
   - component: {fileID: 6595384632044376230}
   m_Layer: 0
-  m_Name: "Puzzle 6 Pi\xF9 muri che Buchi"
+  m_Name: "Puzzle 6 Completo Pi\xF9 muri che Buchi"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6595384632044376231}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 6595384633633450926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &6595384632044376230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   height: 11
   doors:
   - doorTransform: {fileID: 6595384632266126536}
-    direction: 1
+    direction: 2
     typeOfDoor: 0
   - doorTransform: {fileID: 6595384633548222227}
     direction: 3
@@ -1539,7 +1539,7 @@ PrefabInstance:
     - target: {fileID: 2983292711337486325, guid: 8a9e71164386a424485ae6005fb7bff1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2983292711337486325, guid: 8a9e71164386a424485ae6005fb7bff1,
         type: 3}
@@ -6674,7 +6674,7 @@ PrefabInstance:
     - target: {fileID: 6336097595642347879, guid: 9f01bdc524f143747842a5d7a0673564,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6336097595642347879, guid: 9f01bdc524f143747842a5d7a0673564,
         type: 3}
