@@ -2023,7 +2023,7 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -2041,25 +2041,25 @@ PrefabInstance:
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 6595384632044376230, guid: 8c5d3116d7091ff4490ee589a710192c,
+      objectReference: {fileID: 6595384632044376230, guid: 43e611834a9f2b24fab550325518708f,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 6595384632044376230, guid: 8c5d3116d7091ff4490ee589a710192c,
+      objectReference: {fileID: 6595384632044376230, guid: 59c132cb5b4ec38418e13ff0a6c8b6ba,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 7082103633808166715, guid: f2c7b39e02991e9449ce4b1702db239b,
+      objectReference: {fileID: 8114831678132053936, guid: 35dd977805811c34284762caf3c57465,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 4830860810075847650, guid: a29c6894b7576644b9f62ae7c51704f6,
+      objectReference: {fileID: 8364330960365901559, guid: 0232ead2743d37d44b3e0963575fc8c2,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
