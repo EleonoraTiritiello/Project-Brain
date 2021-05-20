@@ -1927,7 +1927,7 @@ PrefabInstance:
     - target: {fileID: 4675331397172826862, guid: 2f9d3ad64ada3084186be3ff2cadfd44,
         type: 3}
       propertyPath: RopeLength
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4675331397172826862, guid: 2f9d3ad64ada3084186be3ff2cadfd44,
         type: 3}
@@ -1952,7 +1952,7 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: numberRooms
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -2023,7 +2023,7 @@ PrefabInstance:
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -2035,13 +2035,13 @@ PrefabInstance:
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 6595384632044376230, guid: 8c5d3116d7091ff4490ee589a710192c,
+      objectReference: {fileID: 6595384632044376230, guid: 302afbfa5183d9344afdc35cf7f59804,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 6595384632044376230, guid: 8c5d3116d7091ff4490ee589a710192c,
+      objectReference: {fileID: 6595384632044376230, guid: c1ec2ff217d27884fa0034d1cdc463af,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
@@ -2053,7 +2053,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fillerRooms.Array.data[0].roomPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 7082103633808166715, guid: f2c7b39e02991e9449ce4b1702db239b,
+      objectReference: {fileID: 750527346427851144, guid: c8277f8b3f2cd3c4bbb91807157f4262,
         type: 3}
     - target: {fileID: 5395595350726697734, guid: 33c1ea6606b2d1441a800a3f745943c1,
         type: 3}
