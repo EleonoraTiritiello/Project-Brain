@@ -6971,7 +6971,7 @@ PrefabInstance:
     - target: {fileID: 1192665836740806924, guid: 52f6b965045283148b4138d2ccfceb8e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1192665836740806924, guid: 52f6b965045283148b4138d2ccfceb8e,
         type: 3}
@@ -7031,12 +7031,17 @@ PrefabInstance:
     - target: {fileID: 6187350282757343183, guid: 52f6b965045283148b4138d2ccfceb8e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6306758602913040499, guid: 52f6b965045283148b4138d2ccfceb8e,
         type: 3}
       propertyPath: m_Name
       value: Fixed Wall Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796801119465565758, guid: 52f6b965045283148b4138d2ccfceb8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f6b965045283148b4138d2ccfceb8e, type: 3}
